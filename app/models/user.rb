@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  # after_create :send_welcome_email
+  after_create :send_welcome_email
+  before_save :skip_email_confirmation
+
 
   has_many :reservations
   # Include default devise modules. Others available are:
@@ -32,5 +34,9 @@ class User < ActiveRecord::Base
 
   def send_welcome_email
     UserMailer.welcome(self).deliver_now
+  end
+
+  def skip_email_confirmation
+    self.skip_confirmation!
   end
 end
