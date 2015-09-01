@@ -14,11 +14,11 @@ class RestaurantPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user # seul le owner du restaurant et les admins (tbd plus tard) peuvent update
+    record.user == user # seuls le owner du restaurant et les admins (tbd plus tard) peuvent update
   end
 
   def destroy?
-    record.user == user
+    record.user == user # seuls le owner du restaurant et les admins (tbd plus tard) peuvent destroy
   end
 
 end
