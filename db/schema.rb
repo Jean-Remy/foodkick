@@ -55,14 +55,13 @@ ActiveRecord::Schema.define(version: 20150901144157) do
     t.float    "discount"
     t.string   "discount_detail"
     t.string   "menu_title"
-    t.string   "seed_picture"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "seed_picture"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
->>>>>>> master
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -97,21 +96,16 @@ ActiveRecord::Schema.define(version: 20150901144157) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.boolean  "active"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-<<<<<<< HEAD
-    t.boolean  "owner"
-    t.integer  "restaurant_id"
-=======
-    t.string   "unconfirmed_email"
     t.boolean  "owner"
     t.integer  "restaurant_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
->>>>>>> master
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
