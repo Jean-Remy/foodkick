@@ -1,7 +1,7 @@
 <nav class="navbar-wagon">
   <div class="container navbar-wagon-container">
 
-    <a href="">
+    <a href="/">
       <%= image_tag "logo.png" %>
     </a>
 
@@ -11,6 +11,8 @@
         <i class="fa fa-search"></i>
       </button>
     </form>
+    <hr>
+    <%= link_to "Découvrir", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <hr>
     <% if user_signed_in? %>
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>

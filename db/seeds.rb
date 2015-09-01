@@ -10,7 +10,8 @@ restaurant_attributes = [
     price_max: 20,
     description: "Concept  basé sur une restauration rapide et de qualité. Beijing 8 propose une gamme de dim sum et de thés dans une ambiance contemporaine et urbaine. Association de recettes ancestrales chinoises à des valeurs de développement durable.",
     discount: 0.2,
-    discount_detail: "Remise valable pour l'achat d'un menu."
+    discount_detail: "Remise valable pour l'achat d'un menu.",
+    seed_picture: "https://images.unsplash.com/reserve/oHPXcFZQ9SyeGD5F7T1g_ramenya.jpg?q=80&fm=jpg&s=92509ecd9a51138caebd5a0a77dba3c0"
   },
   {
     name: "Les Fables de la Fontaine",
@@ -23,7 +24,8 @@ restaurant_attributes = [
     price_max: 70,
     description: "Les Fables de la Fontaine; restaurant 1* au Michelin; se sont offertes une beauté. Nouveau décor, nouvelle chef et baisse des prix à la carte. Ce restaurant crée il y plus de 15 ans par le grand chef Christian Constant, offre un choix d’excellence sur les poissons et fruits de mers, il est très vite devenu un des acteurs gourmands de la Rue Saint Dominique. La chef Julia Sedefdjian, reprend aujourd'hui les commandes de la cuisine.",
     discount: 0.2,
-    discount_detail: "Remise valable sur l'ensemble de la carte"
+    discount_detail: "Remise valable sur l'ensemble de la carte",
+    seed_picture: "https://images.unsplash.com/photo-1426259759666-68da5c54402d?q=80&fm=jpg&s=5fa8cad7a9333b2e1a46f4174fa88dc5"
   },
   {
     name: "Biiim!",
@@ -36,7 +38,8 @@ restaurant_attributes = [
     price_max: 30,
     description: "Au bord du Canal de l'Ourcq, le nouveaux spot à burger, avant ou après une séance ciné, le resto biiim propose des produits frais et de qualité.",
     discount: 0.2,
-    discount_detail: "Remise valable pour l'achat d'un burger."
+    discount_detail: "Remise valable pour l'achat d'un burger.",
+    seed_picture: "https://images.unsplash.com/photo-1416453072034-c8dbfa2856b5?q=80&fm=jpg&s=cbea81b9705e4553fbb2d7681aa5731e"
   }
 ]
 
@@ -56,8 +59,19 @@ user_attributes = [
     last_name: "Weasley",
     password: "topsecret",
     password_confirmation: "topsecret",
-    owner: false
+    owner: false,
+    restaurant_id: 2
+  },
+  {
+    email: "hermione@granger.com",
+    first_name: "Hermione",
+    last_name: "Granger",
+    password: "topsecret",
+    password_confirmation: "topsecret",
+    owner: false,
+    restaurant_id: 3
   }
+
 ]
 
 restaurant_attributes.each { |params| Restaurant.create(params)}

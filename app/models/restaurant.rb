@@ -3,6 +3,7 @@ class Restaurant < ActiveRecord::Base
   has_many :courses
   has_many :reservations
   has_one :schedule
+  has_one :user
   validates :name, presence: true
   validates :address, presence: true
   validates :zip_code, presence: true, format: { with: /750((0)[1-9]||((1||2)\d))/}
