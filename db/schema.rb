@@ -47,10 +47,7 @@ ActiveRecord::Schema.define(version: 20150901122720) do
     t.string   "city"
     t.string   "borough"
     t.string   "category"
-    t.string   "owner_first_name"
-    t.string   "owner_last_name"
-    t.string   "owner_phone"
-    t.string   "restaurant_phone"
+    t.string   "phone"
     t.string   "email"
     t.text     "description"
     t.integer  "price_min"
@@ -58,9 +55,8 @@ ActiveRecord::Schema.define(version: 20150901122720) do
     t.float    "discount"
     t.string   "discount_detail"
     t.string   "menu_title"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.string   "picture"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -93,6 +89,8 @@ ActiveRecord::Schema.define(version: 20150901122720) do
     t.string   "picture"
     t.string   "first_name"
     t.string   "last_name"
+    t.boolean  "owner"
+    t.integer  "restaurant_id"
     t.string   "token"
     t.datetime "token_expiry"
     t.boolean  "active"
@@ -104,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150901122720) do
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["restaurant_id"], name: "index_users_on_restaurant_id", using: :btree
 
   add_foreign_key "courses", "restaurants"
   add_foreign_key "reservations", "restaurants"
