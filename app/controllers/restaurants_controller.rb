@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   def index
-
+    @restaurants = policy_scope(Restaurant)
   end
 
   def show
@@ -8,10 +8,12 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-
+    @restaurant = Restaurant.new
+    authorize @restaurant
   end
 
   def create
+
 
   end
 
