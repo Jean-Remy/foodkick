@@ -2,7 +2,7 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-
+    @restaurants = policy_scope(Restaurant)
   end
 
   def show
@@ -10,10 +10,12 @@ class RestaurantsController < ApplicationController
   end
 
   def new
-
+    @restaurant = Restaurant.new
+    authorize @restaurant
   end
 
   def create
+
 
   end
 
