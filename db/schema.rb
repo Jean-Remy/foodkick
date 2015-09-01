@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150901144157) do
     t.string   "menu_title"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.string   "seed_picture"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150901144157) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.boolean  "active"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  after_create :send_welcome_email
-  before_save :skip_email_confirmation
+  # after_create :send_welcome_email
+  # before_save :skip_email_confirmation
 
 
   has_many :reservations
