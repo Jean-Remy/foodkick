@@ -38,7 +38,9 @@
   Propriétaire : M. <%= @restaurant.user.last_name %>
 </p>
 <p class="text-center">
-  <button class="btn btn-primary btn-lg">Obtenir</button>
+  <%= link_to new_restaurant_reservation_path(@restaurant) do %>
+    <button class="btn btn-primary btn-lg">Make a new reservation</button>
+  <% end %>
 </p>
 
 

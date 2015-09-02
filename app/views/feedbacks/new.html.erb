@@ -1,0 +1,19 @@
+<div class="container text-center padded">
+  <div class="row">
+    <h1><%= @restaurant.name %></h1>
+    <br>
+    <%= simple_form_for [@restaurant, @feedback] do |f| %>
+      <p>Qu'avez vous pensé de l'ambiance globale du restaurant ?</p>
+      <%= f.input :answer1, label: false %>
+      <p>Qu'avez vous pensé de la cuisine ?</p>
+      <%= f.input :answer2, label: false %>
+      <p>Qu'avez vous pensé du service ?</p>
+      <%= f.input :answer3, label: false %>
+      <p>Qu'avez vous particulièrement aimé ?</p>
+      <%= f.input :answer4, label: false %>
+      <p>Qu'avez vous particulièrement regrété ?</p>
+      <%= f.input :answer5, label: false %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

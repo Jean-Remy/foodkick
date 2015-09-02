@@ -60,7 +60,6 @@ user_attributes = [
     password: "topsecret",
     password_confirmation: "topsecret",
     owner: false,
-    restaurant_id: 2
   },
   {
     email: "hermione@granger.com",
@@ -69,7 +68,6 @@ user_attributes = [
     password: "topsecret",
     password_confirmation: "topsecret",
     owner: false,
-    restaurant_id: 3
   }
 
 ]

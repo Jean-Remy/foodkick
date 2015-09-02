@@ -1,0 +1,18 @@
+<div class="container">
+  <br><br>
+  <ol>
+    <% @my_codes.each do |code| %>
+      <li>
+        <strong><%= code.restaurant.name %></strong> - <%= code.code %> - <%= code.status ? "Utilisé" : "Pas utilisé" %> -
+          <% unless code.status %>
+            Date de validité : <%= code.limit %>
+          <% end %>
+          <% if code.feedbacked == false && code.status == true %>
+            <%= link_to "Donner son feedback", new_restaurant_feedback_path(code.restaurant) %>
+          <% end %>
+          <%= "Merci pour le feedback" if code.feedbacked %> - <%= link_to "Supprimer le code" %>
+      </li>
+    <% end %>
+  </ol>
+</div>
+

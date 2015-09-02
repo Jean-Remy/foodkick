@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150901144157) do
+ActiveRecord::Schema.define(version: 20150902131632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,13 +28,47 @@ ActiveRecord::Schema.define(version: 20150901144157) do
 
   add_index "courses", ["restaurant_id"], name: "index_courses_on_restaurant_id", using: :btree
 
+  create_table "feedback_answers", force: :cascade do |t|
+    t.integer  "reservation_id"
+    t.integer  "feedback_question_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "answer"
+  end
+
+  add_index "feedback_answers", ["feedback_question_id"], name: "index_feedback_answers_on_feedback_question_id", using: :btree
+  add_index "feedback_answers", ["reservation_id"], name: "index_feedback_answers_on_reservation_id", using: :btree
+
+  create_table "feedback_questions", force: :cascade do |t|
+    t.string   "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "user_id"
+    t.string   "answer1"
+    t.string   "answer2"
+    t.string   "answer3"
+    t.string   "answer4"
+    t.string   "answer5"
+    t.integer  "reservation_id"
+  end
+
+  add_index "feedbacks", ["reservation_id"], name: "index_feedbacks_on_reservation_id", using: :btree
+  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
+
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "restaurant_id"
     t.string   "code"
-    t.string   "status"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "feedbacked"
+    t.datetime "limit"
+    t.boolean  "status"
   end
 
   add_index "reservations", ["restaurant_id"], name: "index_reservations_on_restaurant_id", using: :btree
@@ -106,6 +140,7 @@ ActiveRecord::Schema.define(version: 20150901144157) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.boolean  "can_book"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -114,6 +149,10 @@ ActiveRecord::Schema.define(version: 20150901144157) do
   add_index "users", ["restaurant_id"], name: "index_users_on_restaurant_id", using: :btree
 
   add_foreign_key "courses", "restaurants"
+  add_foreign_key "feedback_answers", "feedback_questions"
+  add_foreign_key "feedback_answers", "reservations"
+  add_foreign_key "feedbacks", "reservations"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "reservations", "restaurants"
   add_foreign_key "reservations", "users"
   add_foreign_key "schedules", "restaurants"
