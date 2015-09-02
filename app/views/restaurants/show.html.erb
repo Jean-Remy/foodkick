@@ -1,12 +1,18 @@
 <div class="banner text-center" style="background-image: url('<%= @restaurant.seed_picture %>')">
+  <div class="banner-category">
+    <p>Chinois</p>
+  </div>
   <div class="banner-shadow"></div>
   <div class="banner-content">
+    <h1><%= @restaurant.name %></h1>
+
   </div>
+
+  <a class="btn btn-primary" href="#">
+    Ton Voucher
+  </a>
 </div>
 
-<p>
-  Nom : <%= @restaurant.name %>
-</p>
 <p>
   Adresse : <%= @restaurant.address %>
 </p>
