@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20150902131632) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.string   "seed_picture"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -134,6 +135,7 @@ ActiveRecord::Schema.define(version: 20150902131632) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.boolean  "owner"
     t.integer  "restaurant_id"
     t.string   "picture_file_name"
