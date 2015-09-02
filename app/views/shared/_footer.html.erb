@@ -1,0 +1,70 @@
+<footer>
+  <br><br><br>
+  <ul class="list-inline text-center">
+    <li>La fine équipe</li>
+    <li>Nous contacter</li>
+  </ul>
+
+  <br>
+  <br>
+  <div class="text-center footer-text">
+    <i class="fa fa-facebook fa-3x i-f faa-float animated-hover"></i><i class="fa fa-twitter fa-3x i-f faa-float animated-hover"></i><i class="fa fa-instagram fa-3x i-f faa-float animated-hover"></i>
+    <br><br>
+    <canvas id="canvas" width="100"></canvas>
+  </div>
+</footer>
+
+<%(1..301).each do %>
+  <div class='box-wrap view-poll'>
+    <div class='box'></div>
+  </div>
+<%end%>
+
+<script>function viewPoll( selector ) {
+
+  var elems = document.querySelectorAll( selector ),
+    count = elems.length,
+    scrollTop = 0,
+    winHeight = 0;
+
+  function colliding( y1, h1, y2, h2 ) {
+    return (
+      ( y2 >= y1 && y2 <= y1 + h1 ) ||
+      ( y2 + h2 >= y1 && y2 + h2 <= y1 + h1 )
+    );
+  }
+
+  function updateElemRects() {
+    for( var i = 0; i < count; i++ ) {
+      var elem = elems[ i ],
+        rect = elem.getBoundingClientRect(),
+        y = scrollTop + rect.top,
+        h = rect.bottom - rect.top,
+        inView = colliding( scrollTop, winHeight, y, h );
+      if( inView ) {
+        elem.classList.add( 'in-view' );
+      } else {
+        elem.classList.remove( 'in-view' );
+      }
+    }
+  }
+
+  function onResize() {
+    winHeight = window.innerHeight;
+    updateElemRects();
+  }
+
+  function onScroll() {
+    updateElemRects();
+  }
+
+  window.addEventListener( 'resize', onResize, false );
+  window.addEventListener( 'scroll', onScroll, false );
+  window.addEventListener( 'touchmove', onScroll, false );
+
+  onResize();
+  onScroll();
+}
+
+viewPoll( '.view-poll' );</script>
+
