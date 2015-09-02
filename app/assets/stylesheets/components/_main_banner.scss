@@ -35,13 +35,13 @@
 
 .map {
     z-index: 1;
-    height: 60%;
-    /* width: 100%; */
-    margin: 14% 30% 4% 30%;
+    height: 80%;
+    width: 30%;
+    width: 100%;
+    /* margin: 14% 30% 4% 30%; */
     margin-top: 0;
-    background-color: #00497F;
-    border-radius: 5%;
-    border: 2px solid #F1F1F1;
+    background: url("map1.svg") no-repeat center center;
+    background-size: contain;
 
     /*z-index:1;
     height: 70%;
