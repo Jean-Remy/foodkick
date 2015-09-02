@@ -1,0 +1,9 @@
+<div class="container padded text-center">
+  <div class="row">
+    <%= form_tag(validate_code_path, method: "post") do %>
+      <%= text_field_tag(:code) %>
+      <br><br>
+      <%= submit_tag("Valider") %>
+    <% end %>
+  </div>
+</div>

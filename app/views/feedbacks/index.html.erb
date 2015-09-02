@@ -1,0 +1,51 @@
+<%# raise %>
+
+<div class="container padded text-center">
+  <% @feedbacks.each do |feedback| %>
+    <div class="row">
+      <h3><%= User.find(feedback.user_id).first_name %> <%= User.find(feedback.user_id).last_name %></h3>
+      <p>
+        <strong>Qu'avez vous pensé de l'ambiance globale du restaurant ?</strong><br>
+        <%= feedback.answer1 %>
+      </p>
+      <p>
+        <strong>Qu'avez vous pensé de la cuisine ?</strong><br>
+        <%= feedback.answer2 %>
+      </p>
+      <p>
+        <strong>Qu'avez vous pensé du service ?</strong><br>
+        <%= feedback.answer3 %>
+      </p>
+      <p>
+        <strong>Qu'avez vous particulièrement aimé ?</strong><br>
+        <%= feedback.answer4 %>
+      </p>
+      <p>
+        <strong>Qu'avez vous particulièrement regrété ?</strong><br>
+        <%= feedback.answer5 %>
+      </p>
+    </div>
+    <hr>
+  <% end %>
+
+  <br><br>
+  <h3>Plus de feedback ? Passez en sponsorisé !</h3>
+  <br><br>
+
+  <form action="" method="POST">
+    <script
+      src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+      data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+      data-amount="990"
+      data-name="Foodkick"
+      data-description="Un mois sponsorisé (9.90€)"
+      data-image="https://pbs.twimg.com/profile_images/483691332268208128/bdNi5Gs5.jpeg"
+      data-locale="auto">
+    </script>
+  </form>
+
+</div>
+
+
+
+

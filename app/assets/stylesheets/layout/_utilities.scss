@@ -23,3 +23,17 @@
 .bg-facebook {
   background: #3b5998;
 }
+
+// General
+
+.hiddden {
+  visibility: hidden;
+}
+
+a, a:active, a:focus {
+   outline: 0;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
