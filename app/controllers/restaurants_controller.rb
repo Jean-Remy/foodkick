@@ -1,5 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :voucher, only: [:show]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -9,7 +10,6 @@ class RestaurantsController < ApplicationController
   def show
     authorize @restaurant
     @reservation = Reservation.new
-    @booked = true if Reservation.where(user_id: current_user, restaurant_id: params[:id])
   end
 
   def new
@@ -38,5 +38,11 @@ class RestaurantsController < ApplicationController
 
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
+  end
+
+  def voucher
+    if user_signed_in?
+      @booked = true if Reservation.where(user_id: current_user.id, restaurant_id: params[:id]) != []
+    end
   end
 end
