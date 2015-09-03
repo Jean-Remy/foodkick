@@ -67,10 +67,19 @@
   </div>
 </div>
 
-
-
-
-
+<p class="text-center">
+  <% if user_signed_in? && @booked %>
+    <% unless current_user.owner %>
+      <%=link_to 'Voir mon code', codes_path %>
+      <% end %>
+  <% else %>
+    <% unless current_user.owner %>
+      <%= simple_form_for [@restaurant, @reservation] do |f| %>
+        <%= f.button :submit %>
+      <% end %>
+    <% end %>
+  <% end %>
+</p>
 
 
     <!-- <p>
@@ -106,19 +115,9 @@
     <p>
       Propriétaire : M. <%= @restaurant.user.last_name %>
     </p>
-    <p class="text-center">
-      <% if user_signed_in? && @booked %>
-          <%=link_to 'Voir mon code', codes_path %>
-         <% else %>
-           <%= simple_form_for [@restaurant, @reservation] do |f| %>
-           <%= f.button :submit %>
-           <% end %>
-      <% end %>
-    </p> -->
-    <!-- </div>
-  </div>
 
 </div> -->
+
 
 
 
