@@ -26,17 +26,17 @@
         <div class="dropdown">
           <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-user"></i> <%= t ".profile", default: "Profile" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to codes_path do %>
-                <i class="fa fa-money"></i> <%= t ".profile", default: "Mes codes" %>
-              <% end %>
-            </li>
             <% if current_user.owner %>
+              <li>
+                <%= link_to restaurant_path(current_user.restaurant_id) do %>
+                  <i class="fa fa-cutlery"></i> <%= t ".profile", default: "Mon Restaurant" %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to restaurant_reservations_path(Restaurant.find(current_user.restaurant_id)) do %>
+                  <i class="fa fa-book"></i> <%= t ".profile", default: "Réservations" %>
+                <% end %>
+              </li>
               <li>
                 <%= link_to restaurant_feedbacks_path(Restaurant.find(current_user.restaurant_id)) do %>
                   <i class="fa fa-thumbs-up"></i> <%= t ".profile", default: "Feedbacks reçus" %>
@@ -47,9 +47,15 @@
                   <i class="fa fa-barcode"></i> <%= t ".profile", default: "Valider des codes" %>
                 <% end %>
               </li>
+            <% else %>
               <li>
-                <%= link_to restaurant_reservations_path(Restaurant.find(current_user.restaurant_id)) do %>
-                  <i class="fa fa-cutlery"></i> <%= t ".profile", default: "Réservations" %>
+                <%= link_to user_path(current_user) do %>
+                  <i class="fa fa-user"></i> <%= t ".profile", default: "Profil" %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to codes_path do %>
+                  <i class="fa fa-money"></i> <%= t ".profile", default: "Mes codes" %>
                 <% end %>
               </li>
             <% end %>
