@@ -10,9 +10,8 @@
           <% if code.feedbacked == false && code.status == true %>
             <%= link_to "Donner son feedback", new_restaurant_feedback_path(code.restaurant) %>
           <% end %>
-          <%= "Merci pour le feedback" if code.feedbacked %> - <%= link_to "Supprimer le code" %>
+          <%= "Merci pour le feedback" if code.feedbacked %> - <%= link_to "Annuler le code" %>
       </li>
     <% end %>
   </ol>
 </div>
-
