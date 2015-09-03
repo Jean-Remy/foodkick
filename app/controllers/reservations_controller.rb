@@ -1,20 +1,17 @@
 require 'securerandom'
 
 class ReservationsController < ApplicationController
-  before_action :find_restaurant, only: [:new]
+  before_action :find_restaurant, only: [:new, :create]
 
   def index
     # @reservations = policy_scope(Reservation)
     @reservations = Reservation.where(restaurant_id: params[:restaurant_id])
   end
 
-  def new
-    @reservation = Reservation.new
-    authorize @reservation
-  end
-
   def create
-    @reservation = Reservation.new(reservation_params)
+    @reservation = Reservation.new
+    @reservation.user = current_user
+    @reservation.restaurant = @restaurant
     # Le code n'a pas été utilisé
     @reservation.status = false
     # Le feedback n'a pas été rendu
@@ -30,9 +27,9 @@ class ReservationsController < ApplicationController
       # On empêche l'user d'avoir plusieurs réservations en même temps
       # current_user.can_book = false
       if @reservation.save
-      redirect_to codes_path
+        redirect_to  codes_path
       else
-        render :new
+        redirect_to restaurant_path(@restaurant)
       end
     end
   end
@@ -56,13 +53,13 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def codes
+    @my_codes = Reservation.where(user_id: current_user.id)
+  end
+
   private
 
   def find_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
-  end
-
-  def reservation_params
-    params.require(:reservation).permit(:user_id, :restaurant_id)
   end
 end
