@@ -2,7 +2,7 @@
   <div class="container navbar-wagon-container">
 
     <a href="/">
-      <%= image_tag "logo.png" %>
+      <%= image_tag "dinner.png", height: '60', width: '70' %>
     </a>
 
     <form action="" class="navbar-wagon-search">
@@ -14,6 +14,7 @@
     <!-- <hr> -->
     <% unless user_signed_in? && current_user.owner %>
       <%= link_to "Découvrir", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
       <hr>
     <% end %>
     <% if user_signed_in? %>
