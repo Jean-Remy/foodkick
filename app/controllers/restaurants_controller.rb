@@ -8,6 +8,8 @@ class RestaurantsController < ApplicationController
 
   def show
     authorize @restaurant
+    @reservation = Reservation.new
+    @booked = true if Reservation.where(user_id: current_user, restaurant_id: params[:id])
   end
 
   def new
