@@ -37,6 +37,40 @@
   padding-right: 0 !important;
 }
 
+.flex-container {
+           display: -webkit-flex;
+           display: flex;
+           -webkit-flex-direction: row;
+           flex-direction: row;
+           -webkit-align-items: center;
+           align-items: center;
+
+           flex-wrap: wrap;
+           min-width: 320px;
+           max-width: 1220px;
+        }
+        .flex-item {
+        height: 120px;
+        width: 300px;
+        border: 1px solid #626262;
+        margin: 3px;
+        padding: 10px 0 0 10px;
+        }
+
+        .info-container{
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 0 0 5px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .info-container p{
+            padding: 0;
+            margin: 0 0 10px;
+        }
+
 
 
 
