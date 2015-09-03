@@ -1,84 +1,125 @@
-<div class="restaurant-detail">
+<div class="banner text-center" data-parallax="scroll" data-image-src="<%= @restaurant.seed_picture %>" style="height: 100vh;">
+  <div class="banner-shadow"></div>
+</div>
 
-  <div class="restaurant-detail-header">
+<div class="titre-restaurant">
+  <span>BUFFALO BILL<span>
+</div>
 
-    <div class="banner text-center" style="background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('<%= @restaurant.seed_picture %>');background-size:cover;background-position:center center">
+<div class="description-restaurant">
+  <span>
+    Voted New York's Best Thai Restaurant
+  <span>
+</div>
 
-      <div class="category hvr-grow">
-        <p><%= @restaurant.category %></p>
+
+<div class="restaurant-show-content">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-8 padded">
+         <br>
+         <img src="https://images.unsplash.com/photo-1414358154612-ae3d3c120004?q=80&fm=jpg&s=988c3ac3e8fc7e48d5d7f6d9bd325c6a" class="img-thumbnail" alt="Cinque Terre">
       </div>
-      <div class="banner-content">
-        <h1><%= @restaurant.name %></h1>
-        <a class="btn btn-primary" href="#">
-          Ton Voucher
-        </a>
-      </div>
-    </div>
-
-  </div>
-  <div class="restaurant-detail-body">
-    <div class="triangle-container"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-6">
-          <div class="card-show">
-            <h2> Qui sommes-nous ?</h2>
-            <p class="text-justify">
-              <%= @restaurant.description %>
-            </p>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-6">
-          <div class= "text-center citation">
-            <%= image_tag("fonzy.png", class: "owner-pic")%>
-            <p> "Manger noichi, c'est cool... "</p>
-            <p class="italic"> Fonzy </p>
-          </div>
-        </div>
+      <div class="col-xs-12 col-md-4 padded">
+        <h3>A DESTINATION</h3>
+        <p>
+          Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+        </p>
+        <p>
+          Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        </p>
       </div>
     </div>
-
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+        <img src="https://images.unsplash.com/17/unsplash_527bf4b4ae00d_1.JPG?q=80&fm=jpg&s=0b8001ef704174d007386803dbf0a276" class="img-thumbnail" alt="Cinque Terre">
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <img src="https://images.unsplash.com/photo-1426259759666-68da5c54402d?q=80&fm=jpg&s=5fa8cad7a9333b2e1a46f4174fa88dc5" class="img-thumbnail" alt="Cinque Terre">
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <img src="https://images.unsplash.com/45/aXpQLs4AQ5e1EtmeYkz3_20140524_124026.jpg?q=80&fm=jpg&s=c691db1c24519ce9bef08dcf0521f8a4" class="img-thumbnail" alt="Cinque Terre">
+      </div>
+    </div>
+    <div class="row padded">
+      <div class="col-xs-12 col-md-4">
+        <h2>LOUIS BAUDOIN</h2>
+        <h4>THE FOOTER GUY</h4>
+        <p>
+          Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <h2>JE(AN-)REMY NAHUM</h2>
+        <h4>AKA THE BACKER</h4>
+        <p>
+          Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+      <div class="col-xs-12 col-md-4">
+        <h2>JEAN-BAPTISTE BECK</h2>
+        <h4>YOU SAID FRONT ?</h4>
+        <p>
+          Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        </p>
+      </div>
+    </div>
   </div>
 </div>
 
-<p>
-  Nom : <%= @restaurant.name %>
-</p>
-<p>
-  Adresse : <%= @restaurant.address %>
-</p>
-<p>
-  Code postal : <%= @restaurant.zip_code %>
-</p>
-<p>
-  Ville : <%= @restaurant.city%>
-</p>
-<p>
-  Quartier : <%= @restaurant.borough %>
-</p>
-<p>
-  Categorie : <%= @restaurant.category %>
-</p>
-<p>
-  Gamme de prix : <%= @restaurant.price_min %> - <%= @restaurant.price_max %> €
-</p>
-<p>
-  Description : <%= @restaurant.description %>
-</p>
-<p>
-  Réduction : <%= @restaurant.discount * 100 %>%
-</p>
-<p>
-  Détail de la réduction : <%= @restaurant.discount_detail %>
-</p>
-<p>
-  Propriétaire : M. <%= @restaurant.user.last_name %>
-</p>
-<p class="text-center">
-  <%= link_to new_restaurant_reservation_path(@restaurant) do %>
-    <button class="btn btn-primary btn-lg">Make a new reservation</button>
-  <% end %>
-</p>
+
+
+
+
+
+
+    <!-- <p>
+      Nom : <%= @restaurant.name %>
+    </p>
+    <p>
+      Adresse : <%= @restaurant.address %>
+    </p>
+    <p>
+      Code postal : <%= @restaurant.zip_code %>
+    </p>
+    <p>
+      Ville : <%= @restaurant.city%>
+    </p>
+    <p>
+      Quartier : <%= @restaurant.borough %>
+    </p>
+    <p>
+      Categorie : <%= @restaurant.category %>
+    </p>
+    <p>
+      Gamme de prix : <%= @restaurant.price_min %> - <%= @restaurant.price_max %> €
+    </p>
+    <p>
+      Description : <%= @restaurant.description %>
+    </p>
+    <p>
+      Réduction : <%= @restaurant.discount * 100 %>%
+    </p>
+    <p>
+      Détail de la réduction : <%= @restaurant.discount_detail %>
+    </p>
+    <p>
+      Propriétaire : M. <%= @restaurant.user.last_name %>
+    </p>
+    <p class="text-center">
+      <% if user_signed_in? && @booked %>
+          <%=link_to 'Voir mon code', codes_path %>
+         <% else %>
+           <%= simple_form_for [@restaurant, @reservation] do |f| %>
+           <%= f.button :submit %>
+           <% end %>
+      <% end %>
+    </p> -->
+    <!-- </div>
+  </div>
+
+</div> -->
+
 
 
 
