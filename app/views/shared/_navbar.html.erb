@@ -12,11 +12,11 @@
       </button> -->
     </form>
     <!-- <hr> -->
-    <% unless current_user.owner %>
-      <%= link_to "Découvrir", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% end %>
-    <hr>
     <% if user_signed_in? %>
+      <% unless current_user.owner %>
+        <%= link_to "Découvrir", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <% end %>
+      <hr>
       <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
       <div class="icon-badge-container">
         <i class="fa fa-envelope-o"></i>
