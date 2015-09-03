@@ -75,8 +75,16 @@
   Propriétaire : M. <%= @restaurant.user.last_name %>
 </p>
 <p class="text-center">
-  <%= link_to new_restaurant_reservation_path(@restaurant) do %>
-    <button class="btn btn-primary btn-lg">Make a new reservation</button>
+  <% if user_signed_in? %>
+    <% if @booked %>
+       <%=link_to 'Voir mon code', codes_path %>
+    <% end %>
+  <% else %>
+    <%= simple_form_for [@restaurant, @reservation] do |f| %>
+      <%= f.input :user_id, :as => :hidden, :input_html => { :value => current_user.id } %>
+      <%= f.input :restaurant_id, :as => :hidden, :input_html => { :value => @restaurant.id } %>
+    <%= f.button :submit %>
+    <% end %>
   <% end %>
 </p>
 
