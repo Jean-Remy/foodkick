@@ -42,7 +42,6 @@ class ReservationsController < ApplicationController
   end
 
   def validate
-
   end
 
   def validate_code
@@ -52,7 +51,7 @@ class ReservationsController < ApplicationController
       @reservation.first.save
       redirect_to root_path
     else
-      redirect_to root_path
+      redirect_to validate_code_path
     end
   end
 
