@@ -1,6 +1,43 @@
-<div class="banner text-center" style="background-image: url('<%= @restaurant.seed_picture %>')">
-  <div class="banner-shadow"></div>
-  <div class="banner-content">
+<div class="restaurant-detail">
+
+  <div class="restaurant-detail-header">
+
+    <div class="banner text-center" style="background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)), url('<%= @restaurant.seed_picture %>');background-size:cover;background-position:center center">
+
+      <div class="category hvr-grow">
+        <p><%= @restaurant.category %></p>
+      </div>
+      <div class="banner-content">
+        <h1><%= @restaurant.name %></h1>
+        <a class="btn btn-primary" href="#">
+          Ton Voucher
+        </a>
+      </div>
+    </div>
+
+  </div>
+  <div class="restaurant-detail-body">
+    <div class="triangle-container"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6">
+          <div class="card-show">
+            <h2> Qui sommes-nous ?</h2>
+            <p class="text-justify">
+              <%= @restaurant.description %>
+            </p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <div class= "text-center citation">
+            <%= image_tag("fonzy.png", class: "owner-pic")%>
+            <p> "Manger noichi, c'est cool... "</p>
+            <p class="italic"> Fonzy </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -37,6 +74,12 @@
 <p>
   Propriétaire : M. <%= @restaurant.user.last_name %>
 </p>
+<p class="text-center">
+  <%= link_to new_restaurant_reservation_path(@restaurant) do %>
+    <button class="btn btn-primary btn-lg">Make a new reservation</button>
+  <% end %>
+</p>
+
 
 
 

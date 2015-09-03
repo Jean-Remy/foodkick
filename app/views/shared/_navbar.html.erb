@@ -6,12 +6,12 @@
     </a>
 
     <form action="" class="navbar-wagon-search">
-      <input type="text" class="navbar-wagon-search-input" placeholder="Search for featured stuff">
+      <!-- <input type="text" class="navbar-wagon-search-input" placeholder="Search for featured stuff">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
-      </button>
+      </button> -->
     </form>
-    <hr>
+    <!-- <hr> -->
     <%= link_to "Découvrir", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <hr>
     <% if user_signed_in? %>
@@ -32,10 +32,27 @@
               <% end %>
             </li>
             <li>
-              <%= link_to "#" do %>
-                <i class="fa fa-home"></i>  <%= t ".profile", default: "Home" %>
+              <%= link_to codes_path do %>
+                <i class="fa fa-money"></i> <%= t ".profile", default: "Mes codes" %>
               <% end %>
             </li>
+            <% if current_user.owner %>
+              <li>
+                <%= link_to restaurant_feedbacks_path(Restaurant.find(current_user.restaurant_id)) do %>
+                  <i class="fa fa-thumbs-up"></i> <%= t ".profile", default: "Feedbacks reçus" %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to validate_path do %>
+                  <i class="fa fa-barcode"></i> <%= t ".profile", default: "Valider des codes" %>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to restaurant_reservations_path(Restaurant.find(current_user.restaurant_id)) do %>
+                  <i class="fa fa-cutlery"></i> <%= t ".profile", default: "Réservations" %>
+                <% end %>
+              </li>
+            <% end %>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <i class="fa fa-sign-out"></i>  <%= t ".sign_out", default: "Log out" %>
@@ -47,7 +64,7 @@
     <% else %>
       <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <% end %>
-    <hr>
-    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %>
+    <!-- <hr>
+    <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %> -->
   </div>
 </nav>
