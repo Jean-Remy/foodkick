@@ -1,1 +1,37 @@
-// Your footer style
+html {
+  padding-bottom: 100%;
+}
+
+body {
+  background: #D2D2D2;
+  overflow-x: hidden;
+}
+
+.box-wrap {
+  float: left;
+  width: (100% / 7);
+}
+
+.box {
+  opacity: 0;
+  padding-bottom: 100%;
+  transition-duration: 1000ms;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+  will-change: opacity, transform;
+  .box-wrap.in-view:nth-child(n) & {
+    opacity: 1;
+    transform: scale(1) translate3d(0, 0, 0) rotate(0);
+  }
+}
+
+@for $i from 1 through 301 {
+  .box-wrap:nth-child(#{$i}) .box {
+    background: hsla($i / 300 * 360, 80%, 50 + random(20) * 1%, 1);
+    transform: scale(0) translate3d(-200 + random(400) * 1%, -200 + random(400) * 1%, 0) rotate(-90 + random(180) * 1deg);
+  }
+}
+
+li:hover {
+  color: #00497F;
+}
