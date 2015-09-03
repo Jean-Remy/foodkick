@@ -1,66 +1,89 @@
 
+<br>
+<br>
+
+
 
 <div id="home" class="container-fluid no-padding" >
-  <div class="row" style= "background-image=url('../../images/pattern.png')">
+  <div class="row text-center">
     <div class="col-xs-12">
-      <div class="banner_home text-center">
-        <!--<div class="map">
-        </div>-->
-          <div class="map"></div>
+           <%= render 'mappy' %>
 
-        <button type="submit" class="banner_home-btn btn-default" method="post" action="properties">A table!<new!></new!></button>
-      </div>
+    <br>
+    <br>
+    <br>
     </div>
+
+    <div class="col-xs-12">
+        <button type="submit" class="banner_home-btn btn-default" method="post" action="properties">A table!<new!></new!></button>
+    </div>
+
   </div>
 </div>
+
+
+<br>
+<br>
+<br>
 
 <h2 class="text-center">Comment ça marche?</h2>
 <br><br>
 
+
+
 <div class="container-fluid">
   <div class="row">
-
-
-    <div class="col-xs-12 col-md-2"></div>
-    <div class="col-md-4">
-      <%=image_tag("search.png", size: '60')%>
-      <br>
-      <br>
-      <p class="justify">Cherchez les restaurants qui viennent d'ouvrir autour de vous, ici, ailleurs, parmis les restaurants recommandés par la communauté kickfood.</p>
-    </div>
-
-    <div class="col-xs-12 col-md-4">
-      <%=image_tag("discount.png", size: '60')%>
-      <br>
-      <br>
-      <p class="justify">Demandez votre réduction sur notre site contre la promesse de donner un retour constructif et complet
-        au restaurateur</p>
-    </div>
-
-    <div class="col-xs-12 col-md-2"></div>
+    <div class="col-xs-3 col-md-3"></div>
+    <div class="col-xs-2 col-md-2"><%=image_tag("search.png", size: '80')%></div>
+    <div class="col-xs-4 cold-md-4">
+    <p class="justify">Cherchez les restaurants qui viennent d'ouvrir autour de vous parmis les restaurants recommandés avec soin par la communauté kickfood.</p></div>
+    <div class="col-xs-3 col-md-3"></div>
   </div>
+
+  <br><br>
 
   <div class="row">
-    <div class="col-xs-12 col-md-2"></div>
-    <div class="col-xs-12 col-md-4">
-      <%=image_tag("dinner.png", size: '60')%>
-      <br>
-      <br>
-      <p class="justify">Dégustez - Donnez votre code réduction au restaurateur</p>
-    </div>
+    <div class="col-xs-3 col-md-3"></div>
+    <div class="col-xs-2 col-md-2"><%=image_tag("discount.png", size: '80')%></div>
 
-    <div class="col-xs-12 col-md-4">
-      <%=image_tag("revue.png", size: '60')%>
-      <br>
-      <br>
-      <p class="justify">Envoyez le formulaire de feedback préparé par le restaurateur et aidez les à améliorer leur
-        service</p>
-    </div>
+    <div class="col-xs-4 cold-md-4">
+    <p class="justify">Demandez votre réduction sur notre site contre la promesse de donner un retour constructif et complet
+        au restaurateur</p></div>
+    <div class="col-xs-3 col-md-3"></div>
   </div>
-</div>
+
+  <br><br>
+
+   <div class="row">
+    <div class="col-xs-3 col-md-3"></div>
+    <div class="col-xs-2 col-md-2"><%=image_tag("dinner.png", width: '80', height: '60')%></div>
+
+    <div class="col-xs-4 cold-md-4">
+    <p class="justify">Dégustez, appréciez, et payer moins cher grâce à votre code foodkick</p></div>
+    <div class="col-xs-3 col-md-3"></div>
+  </div>
+
+
+  <br><br>
+
+
+   <div class="row">
+    <div class="col-xs-3 col-md-3"></div>
+    <div class="col-xs-2 col-md-2"><%=image_tag("revue.png", width: '80', height: '60')%></div>
+
+    <div class="col-xs-4 cold-md-4">
+    <p class="justify">"Feedback is a gift" - Envoyez le formulaire de feedback préparé par le restaurateur et aidez les à améliorer son
+        service - Le feedback sera gardé secret, c'est entre le restaurateur et vous!</p></div>
+    <div class="col-xs-3 col-md-3"></div>
+  </div>
+
+
 
 
 </div>
+
+
+
 
 
 
