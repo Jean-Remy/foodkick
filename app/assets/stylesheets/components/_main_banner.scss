@@ -1,16 +1,17 @@
-
-
 .banner {
   background-size: cover;
   color: white;
   position: relative;
   background-position: center;
-  height: 500px;
+  z-index: -50;
+  width: 100%;
+  position: fixed;
+  margin-top: -70px;
 }
 
 .banner-content {
   postion: absolute;
-  padding-top: 190px;
+  background: transparent;
 }
 
 .restaurant-detail-body {
