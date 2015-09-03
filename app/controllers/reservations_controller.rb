@@ -2,6 +2,7 @@ require 'securerandom'
 
 class ReservationsController < ApplicationController
   before_action :find_restaurant, only: [:new, :create]
+  before_action :find_codes
 
   def index
     # @reservations = policy_scope(Reservation)
@@ -35,7 +36,9 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-
+    @reservation = Reservation.find(params[:id])
+    @reservation.destroy
+    redirect_to codes_path
   end
 
   def validate
@@ -54,12 +57,15 @@ class ReservationsController < ApplicationController
   end
 
   def codes
-    @my_codes = Reservation.where(user_id: current_user.id)
   end
 
   private
 
   def find_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+
+  def find_codes
+    @my_codes = Reservation.where(user_id: current_user.id)
   end
 end
