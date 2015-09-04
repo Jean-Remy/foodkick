@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904114431) do
+ActiveRecord::Schema.define(version: 20150904130549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(version: 20150904114431) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.date     "opening"
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   create_table "schedules", force: :cascade do |t|
