@@ -1,17 +1,12 @@
-<div class="text-center" data-parallax="scroll" data-image-src="<%= @restaurant.seed_picture %>" style="height: 100vh;">
+<% @footer = true %>
+<div class="banner text-center" style="background-image: url('<%= @restaurant.seed_picture %>')">
   <div class="banner-shadow"></div>
+  <div class="banner-content">
+    <h1><%= @restaurant.name %></h1>
+    <p>Le meilleur restaurant chinois de Paris, élu par la communauté</p>
+    <a class="btn btn-primary btn-lg">Obtenir mon coupon</a>
+  </div>
 </div>
-
-<div class="titre-restaurant">
-  <span>BUFFALO BILL<span>
-</div>
-
-<div class="description-restaurant">
-  <span>
-    Voted New York's Best Thai Restaurant
-  <span>
-</div>
-
 
 <div class="restaurant-show-content">
   <div class="container">
@@ -21,7 +16,7 @@
          <img src="https://images.unsplash.com/photo-1414358154612-ae3d3c120004?q=80&fm=jpg&s=988c3ac3e8fc7e48d5d7f6d9bd325c6a" class="img-thumbnail" alt="Cinque Terre">
       </div>
       <div class="col-xs-12 col-md-4 padded">
-        <h3>A DESTINATION</h3>
+        <h3>UN VOYAGE</h3>
         <p>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
         </p>
@@ -75,48 +70,14 @@
   <% else %>
     <div class="text-center">
       <%= simple_form_for [@restaurant, @reservation] do |f| %>
-        <%= f.button :submit, class: "btn btn-success" %>
+        <%= f.button :submit, "Obtenir mon coupon", class: "btn btn-success btn-lg", style: "background-color: #ff1654; border: none;" %>
       <% end %>
     </div>
   <% end %>
 </p>
+<br><br><br><br>
 
 
-    <!-- <p>
-      Nom : <%= @restaurant.name %>
-    </p>
-    <p>
-      Adresse : <%= @restaurant.address %>
-    </p>
-    <p>
-      Code postal : <%= @restaurant.zip_code %>
-    </p>
-    <p>
-      Ville : <%= @restaurant.city%>
-    </p>
-    <p>
-      Quartier : <%= @restaurant.borough %>
-    </p>
-    <p>
-      Categorie : <%= @restaurant.category %>
-    </p>
-    <p>
-      Gamme de prix : <%= @restaurant.price_min %> - <%= @restaurant.price_max %> €
-    </p>
-    <p>
-      Description : <%= @restaurant.description %>
-    </p>
-    <p>
-      Réduction : <%= @restaurant.discount * 100 %>%
-    </p>
-    <p>
-      Détail de la réduction : <%= @restaurant.discount_detail %>
-    </p>
-    <p>
-      Propriétaire : M. <%= @restaurant.user.last_name %>
-    </p>
-
-</div> -->
 
 
 
