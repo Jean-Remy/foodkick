@@ -5,6 +5,11 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = policy_scope(Restaurant)
+    @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
+      marker.lat restaurant.latitude
+      marker.lng restaurant.longitude
+    end
+    @markers.select! { |hash| hash[:lat] != nil && hash[:lng] != nil }
   end
 
   def show

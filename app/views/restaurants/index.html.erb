@@ -22,9 +22,6 @@
             <%= link_to do %>
               <span class="label label-success">Français</span>
             <% end %>
-            <%= link_to do %>
-              <span class="label label-success">Afghan</span>
-            <% end %>
              ou
             <input type="text">
           </div>
@@ -42,12 +39,6 @@
             <% end %>
             <%= link_to do %>
               <span class="label label-primary">La Vilette</span>
-            <% end %>
-            <%= link_to do %>
-              <span class="label label-primary">République</span>
-            <% end %>
-            <%= link_to do %>
-              <span class="label label-primary">Austerlitz</span>
             <% end %>
             ou
             <input type="text">
@@ -80,21 +71,16 @@
     <div class="col-xs-5 search-map">
       <div id="map" style="width: 100%; height: 100vh;"></div>
       <% content_for(:after_js) do %>
-        <script type="text/javascript">
-              $(document).on('ready', function() {
-                var handler = Gmaps.build('Google');
-                handler.buildMap({ internal: { id: 'map' } }, function(){
-                  markers = handler.addMarkers([
-                      { "lat": 48.8426531, "lng": 2.3248288 },
-                      { "lat": 48.8718757, "lng": 2.3500763 },
-                      { "lat": 48.8755557, "lng": 2.3768895 },
-                      { "lat": 48.8529369, "lng": 2.364178  }
-                    ]);
-                  handler.bounds.extendWith(markers);
-                  handler.fitMapToBounds();
-                });
-              })
-            </script>
+        <%= javascript_tag do %>
+          $(document).on('ready', function() {
+            handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function(){
+              markers = handler.addMarkers(<%= raw @markers.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+          })
+        <% end %>
       <% end %>
     </div>
   </div>
