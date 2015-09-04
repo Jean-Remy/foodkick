@@ -251,6 +251,33 @@ user_attributes = [
     password: "topsecret",
     password_confirmation: "topsecret",
     owner: false,
+  },
+    {
+    email: "randy@marsh.com",
+    first_name: "Randy",
+    last_name: "Marsh",
+    password: "topsecret",
+    password_confirmation: "topsecret",
+    owner: true,
+    restaurant_id: 2
+  },
+  {
+    email: "eric@cartman.com",
+    first_name: "Eric",
+    last_name: "Cartman",
+    password: "topsecret",
+    password_confirmation: "topsecret",
+    owner: true,
+    restaurant_id: 3
+  },
+  {
+    email: "towelie@towel.com",
+    first_name: "towelie",
+    last_name: "towel",
+    password: "topsecret",
+    password_confirmation: "topsecret",
+    owner: true,
+    restaurant_id: 4
   }
 
 ]
