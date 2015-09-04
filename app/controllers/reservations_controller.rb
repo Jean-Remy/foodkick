@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class ReservationsController < ApplicationController
-  before_action :find_restaurant, only: [:new, :create]
+  before_action :find_restaurant, only: [:new, :create, :validate_code_path]
   before_action :find_codes
 
   def index
@@ -42,17 +42,20 @@ class ReservationsController < ApplicationController
   end
 
   def validate
-
   end
 
   def validate_code
-    @reservation = Reservation.where(code: params[:code])
-    if Reservation.exists?(code: params[:code])
-      @reservation.first.status = true
-      @reservation.first.save
-      redirect_to root_path
+    if Reservation.exists?(code: params[:code]) && @reservation.first.restaurant.id == current_user.restaurant_id
+      if @reservation.first.status == false
+        @reservation = Reservation.where(code: params[:code])
+        @reservation.first.status = true
+        @reservation.first.save
+        redirect_to root_path
+      else
+        redirect_to error_path
+      end
     else
-      redirect_to root_path
+      redirect_to error_path
     end
   end
 
@@ -69,3 +72,16 @@ class ReservationsController < ApplicationController
     @my_codes = Reservation.where(user_id: current_user.id)
   end
 end
+
+  # def validate_code
+  #   @reservation = Reservation.where(code: params[:code])
+  #   if Reservation.exists?(code: params[:code]) && @reservation.first.restaurant == @restaurant
+  #     else
+  #     end
+  #     @reservation.first.status = true
+  #     @reservation.first.save
+  #     redirect_to root_path
+  #   else
+  #     redirect_to validate_code_path
+  #   end
+  # end

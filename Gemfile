@@ -1,4 +1,7 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 ruby '2.2.3'
 
 gem 'rails', '4.2.3'
@@ -9,7 +12,13 @@ gem 'devise'
 gem 'pundit'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
-gem 'leaflet-rails' #leaflet maps
+
+gem "geocoder"
+gem "coffee-rails"
+gem "gmaps4rails"
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
 
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
@@ -19,6 +28,8 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
+gem "coffee-rails"
+gem "gmaps4rails"
 
 group :development, :test do
   gem 'binding_of_caller'

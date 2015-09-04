@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902131632) do
+ActiveRecord::Schema.define(version: 20150904130549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,23 +27,6 @@ ActiveRecord::Schema.define(version: 20150902131632) do
   end
 
   add_index "courses", ["restaurant_id"], name: "index_courses_on_restaurant_id", using: :btree
-
-  create_table "feedback_answers", force: :cascade do |t|
-    t.integer  "reservation_id"
-    t.integer  "feedback_question_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "answer"
-  end
-
-  add_index "feedback_answers", ["feedback_question_id"], name: "index_feedback_answers_on_feedback_question_id", using: :btree
-  add_index "feedback_answers", ["reservation_id"], name: "index_feedback_answers_on_reservation_id", using: :btree
-
-  create_table "feedback_questions", force: :cascade do |t|
-    t.string   "question"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "feedbacks", force: :cascade do |t|
     t.datetime "created_at",     null: false
@@ -96,6 +79,9 @@ ActiveRecord::Schema.define(version: 20150902131632) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.date     "opening"
+    t.float    "longitude"
+    t.float    "latitude"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -133,6 +119,7 @@ ActiveRecord::Schema.define(version: 20150902131632) do
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.boolean  "owner"
     t.integer  "restaurant_id"
     t.string   "picture_file_name"
@@ -148,8 +135,6 @@ ActiveRecord::Schema.define(version: 20150902131632) do
   add_index "users", ["restaurant_id"], name: "index_users_on_restaurant_id", using: :btree
 
   add_foreign_key "courses", "restaurants"
-  add_foreign_key "feedback_answers", "feedback_questions"
-  add_foreign_key "feedback_answers", "reservations"
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "reservations", "restaurants"

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/validate', to: "reservations#validate", as: :validate
   post '/validate', to: "reservations#validate_code", as: :validate_code
   get '/codes', to: 'reservations#codes', as: :codes
+  get '/error', to: 'reservations#error', as: :error
 end

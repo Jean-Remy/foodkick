@@ -1,4 +1,4 @@
-<nav class="navbar-wagon">
+<nav class="navbar-wagon-fixed">
   <div class="container navbar-wagon-container">
 
     <a href="/">
@@ -12,18 +12,12 @@
       </button> -->
     </form>
     <!-- <hr> -->
-    <%# unless current_user.owner %>
-        <%= link_to "Découvrir", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%# end %>
+    <% unless user_signed_in? && current_user.owner %>
+      <%= link_to "Découvrir", restaurants_path, class: "navbar-wagon-item navbar-wagon-link" %>
+
       <hr>
-    <% if user_signed_in? %>
-      <%= link_to "#", class: "navbar-wagon-item navbar-wagon-link hidden-xs" do %>
-      <div class="icon-badge-container">
-        <i class="fa fa-envelope-o"></i>
-        <div class="icon-badge icon-badge-blue">3</div>
-      </div>
     <% end %>
-      <hr>
+    <% if user_signed_in? %>
       <div class="navbar-wagon-item">
         <div class="dropdown">
           <%= image_tag "http://placehold.it/30x30", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>

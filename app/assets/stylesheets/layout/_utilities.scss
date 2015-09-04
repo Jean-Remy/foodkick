@@ -30,8 +30,9 @@
   visibility: hidden;
 }
 
-a, a:active, a:focus {
+a, a:active, a:focus, a:hover {
    outline: 0;
+   text-decoration: none;
 }
 
 input::-moz-focus-inner {
