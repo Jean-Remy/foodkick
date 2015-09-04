@@ -1,4 +1,6 @@
 class Restaurant < ActiveRecord::Base
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   BOROUGH = ['Marais', 'Montmartre', 'Bastille', 'Saint-Germain']
   has_many :courses
   has_many :reservations

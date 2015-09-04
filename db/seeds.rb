@@ -1,7 +1,7 @@
 restaurant_attributes = [
   {
     name: "Beijing 8",
-    address: "21 rue de la Boetie",
+    address: "21 rue de la Boetie 75008 Paris, France",
     zip_code: "75008",
     city: "Paris",
     borough: "Champs-Elysées",
@@ -16,7 +16,7 @@ restaurant_attributes = [
   },
   {
     name: "Les Fables de la Fontaine",
-    address: "131 rue Saint Dominique",
+    address: "131 rue Saint Dominique 75007 Paris, France",
     zip_code: "75007",
     city: "Paris",
     borough: "Tour Eiffel",
@@ -31,7 +31,7 @@ restaurant_attributes = [
   },
   {
     name: "Biiim!",
-    address: "5 quai de Loire",
+    address: "5 quai de Loire 75019 Paris, France",
     zip_code: "75019",
     city: "Paris",
     borough: "La Vilette",
@@ -46,8 +46,8 @@ restaurant_attributes = [
   },
     {
     name: "NA/NA",
-    address: "10, rue Bréguet",
-    zip_code: "75011 ",
+    address: "10, rue Bréguet 75011 Paris, France",
+    zip_code: "75011",
     city: "Paris",
     borough: "Champs-Elysées",
     category: "Original",
@@ -61,7 +61,7 @@ restaurant_attributes = [
   },
   {
     name: "Fagio",
-    address: "72, rue de Rochechouart",
+    address: "72, rue de Rochechouart 75009 Paris, France",
     zip_code: "75009",
     city: "Paris",
     borough: "Tour Eiffel",
@@ -76,7 +76,7 @@ restaurant_attributes = [
   },
   {
     name: "750g la table",
-    address: "397 rue de Vaugirard",
+    address: "397 rue de Vaugirard 75015 Paris, France",
     zip_code: "75015",
     city: "Paris",
     borough: "La Vilette",
@@ -91,7 +91,7 @@ restaurant_attributes = [
   },
   {
     name: "Clasico Argentino",
-    address: "Passage des Panoramas",
+    address: "Passage des Panoramas 75002 Paris, France",
     zip_code: "75002",
     city: "Paris",
     borough: "Champs-Elysées",
@@ -106,7 +106,7 @@ restaurant_attributes = [
   },
   {
     name: "Gabilou",
-    address: "15 rue d'Armaillé",
+    address: "15 rue d'Armaillé 75017 Paris, France",
     zip_code: "75017",
     city: "Paris",
     borough: "Tour Eiffel",
@@ -121,7 +121,7 @@ restaurant_attributes = [
   },
   {
     name: "Desiroad!",
-    address: "14 rue Dauphine",
+    address: "14 rue Dauphine 75006 Paris, France",
     zip_code: "75006",
     city: "Paris",
     borough: "La Vilette",
@@ -136,7 +136,7 @@ restaurant_attributes = [
   },
   {
     name: "Le Refectoire",
-    address: "31 Rue du château d'eau",
+    address: "31 Rue du château d'eau 75010 Paris, France",
     zip_code: "75010",
     city: "Paris",
     borough: "Champs-Elysées",
@@ -151,7 +151,7 @@ restaurant_attributes = [
   },
   {
     name: "Gallika",
-    address: "7 rue Godot de Mauroy",
+    address: "7 rue Godot de Mauroy 75008 Paris, France",
     zip_code: "75008",
     city: "Paris",
     borough: "Tour Eiffel",
@@ -166,7 +166,7 @@ restaurant_attributes = [
   },
   {
     name: "Nomos",
-    address: "15 rue André del Sarte",
+    address: "15 rue André del Sarte 75018 Paris, France",
     zip_code: "75018",
     city: "Paris",
     borough: "La Vilette",
@@ -181,7 +181,7 @@ restaurant_attributes = [
   },
   {
     name: "Le Bat",
-    address: "16 bis, boulevard Montmartre",
+    address: "16 bis, boulevard Montmartre 75009 Paris, France",
     zip_code: "75009",
     city: "Paris",
     borough: "Champs-Elysées",
@@ -196,7 +196,7 @@ restaurant_attributes = [
   },
   {
     name: "Les Fables de la Fontaine",
-    address: "2 rue Auguste Vacquerie",
+    address: "2 rue Auguste Vacquerie 75016 Paris, France",
     zip_code: "75016",
     city: "Paris",
     borough: "Tour Eiffel",
@@ -211,7 +211,7 @@ restaurant_attributes = [
   },
   {
     name: "Season",
-    address: "1 rue Charles Francois Dupuis",
+    address: "1 rue Charles Francois Dupuis 75003 Paris, France",
     zip_code: "75003",
     city: "Paris",
     borough: "La Vilette",
