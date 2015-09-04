@@ -4,7 +4,11 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @restaurants = policy_scope(Restaurant)
+    if params[:ar_id]
+      @restaurants = Restaurant.where(zip_code: params[:ar_id])
+    else
+      @restaurants = policy_scope(Restaurant)
+    end
     @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
