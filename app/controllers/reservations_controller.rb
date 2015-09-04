@@ -45,12 +45,17 @@ class ReservationsController < ApplicationController
   end
 
   def validate_code
-    if Reservation.exists?(code: params[:code]) && @reservation.first.restaurant.id == current_user.restaurant_id
-      if @reservation.first.status == false
-        @reservation = Reservation.where(code: params[:code])
-        @reservation.first.status = true
-        @reservation.first.save
-        redirect_to root_path
+    if Reservation.exists?(code: params[:code])
+      @reservation = Reservation.where(code: params[:code])
+      if @reservation.first.restaurant.id == current_user.restaurant_id
+        if @reservation.first.status == false
+          @reservation = Reservation.where(code: params[:code])
+          @reservation.first.status = true
+          @reservation.first.save
+          redirect_to root_path
+        else
+          redirect_to error_path
+        end
       else
         redirect_to error_path
       end

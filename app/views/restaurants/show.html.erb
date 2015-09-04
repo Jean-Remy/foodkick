@@ -4,7 +4,19 @@
   <div class="banner-content">
     <h1><%= @restaurant.name %></h1>
     <p>Le meilleur restaurant chinois de Paris, élu par la communauté</p>
-    <a class="btn btn-primary btn-lg">Obtenir mon coupon</a>
+    <a class="btn btn-primary btn-lg">
+      <% if user_signed_in? && @booked %>
+        <% unless current_user.owner %>
+          <%=link_to 'Voir mon code', codes_path %>
+          <% end %>
+      <% else %>
+        <div class="text-center">
+          <%= simple_form_for [@restaurant, @reservation] do |f| %>
+            <%= f.button :submit, "Obtenir mon coupon", class: "btn btn-success btn-lg", style: "background-color: #ff1654; border: none;" %>
+          <% end %>
+        </div>
+      <% end %>
+    </a>
   </div>
 </div>
 
