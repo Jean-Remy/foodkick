@@ -42,25 +42,25 @@
       </div>
     </div>
     <div class="row padded">
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-md-4 text-justify">
         <h2>LOUIS BAUDOIN</h2>
         <h4>THE FOOTER GUY</h4>
         <p>
-          Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Peut-être le meilleur développeur JavaScript de France, reconnu notamment pour son incommensurable talent pour créer maps et footers, Louis a tout abandonné pour se mettre à la cuisine chinoise. "De JS aux fourneaux, il n'y a qu'un pas. C'est finalement à peu près la même chose : ta cuisine c'est ton terminal, tes casseroles, fours et autres ustensiles tes fonctions et tes ingrédients, c'est tes variables."
         </p>
       </div>
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-md-4 text-justify">
         <h2>JE(AN-)REMY NAHUM</h2>
         <h4>AKA THE BACKER</h4>
         <p>
-          Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Jérémy Nahum n'a jamais été reconnu pour quoi que ce soit. D'après Louis et 'Jean-Bapt', il a atterri ici parce qu'au fond 'il n'est pas méchant'. Mais c'est vrai qu'il ne sert pas à grand chose à part organiser des soirées échangistes derrière la cuisine, le mardi. Selon Louis 'Ca ramène quelques clients dont on se passerait bien... On ne sait pas vraiment pourquoi on le garde finalement'
         </p>
       </div>
-      <div class="col-xs-12 col-md-4">
+      <div class="col-xs-12 col-md-4 text-justify">
         <h2>JEAN-BAPTISTE BECK</h2>
         <h4>YOU SAID FRONT ?</h4>
         <p>
-          Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Curabitur blandit tempus porttitor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Jean-Baptiste, c'est monsieur déco. Il a tout fait à la main dans son atelier à Tours. c'est 'l'inspiration' de l'équipe, cette jeunesse, cette fraicheur qui apporte un oeil neuf à la cuisine et à la table de Louis. Finalement c'est l'artiste de la bande qui a su construire un univers unique et extraordinaire aux allures d'un conte de Grimm. Malheur à celui qui osera remettre en question son talent.
         </p>
       </div>
     </div>
@@ -73,11 +73,11 @@
       <%=link_to 'Voir mon code', codes_path %>
       <% end %>
   <% else %>
-    <% if user_signed_in? && current_user.owner == false %>
+    <div class="text-center">
       <%= simple_form_for [@restaurant, @reservation] do |f| %>
-        <%= f.button :submit %>
+        <%= f.button :submit, class: "btn btn-success" %>
       <% end %>
-    <% end %>
+    </div>
   <% end %>
 </p>
 
