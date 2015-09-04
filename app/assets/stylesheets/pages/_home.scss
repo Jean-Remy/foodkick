@@ -8,6 +8,50 @@
   background-image: url("pattern.png");
 }*/
 
+.col1 {
+  fill: #B2DBBF;
+  &:hover{
+    fill:#FF1654;
+      -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+  }
+}
+
+.col2 {
+  fill: #9BC1BC;
+}
+
+.col3 {
+  fill: #5CA4A9;
+}
+
+.col4 {
+  fill: #70C1B3;
+  &:hover{
+    fill:#F3FFBD;
+      -webkit-transition-duration: 0.2s; /* Safari */
+    transition-duration: 0.2s;
+  }
+}
+
+
+#Calque_1 {
+  width:46%;
+  height:46%;
+}
+
+/*.st0{
+  fill: white;
+}*/
+
+/*.arrondissement {
+  &:hover{
+    fill: #FF1654;
+      -webkit-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
+}*/
+
 
 .banner_home {
   height: 400px;
@@ -22,15 +66,25 @@
     padding: 12px 30px;
 
     border-radius: 3px;
-
     font-weight: bold;
-    color: #00497F;
+    color: #70C1B3;
     border: none;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.2);
     letter-spacing: 1px;
     font-size: 16px;
     }
+
+    &-btn:hover {
+    color: #FF1654;
+    background-color: #F3FFBD;
+
+    }
+
   }
+  .btn-default{
+       font-size: 30 px;
+
+    }
 
 .no-padding {
   padding-left: 0 !important;
@@ -70,6 +124,41 @@
             padding: 0;
             margin: 0 0 10px;
         }
+
+
+  .presentation h2 {
+    display:inline;
+    font-size: 50px;
+  }
+
+  .est {
+    color:#B2DBBF;
+  }
+
+  .description {
+    &-first {
+    color:#B2DBBF;
+  }
+
+    &-second {
+    color:#FF1654;
+    }
+  }
+
+  description h4 {
+    display:inline;
+  }
+
+  .presentation-food {
+    color:#B2DBBF;
+
+  }
+
+   .presentation-kick {
+    color:#FF1654;
+
+  }
+
 
 
 
