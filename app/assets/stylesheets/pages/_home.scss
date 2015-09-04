@@ -3,10 +3,10 @@
  * (margin/padding adjustments, background image, etc..)
  * ------------------------------------- */
 
-#home {
+/*#home {
 
   background-image: url("pattern.png");
-}
+}*/
 
 
 .banner_home {
@@ -37,13 +37,48 @@
   padding-right: 0 !important;
 }
 
+.flex-container {
+           display: -webkit-flex;
+           display: flex;
+           -webkit-flex-direction: row;
+           flex-direction: row;
+           -webkit-align-items: center;
+           align-items: center;
 
-.map {
+           flex-wrap: wrap;
+           min-width: 320px;
+           max-width: 1220px;
+        }
+        .flex-item {
+        height: 120px;
+        width: 300px;
+        border: 1px solid #626262;
+        margin: 3px;
+        padding: 10px 0 0 10px;
+        }
+
+        .info-container{
+            display: inline-block;
+            vertical-align: top;
+            padding: 0 0 0 5px;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .info-container p{
+            padding: 0;
+            margin: 0 0 10px;
+        }
+
+
+
+
+/*.map {
     z-index: 1;
     height: 80%;
     width: 30%;
     width: 100%;
-    /* margin: 14% 30% 4% 30%; */
     margin-top: 0;
     background: url("map1.svg") no-repeat center center;
     background-size: contain;
@@ -55,8 +90,8 @@
 
     border-radius: 5%;
     border: 3px solid #F1F1F1;
-    background-color:#00497F;*/
-  }
+    background-color:#00497F;
+  }*/
 
 
 
