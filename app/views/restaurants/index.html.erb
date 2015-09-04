@@ -1,18 +1,103 @@
+<% @no_footer = false %>
 <div class="container-fluid">
   <div class="row">
-    <% @restaurants.each do |restaurant| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <span class="card-bg" style="background-image: url('<%= restaurant.seed_picture %>')"></span>
-          <span class="card-shadow"></span>
-          <span class="card-description"><%= restaurant.category %></span>
-          <span class="card-text">
-            <h2> <%= restaurant.name %> </h2>
-            <p> <%= restaurant.borough %> </p>
-          </span>
-          <%= link_to "Découvrir", restaurant_path(restaurant), class: "card-link" %>
+    <br>
+    <div class="col-xs-7" style="margin-top: 70px;">
+      <div class="row">
+        <div class="search-bar" style="padding-left: 20px; padding-right: 20px;">
+          <div>
+            Type de cuisine :
+            <%= link_to do %>
+              <span class="label label-success" style="margin-left: 10px;">Italien</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-success">Chinois</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-success">Thai</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-success">Japonais</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-success">Français</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-success">Afghan</span>
+            <% end %>
+             ou
+            <input type="text">
+          </div>
+          <hr>
+          <div>
+            Quartier :
+            <%= link_to do %>
+              <span class="label label-primary" style="margin-left: 10px;">Bastille</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-primary">Notre Dame</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-primary">Le Marais</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-primary">La Vilette</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-primary">République</span>
+            <% end %>
+            <%= link_to do %>
+              <span class="label label-primary">Austerlitz</span>
+            <% end %>
+            ou
+            <input type="text">
+          </div>
+          <hr>
+          <div>Prix :<div style="width: 90%; margin-left: 60px; margin-top: -20px;"><input type="range" id="myRange" value="90"></div></div>
         </div>
+        <br>
+        <% 10.times do  %>
+          <% @restaurants.each do |restaurant| %>
+            <div class="col-xs-6">
+              <div class="card restaurant_<%= restaurant.id %>">
+                <span class="card-bg" style="background-image: url('<%= restaurant.seed_picture %>')"></span>
+                <span class="card-shadow"></span>
+                <span class="card-description"><%= restaurant.category %></span>
+                <span class="card-text">
+                  <h2><%= restaurant.name %></h2>
+                  <p><%= restaurant.borough %></p>
+                </span>
+                <span class="card-search"><i class="fa fa-search fa-5x text-center"></i></span>
+                <%= link_to " ", restaurant_path(restaurant), class: "card-link" %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
+      <div class="row" style="padding-left: 50px; padding-right: 50px; ">
+        <hr>
+        <p style="padding-bottom: 20px;">Vous pouvez également découvrir <%= link_to "Le Marais" %> · <%= link_to "Bastille" %> · <%= link_to "Abbesses" %></p>
+      </div>
+    </div>
+    <div class="col-xs-5 search-map">
+      <div id="map" style="width: 100%; height: 100vh;"></div>
+      <% content_for(:after_js) do %>
+        <script type="text/javascript">
+              $(document).on('ready', function() {
+                var handler = Gmaps.build('Google');
+                handler.buildMap({ internal: { id: 'map' } }, function(){
+                  markers = handler.addMarkers([
+                      { "lat": 48.8426531, "lng": 2.3248288 },
+                      { "lat": 48.8718757, "lng": 2.3500763 },
+                      { "lat": 48.8755557, "lng": 2.3768895 },
+                      { "lat": 48.8529369, "lng": 2.364178  }
+                    ]);
+                  handler.bounds.extendWith(markers);
+                  handler.fitMapToBounds();
+                });
+              })
+            </script>
+      <% end %>
+    </div>
   </div>
 </div>

@@ -1,6 +1,6 @@
 .card {
   position: relative;
-  height: 175px;
+  height: 275px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   color: white;
   margin: 20px auto;
@@ -27,6 +27,7 @@
     top: 10px;
     left: 10px;
   }
+
   &-text {
     position: absolute;
     bottom: 10px;
@@ -51,8 +52,25 @@
     z-index:2;
     background: black;
     opacity: 0;
+    left: 0;
     &:hover{
-      opacity: 0.1;
+      opacity: 0.2;
+    }
+  }
+  &-search {
+    position: absolute;
+    display: block;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+    display: none;
+  }
+  &:hover{
+    .card-description, .card-text{
+      display:none;
+    }
+    .card-search{
+      display:block;
     }
   }
 }
