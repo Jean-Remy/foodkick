@@ -9,6 +9,7 @@ class RestaurantsController < ApplicationController
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
     end
+    @markers.select! { |hash| hash[:lat] != nil && hash[:lng] != nil }
   end
 
   def show
