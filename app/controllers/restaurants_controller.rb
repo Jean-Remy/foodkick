@@ -12,6 +12,7 @@ class RestaurantsController < ApplicationController
     @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
+      # marker.picture(url: 'http://www.renusweb.com/images/icons/icomoon/SVG/chef.svg', width: 32, height: 32 )
     end
     @markers.select! { |hash| hash[:lat] != nil && hash[:lng] != nil }
   end

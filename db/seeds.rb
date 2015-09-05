@@ -282,5 +282,61 @@ user_attributes = [
 
 ]
 
-restaurant_attributes.each { |params| Restaurant.create(params)}
-user_attributes.each { |params| User.create(params)}
+# restaurant_attributes.each { |params| Restaurant.create(params)}
+# user_attributes.each { |params| User.create(params)}
+
+# require 'nokogiri'
+# require 'open-uri'
+# require "selenium-webdriver"
+
+# URL = "http://fr.newtable.com/restaurants-paris.php"
+
+# @doc = Nokogiri::HTML(open(URL))
+
+
+# def parse(css)
+#   elements = []
+#   @doc.css("#{css}").each_with_index do |element, index|
+#     elements << element.text
+#     break if index > 20
+#   end
+#   return elements
+# end
+
+# def parse_url(css)
+#   urls = []
+#   @doc.css("#{css}").each_with_index do |link, index|
+#     urls << link['src']
+#     break if index > 20
+#   end
+#   return urls
+# end
+
+# # Finding specific infos for each restaurant
+# # def find_restaurant_infos
+# #   infos = []
+# #   driver = Selenium::WebDriver.for :firefox
+# #   driver.navigate.to URL
+# #   hrefs = driver.find_elements(:class, 'image')
+# #   driver.navigate.to hrefs.first.attribute('href')
+# #   driver.quit
+# #   hrefs.each_with_index do |href, index|
+# #     driver = Selenium::WebDriver.for :firefox
+# #     driver.navigate.to href.attribute('href')
+# #     info = driver.find_elements(:class, 'encart').map { |element| element.text }
+# #     infos << info
+# #     driver.quit
+# #     break if index > 20
+# #   end
+# # end
+
+# # Calling the scraper functions
+# names = parse('p.lite-title a')
+# urls = parse_url('a.image img')
+# categories = parse('span.categorie')
+
+# # Creating an array with the found infos
+# prout = []
+# names.each_with_index do |name, index|
+#   prout << [name, urls[index], categories[index]]
+# end
