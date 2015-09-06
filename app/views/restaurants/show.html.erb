@@ -7,6 +7,11 @@
       <% if user_signed_in? %>
         <% if @booked && current_user.owner == false %>
           <%=link_to 'Voir mon code', codes_path %>
+          <% else %>
+          <%= simple_form_for @restaurant do |f| %>
+            <%= f.input WHAT %>
+            <%= f.button :submit, class: "btn btn-primary"%>
+          <% end %>
         <% end %>
       <% else %>
         <div class="text-center">

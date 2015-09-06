@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_action :set_restaurant, only: [:show, :update_picture, :destroy]
   before_action :voucher, only: [:show]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -33,7 +33,7 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
-  def update
+  def update_picture
   end
 
   private
