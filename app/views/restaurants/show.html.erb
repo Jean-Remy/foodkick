@@ -4,11 +4,10 @@
   <div class="banner-content">
     <h1><%= @restaurant.name %></h1>
     <p>Le meilleur restaurant chinois de Paris, élu par la communauté</p>
-    <a class="btn btn-primary btn-lg">
-      <% if user_signed_in? && @booked %>
-        <% unless current_user.owner %>
+      <% if user_signed_in? %>
+        <% if @booked && current_user.owner == false %>
           <%=link_to 'Voir mon code', codes_path %>
-          <% end %>
+        <% end %>
       <% else %>
         <div class="text-center">
           <%= simple_form_for [@restaurant, @reservation] do |f| %>
@@ -16,7 +15,6 @@
           <% end %>
         </div>
       <% end %>
-    </a>
   </div>
 </div>
 
@@ -75,8 +73,8 @@
 </div>
 
 <p class="text-center">
-  <% if user_signed_in? && @booked %>
-    <% unless current_user.owner %>
+  <% if user_signed_in?   %>
+    <% if @booked && current_user.owner == false %>
       <%=link_to 'Voir mon code', codes_path %>
       <% end %>
   <% else %>
