@@ -4,8 +4,12 @@
   <div class="row">
 
     <ul class="nav nav-tabs" data-tabs="tabs">
-      <li class="active"><a data-toggle="tab" href="#analytics">Analytics</a></li>
-      <li><a data-toggle="tab" href="#now">A venir/En cours</a></li>
+      <li class="active"><a data-toggle="tab" href="#analytics"><i class="fa fa-eye"></i>
+ Analytics</a></li>
+      <li><a data-toggle="tab" href="#rating"><i class="fa fa-star"></i>
+Rating</a></li>
+      <li><a data-toggle="tab" href="#now"><i class="fa fa-money"></i>
+ Réservations</a></li>
       <li><a data-toggle="tab" href="#past">Passées</a></li>
     </ul>
     <br>
@@ -14,50 +18,84 @@
       <div id="analytics" class="tab-pane active">
         <div class="container">
           <div class="row ">
-            <div class="col-xs-12 col-md-3">
-              <i class="fa fa-eye analytic"></i>
-              <p> Vues : <%= @restaurant.views %> </p>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card-analytic">
+                <h2 class="analytic"> <%= @number_of_views %> </h2>
+                <p> Vue<%= render 'shared/pluralization', element: @number_of_views %> </p>
+              </div>
             </div>
-            <div class="col-xs-12 col-md-3">
-              <i class="fa fa-book analytic"></i>
-              <p> Réservations : <%= @reservations.count %> </p>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card-analytic">
+                <h2 class="analytic"> <%= @number_of_reservations %> </h2>
+                <p>
+                  Réservation<%= render 'shared/pluralization', element: @number_of_reservations %>
+                </p>
+              </div>
             </div>
-            <div class="col-xs-12 col-md-3">
-              <i class="fa fa-money analytic"></i>
-              <p> Réservations validées : <%= @reservations.where(status: true).count %> </p>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card-analytic">
+                <h2 class="analytic"> <%= @number_of_validated_reservations %> </h2>
+                <p>
+                  Réservation<%= render 'shared/pluralization', element: @number_of_validated_reservations %> validée<%= render 'shared/pluralization', element: @number_of_validated_reservations %>
+                </p>
+              </div>
             </div>
-            <div class="col-xs-12 col-md-3">
-              <i class="fa fa-comment analytic"></i>
-              <p> Feedbacks reçus : <%= @reservations.where(feedbacked: true).count %> </p>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card-analytic">
+                <h2 class="analytic"> <%= @number_of_feedbacks %> </h2>
+                <p>
+                  Feedback<%= render 'shared/pluralization', element: @number_of_feedbacks %> reçu<%= render 'shared/pluralization', element: @number_of_feedbacks %>
+                </p>
+              </div>
             </div>
           </div>
         </div>
-
+      </div>
+      <div id="rating" class="tab-pane">
+        <div class="container">
+          <div class="row ">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <p> Expérience </p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <p> Cuisine </p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <p> Service </p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <p> Rapport qualité/prix </p>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="now" class="tab-pane">
         <% @reservations.each do |reservation| %>
-          <% if reservation.status == false %>
+          <% if @reservations.first != (nil || "") && reservation.status == false %>
             <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
             <br>
             <%= reservation.code %>
             <br>
             <hr>
+          <% else %>
+            <p> Vous n'avez pas encore de coupon émis </p>
           <% end %>
         <% end %>
       </div>
       <div id="past" class="tab-pane">
         <% @reservations.each do |reservation| %>
-          <% if reservation.status == true %>
+          <% if @reservations.first != (nil || "") && reservation.status %>
             <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
             <br>
             <%= reservation.code %>
             <br>
             <hr>
+            <% else %>
+              <p> Vous n'avez pas encore validé de coupon </p>
           <% end %>
         <% end %>
       </div>
     </div>
-
   </div>
 </div>
 
