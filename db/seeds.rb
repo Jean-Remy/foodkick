@@ -282,12 +282,8 @@ user_attributes = [
 
 ]
 
-# restaurant_attributes.each { |params| Restaurant.create(params)}
-# user_attributes.each { |params| User.create(params)}
-
 # require 'nokogiri'
 # require 'open-uri'
-# require "selenium-webdriver"
 
 # URL = "http://fr.newtable.com/restaurants-paris.php"
 
@@ -300,43 +296,39 @@ user_attributes = [
 #     elements << element.text
 #     break if index > 20
 #   end
-#   return elements
+#   elements
 # end
 
-# def parse_url(css)
+# def parse_url(css, attribute)
 #   urls = []
 #   @doc.css("#{css}").each_with_index do |link, index|
-#     urls << link['src']
+#     urls << link["#{attribute}"]
 #     break if index > 20
 #   end
-#   return urls
+#   urls
 # end
 
 # # Finding specific infos for each restaurant
-# # def find_restaurant_infos
-# #   infos = []
-# #   driver = Selenium::WebDriver.for :firefox
-# #   driver.navigate.to URL
-# #   hrefs = driver.find_elements(:class, 'image')
-# #   driver.navigate.to hrefs.first.attribute('href')
-# #   driver.quit
-# #   hrefs.each_with_index do |href, index|
-# #     driver = Selenium::WebDriver.for :firefox
-# #     driver.navigate.to href.attribute('href')
-# #     info = driver.find_elements(:class, 'encart').map { |element| element.text }
-# #     infos << info
-# #     driver.quit
-# #     break if index > 20
-# #   end
-# # end
+# def find_restaurant_infos
+#   elements = []
+#   hrefs = parse_url('a.image', 'href')
+#   hrefs.each do |href|
+#     @doc = Nokogiri::HTML(open("http://fr.newtable.com/#{href}"))
+#     elements << @doc.css('.encart').text
+#   end
+#   elements
+# end
 
 # # Calling the scraper functions
 # names = parse('p.lite-title a')
-# urls = parse_url('a.image img')
+# urls = parse_url('a.image img', 'src')
 # categories = parse('span.categorie')
+# infos = find_restaurant_infos
 
 # # Creating an array with the found infos
 # prout = []
 # names.each_with_index do |name, index|
-#   prout << [name, urls[index], categories[index]]
+#   prout << [name, urls[index], categories[index], infos[index]]
 # end
+
+# p prout
