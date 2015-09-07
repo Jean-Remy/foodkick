@@ -7,6 +7,7 @@ class ReservationsController < ApplicationController
   def index
     # @reservations = policy_scope(Reservation)
     @reservations = Reservation.where(restaurant_id: params[:restaurant_id])
+    authorize @reservations
   end
 
   def create

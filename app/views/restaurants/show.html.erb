@@ -5,7 +5,7 @@
     <h1><%= @restaurant.name %></h1>
     <p>Le meilleur restaurant chinois de Paris, élu par la communauté</p>
       <% if user_signed_in? %>
-        <% if current_user.owner == false %>
+        <% if (current_user.owner == false) || (current_user.owner.nil?) %>
           <% if @booked %>
             <%=link_to 'Voir mon code', codes_path %>
           <% else %>

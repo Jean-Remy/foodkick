@@ -1,0 +1,31 @@
+
+<h4>Détails</h4>
+
+
+<%= simple_form_for(current_user) do |f| %>
+<%= f.error_notification %>
+<%= f.input :email, class: "form-control", :input_html => { :size => 30}, label:false%>
+<%= f.input :first_name, class: "form-control", :input_html => { :size => 30}, label:false, placeholder: "First name"%>
+<%= f.input :last_name, class: "form-control", :input_html => { :size => 30}, label:false, placeholder: "Last name"%>
+<br>
+<br>
+<%= f.input :picture, class: "form-control", :input_html => {:preview_version => :thumb}, label: "Your picture"%>
+<br>
+<br>
+
+<%= f.button :submit, "Valider", class: "btn btn-primary" %>
+<% end %>
+
+<br>
+<br>
+
+<h4>Préférences</h4>
+
+<%=simple_form_for(current_user) do |f|%>
+  <label class="checkbox">
+    <div class="list-inline">
+    <input class="boolean optional" id="user_published" type="checkbox" value="1"><p>Japonais</p></div>
+    <div class="list-inline">
+    <input class="boolean optional" id="user_published" type="checkbox" value="1"><p>Italien</p></div>
+  </label>
+<%end%>
