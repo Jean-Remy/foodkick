@@ -21,4 +21,8 @@ class RestaurantPolicy < ApplicationPolicy
     record.user == user # seuls le owner du restaurant et les admins (tbd plus tard) peuvent destroy
   end
 
+  def index?
+    true
+  end
+
 end

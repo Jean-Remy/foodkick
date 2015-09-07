@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   get '/error', to: 'reservations#error', as: :error
 
   # restaurants custom routes
-  get '/update_picture' to: 'restaurants#update_picture' as: :update_picture
+  get '/update_picture', to: 'restaurants#update_picture', as: :update_picture
 end
