@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150904130549) do
+ActiveRecord::Schema.define(version: 20150907154450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,10 +133,10 @@ ActiveRecord::Schema.define(version: 20150904130549) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
-    t.boolean  "active"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.boolean  "owner"
     t.integer  "restaurant_id"
     t.string   "picture_file_name"
@@ -144,6 +144,16 @@ ActiveRecord::Schema.define(version: 20150904130549) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "can_book"
+    t.boolean  "italian"
+    t.boolean  "french"
+    t.boolean  "japanese"
+    t.boolean  "thai"
+    t.boolean  "viet"
+    t.boolean  "bastille"
+    t.boolean  "notre_dame"
+    t.boolean  "marais"
+    t.boolean  "villette"
+    t.boolean  "abbesses"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -153,7 +163,6 @@ ActiveRecord::Schema.define(version: 20150904130549) do
 
   add_foreign_key "courses", "restaurants"
   add_foreign_key "feedback_answers", "feedback_questions"
-  add_foreign_key "feedback_answers", "reservations"
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "reservations", "restaurants"

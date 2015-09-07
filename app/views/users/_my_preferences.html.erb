@@ -1,0 +1,26 @@
+
+<div class="container padded">
+
+  <div class="col-xs-12 col-md-6">
+    <h4>Le type de restaurants que je préfére</h4>
+    <%=simple_form_for(current_user) do |f|%>
+      <%=f.input :italian, label: "Italien", class: "form-control" %>
+      <%=f.input :french, label: "Français", class: "form-control"%>
+      <%=f.input :thai, label: "Thailandais", class: "form-control"%>
+      <%=f.input :japanese, label: "Japonais", class: "form-control"%>
+      <%=f.input :viet, label: "Vietnamien", class: "form-control"%>
+    <%end%>
+  </div>
+
+
+  <div class="col-xs-12 col-md-6">
+    <h4>Mes quartiers préférés</h4>
+    <%=simple_form_for(current_user) do |f|%>
+      <%=f.input :bastille, label: "Bastille"%>
+      <%=f.input :notre_dame, label: "Notre-Dame"%>
+      <%=f.input :marais, label: "Marais"%>
+      <%=f.input :villette, label: "Villette"%>
+      <%=f.input :abbesses, label: "Abbesses"%>
+    <%end%>
+  </div>
+</div>

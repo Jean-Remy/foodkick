@@ -6,7 +6,8 @@
 
   <ul class="nav nav-tabs" data-tabs="tabs">
     <li class="active" ><a data-toggle="tab" href="#reservations">Mes réservations</a></li>
-    <li><a data-toggle="tab" href="#details">Mes détails et préférences</a></li>
+    <li><a data-toggle="tab" href="#details">Mes détails</a></li>
+    <li><a data-toggle="tab" href="#preferences">Mes préférences</a></li>
   </ul>
   <br>
 
@@ -20,6 +21,13 @@
     <div id="details" class="tab-pane form-inline">
       <%=render 'users/my_details.html.erb'%>
     </div>
+
+    <div id="preferences" class="tab-pane form-inline">
+      <%=render 'users/my_preferences.html.erb'%>
+    </div>
+
+
+
   </div>
 </div>
 
