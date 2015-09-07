@@ -14,7 +14,8 @@ class RestaurantsController < ApplicationController
     @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
-      # marker.picture(url: 'http://www.renusweb.com/images/icons/icomoon/SVG/chef.svg', width: 32, height: 32 )
+
+      #marker.picture(url: view_context.image_path('toc.png'), width: 35, height: 70 )
     end
 
     @markers.select! { |hash| hash[:lat] != nil && hash[:lng] != nil }
@@ -36,11 +37,15 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
-  def update_restaurant
-    # on devrait gérer les droits avec pundit sur cette méthode
+  def update_picture
+    @restaurant.update(params[:restaurant])
   end
 
   private
+
+  def picture_params
+    params.require(:restaurant).permit(:seed_picture)
+  end
 
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
