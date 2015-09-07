@@ -1,12 +1,16 @@
 require 'securerandom'
 
 class ReservationsController < ApplicationController
-  before_action :find_restaurant, only: [:new, :create, :validate_code_path]
+  before_action :find_restaurant, only: [:new, :create, :validate_code_path, :index]
   before_action :find_codes
 
   def index
     # @reservations = policy_scope(Reservation)
     @reservations = Reservation.where(restaurant_id: params[:restaurant_id])
+    @number_of_views = @restaurant.views
+    @number_of_reservations = @reservations.count
+    @number_of_validated_reservations = @reservations.where(status: true).count
+    @number_of_feedbacks = @reservations.where(feedbacked: true).count
   end
 
   def create
