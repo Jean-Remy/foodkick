@@ -1,7 +1,7 @@
 require 'securerandom'
 
 class ReservationsController < ApplicationController
-  before_action :find_restaurant, only: [:new, :create, :validate_code_path]
+  before_action :find_restaurant, only: [:new, :create, :validate_code_path, :index]
   before_action :find_codes
 
   def index

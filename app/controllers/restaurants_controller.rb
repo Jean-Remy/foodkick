@@ -21,6 +21,15 @@ class RestaurantsController < ApplicationController
 
   def show
     authorize @restaurant
+    if user_signed_in?
+      if current_user.restaurant_id != @restaurant.id
+        @restaurant.views += 1
+        @restaurant.save
+      end
+    else
+      @restaurant.views += 1
+      @restaurant.save
+    end
     @reservation = Reservation.new
   end
 
