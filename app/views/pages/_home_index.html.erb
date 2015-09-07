@@ -1,0 +1,15 @@
+<% @restaurants.each do |restaurant| %>
+  <div class="col-xs-6">
+    <div class="card restaurant_<%= restaurant.id %>">
+      <span class="card-bg" style="background-image: url('<%= restaurant.seed_picture %>')"></span>
+      <span class="card-shadow"></span>
+      <span class="card-description"><%= restaurant.category %></span>
+      <span class="card-text">
+        <h2><%= restaurant.name %></h2>
+        <p><%= restaurant.borough %></p>
+      </span>
+      <span class="card-search"><i class="fa fa-search fa-5x text-center"></i></span>
+      <%= link_to " ", restaurant_path(restaurant), class: "card-link" %>
+    </div>
+  </div>
+<% end %>
