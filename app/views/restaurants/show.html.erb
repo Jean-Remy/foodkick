@@ -7,7 +7,8 @@
       <% if user_signed_in? %>
         <% if @booked && current_user.owner == false %>
           <%=link_to 'Voir mon code', codes_path %>
-          <% else %>
+        <%elsif @booked == false && current_user.owner == false %>
+          <!-- Modifier la condition, si le user n'est pas le owner mais n'a pas booké, il est redirigé sur update restaurant path-->
           <%=link_to 'Changer la Photo', update_restaurant_path(@restaurant) %>
         <% end %>
       <% else %>
