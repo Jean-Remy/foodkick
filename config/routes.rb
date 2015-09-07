@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :feedbacks
     # restaurants custom routes
     patch '/update_picture', to: 'restaurants#update_picture', as: :update_picture
+    patch '/update_description', to: 'restaurants#update_description', as: :update_description
   end
   # reservations custom routes
   get '/validate', to: "reservations#validate", as: :validate

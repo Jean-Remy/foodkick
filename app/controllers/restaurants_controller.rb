@@ -40,17 +40,26 @@ class RestaurantsController < ApplicationController
 
   def update_picture
     set_restaurant(:restaurant_id)
-    if @restaurant.update(picture_params)
-      redirect_to restaurant_path(@restaurant), notic: 'Votre image a été changé avec succès'
+    if @restaurant.update(edit_params(:seed_picture))
+      redirect_to restaurant_path(@restaurant), notice: 'Votre image a été changé avec succès'
     else
-      redirect_to restaurant_path(@restaurant), notice: "Oups ! Ceci est un bug, merci de le reporter"
+      redirect_to restaurant_path(@restaurant), notice: "Oups ! Ca n'a pas marché"
+    end
+  end
+
+  def update_description
+    set_restaurant(:restaurant_id)
+    if @restaurant.update(edit_params(:description))
+      redirect_to restaurant_path(@restaurant), notice: 'Votre description a été changée avec succès'
+    else
+      redirect_to restaurant_path(@restaurant), notice: "Oups ! Ca n'a pas marché"
     end
   end
 
   private
 
-  def picture_params
-    params.require(:restaurant).permit(:restaurant_id, :seed_picture)
+  def edit_params(param)
+    params.require(:restaurant).permit(:restaurant_id, param)
   end
 
   def set_restaurant(id = :id)

@@ -5,7 +5,7 @@
     <h1><%= @restaurant.name %></h1>
     <p>Le meilleur restaurant chinois de Paris, élu par la communauté</p>
       <% if user_signed_in? %>
-        <% if current_user.owner == false %>
+        <% if current_user.owner == (false || nil) %>
           <% if @booked %>
             <%=link_to 'Voir mon code', codes_path %>
           <% else %>
@@ -22,7 +22,6 @@
       <% end %>
   </div>
 </div>
-
 <div class="restaurant-show-content">
   <div class="container">
     <div class="row">
@@ -34,10 +33,16 @@
         <h3>UN VOYAGE</h3>
         <p>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-        </p>
-        <p>
           Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
         </p>
+        <% if user_signed_in? %>
+          <% if current_user.owner && current_user.restaurant_id == @restaurant.id %>
+            <%= simple_form_for @restaurant, url: restaurant_update_description_path(@restaurant), method: :patch do |f| %>
+              <%= f.input :description %>
+              <%= f.button :submit, class: "btn btn-primary"%>
+            <% end %>
+          <% end -%>
+        <% end %>
       </div>
     </div>
     <div class="row">
