@@ -312,9 +312,9 @@ user_attributes = [
 # def find_restaurant_infos
 #   elements = []
 #   hrefs = parse_url('a.image', 'href')
-#   hrefs.each do |href|
+#   hrefs.each_with_index do |href, index|
 #     @doc = Nokogiri::HTML(open("http://fr.newtable.com/#{href}"))
-#     elements << @doc.css('.encart').text
+#     elements << @doc.css('.encart').text.gsub(/\t/, "")
 #   end
 #   elements
 # end
