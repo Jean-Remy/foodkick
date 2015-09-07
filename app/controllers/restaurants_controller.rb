@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :update_picture, :destroy]
+  before_action :set_restaurant, only: [:show, :destroy]
   before_action :voucher, only: [:show]
+  before_action :picture_params, only: [:update_picture]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
@@ -38,17 +39,22 @@ class RestaurantsController < ApplicationController
   end
 
   def update_picture
-    @restaurant.update(params[:restaurant])
+    set_restaurant(:restaurant_id)
+    if @restaurant.update(picture_params)
+      redirect_to restaurant_path(@restaurant), notic: 'Votre image a été changé avec succès'
+    else
+      redirect_to restaurant_path(@restaurant), notice: "Oups ! Ceci est un bug, merci de le reporter"
+    end
   end
 
   private
 
   def picture_params
-    params.require(:restaurant).permit(:seed_picture)
+    params.require(:restaurant).permit(:restaurant_id, :seed_picture)
   end
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:id])
+  def set_restaurant(id = :id)
+    @restaurant = Restaurant.find(params[id])
   end
 
   def voucher

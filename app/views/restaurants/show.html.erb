@@ -12,7 +12,10 @@
             <%= render 'coupon_form' %>
           <% end %>
         <% elsif current_user.restaurant_id == @restaurant.id %>
-          <%=link_to 'Changer la Photo', update_picture_path(@restaurant) %>
+          <%= simple_form_for @restaurant, url: restaurant_update_picture_path(@restaurant), method: :patch do |f| %>
+            <%= f.input :seed_picture %>
+            <%= f.button :submit, class: "btn btn-primary"%>
+          <% end %>
         <% end %>
       <% else %>
         <%= render 'coupon_form' %>

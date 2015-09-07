@@ -5,6 +5,10 @@ class RestaurantPolicy < ApplicationPolicy
     end
   end
 
+  def update_picture?
+    true if user.restaurant_id == @restaurant.id
+  end
+
   def show?
     true # tous les visiteurs et users peuvent voir toues les restaurants (sauf ceux non validés, mais sera filtré autre part)
   end
