@@ -38,11 +38,14 @@ class RestaurantsController < ApplicationController
   end
 
   def update_picture
-
-    # on devrait gérer les droits avec pundit sur cette méthode
+    @restaurant.update(params[:restaurant])
   end
 
   private
+
+  def picture_params
+    params.require(:restaurant).permit(:seed_picture)
+  end
 
   def set_restaurant
     @restaurant = Restaurant.find(params[:id])
