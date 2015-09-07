@@ -4,18 +4,19 @@
   <div class="row">
 
     <ul class="nav nav-tabs" data-tabs="tabs">
-      <li class="active"><a data-toggle="tab" href="#analytics"><i class="fa fa-eye"></i>
- Analytics</a></li>
+      <li class="active"><a data-toggle="tab" href="#coupon"><i class="fa fa-money"></i>
+        Coupons</a></li>
       <li><a data-toggle="tab" href="#rating"><i class="fa fa-star"></i>
-Rating</a></li>
-      <li><a data-toggle="tab" href="#now"><i class="fa fa-money"></i>
- Réservations</a></li>
-      <li><a data-toggle="tab" href="#past">Passées</a></li>
+        Rating</a></li>
+      <li><a data-toggle="tab" href="#feedback"><i class="fa fa-comment"></i>
+        Feedbacks</a></li>
+      <li><a data-toggle="tab" href="#analytics"><i class="fa fa-eye"></i>
+        Analytics</a></li>
     </ul>
     <br>
 
     <div class="tab-content">
-      <div id="analytics" class="tab-pane active">
+      <div id="analytics" class="tab-pane">
         <div class="container">
           <div class="row ">
             <div class="col-xs-12 col-sm-6 col-md-3">
@@ -69,34 +70,110 @@ Rating</a></li>
           </div>
         </div>
       </div>
-      <div id="now" class="tab-pane">
-        <% @reservations.each do |reservation| %>
-          <% if @reservations.first != (nil || "") && reservation.status == false %>
-            <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
-            <br>
-            <%= reservation.code %>
-            <br>
-            <hr>
-          <% else %>
-            <p> Vous n'avez pas de coupon émis </p>
-          <% end %>
-        <% end %>
+      <div id="coupon" class="tab-pane active">
+        <div class="container">
+          <div class="row">
+            <%= form_tag(validate_code_path, method: "post") do %>
+              <%= text_field_tag(:code) %>
+              <br><br>
+              <%= submit_tag("Valider") %>
+            <% end %>
+          </div>
+          <div class="row">
+            <h2>Coupons émis</h2>
+            <% @reservations.each do |reservation| %>
+              <div class="col-xs-12">
+                <% if @reservations.first != (nil || "") %>
+                  <% if reservation.status == false %>
+                    <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
+                    <br>
+                    <%= reservation.code %>
+                    <br>
+                    <hr>
+                  <% end %>
+                <% else %>
+                  <p> Vous n'avez pas de coupon émis </p>
+                  <hr>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <div class="row">
+            <h2>Coupons validés</h2>
+            <% @reservations.each do |reservation| %>
+              <div class="col-xs-12">
+                <% if @reservations.first != (nil || "") %>
+                  <% if reservation.status %>
+                    <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
+                    <br>
+                    <%= reservation.code %>
+                    <br>
+                    <hr>
+                  <% end %>
+                <% else %>
+                  <p> Vous n'avez pas de coupon émis </p>
+                  <hr>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div id="past" class="tab-pane">
-        <% @reservations.each do |reservation| %>
-          <% if @reservations.first != (nil || "") && reservation.status %>
-            <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
-            <br>
-            <%= reservation.code %>
-            <br>
-            <hr>
-            <% else %>
-              <p> Vous n'avez pas de coupon validé </p>
-          <% end %>
-        <% end %>
+      <div id="feedback" class="tab-pane">
+        <div class="container">
+          <div class="row">
+            <% @feedbacks.each do |feedback| %>
+              <div class="col-xs-12 col-sm-6">
+                <div class="text-center card-analytic">
+                  <h3><%= User.find(feedback.user_id).first_name %> <%= User.find(feedback.user_id).last_name %></h3>
+                  <p class="date"> <%= feedback.created_at.day %>/<%= feedback.created_at.month %>/<%=feedback.created_at.year %></p>
+                  <p>
+                    <strong>Qu'avez vous pensé de l'ambiance globale du restaurant ?</strong><br>
+                    <%= feedback.answer1 %>
+                  </p>
+                  <p>
+                    <strong>Qu'avez vous pensé de la cuisine ?</strong><br>
+                    <%= feedback.answer2 %>
+                  </p>
+                  <p>
+                    <strong>Qu'avez vous pensé du service ?</strong><br>
+                    <%= feedback.answer3 %>
+                  </p>
+                  <p>
+                    <strong>Qu'avez vous particulièrement aimé ?</strong><br>
+                    <%= feedback.answer4 %>
+                  </p>
+                  <p>
+                    <strong>Qu'avez vous particulièrement regrété ?</strong><br>
+                    <%= feedback.answer5 %>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+<!--             <div>
+              <br><br>
+              <h3>Plus de feedback ? Passez en sponsorisé !</h3>
+              <br><br>
+
+              <form action="" method="POST">
+                <script
+                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                  data-amount="990"
+                  data-name="Foodkick"
+                  data-description="Un mois sponsorisé (9.90€)"
+                  data-image="https://pbs.twimg.com/profile_images/483691332268208128/bdNi5Gs5.jpeg"
+                  data-locale="auto">
+                </script>
+              </form>
+
+            </div> -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
