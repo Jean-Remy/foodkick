@@ -5,6 +5,10 @@ class RestaurantPolicy < ApplicationPolicy
     end
   end
 
+  def update_picture?
+    true if user.restaurant_id == @restaurant.id
+  end
+
   def show?
     true # tous les visiteurs et users peuvent voir toues les restaurants (sauf ceux non validés, mais sera filtré autre part)
   end
@@ -20,9 +24,4 @@ class RestaurantPolicy < ApplicationPolicy
   def destroy?
     record.user == user # seuls le owner du restaurant et les admins (tbd plus tard) peuvent destroy
   end
-
-  def index?
-    true
-  end
-
 end
