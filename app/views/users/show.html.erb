@@ -1,1 +1,58 @@
-<p>Coucou !</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container padded text-center">
+  <div class="row">
+
+    <ul class="nav nav-tabs" data-tabs="tabs">
+      <li class="active" ><a data-toggle="tab" href="#details">Détails et préférences</a></li>
+      <li><a data-toggle="tab" href="#reservations">Mes reservations</a></li>
+    </ul>
+    <br>
+
+
+    <div class="tab-content">
+      <div id="details" class="tab-pane active form-inline">
+        <%= simple_form_for(current_user) do |f| %>
+          <%= f.error_notification %>
+          <%= f.input :email, class: "form-control"%>
+          <%= f.button :submit, "Valider", class: "btn btn-primary" %>
+        <% end %>
+
+
+        <h4>Sauvergarder mes préferences</h4>
+
+        <%=simple_form_for(current_user) do |f|%>
+          <label class="checkbox">
+            <div class="list-inline">
+            <input class="boolean optional" id="user_published" type="checkbox" value="1"><p>Japonais</p></div>
+            <div class="list-inline">
+            <input class="boolean optional" id="user_published" type="checkbox" value="1"><p>Italien</p></div>
+          </label>
+        <%end%>
+
+      </div>
+
+      <div id="reservations" class="tab-pane">
+        <h3>A venir</h3>
+
+        <% @coming_reservations.each do |reservation| %>
+          <strong><%= reservation.restaurant.name %></strong>
+          <br>
+          <%= reservation.code %>
+          <br>
+        <% end %>
+
+        <h3>Passées</h3>
+         <% @past_reservations.each do |reservation| %>
+          <strong><%= reservation.restaurant.name %></strong>
+          <br>
+          <%= reservation.code %>
+          <br>
+        <% end %>
+
+      </div>
+  </div>
+</div>
