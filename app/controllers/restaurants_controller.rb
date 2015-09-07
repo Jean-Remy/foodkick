@@ -4,7 +4,9 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+
     if params[:ar_id]
+      @restaurants = policy_scope(Restaurant)
       @restaurants = Restaurant.where(zip_code: params[:ar_id])
     else
       @restaurants = policy_scope(Restaurant)
@@ -14,6 +16,7 @@ class RestaurantsController < ApplicationController
       marker.lng restaurant.longitude
       # marker.picture(url: 'http://www.renusweb.com/images/icons/icomoon/SVG/chef.svg', width: 32, height: 32 )
     end
+
     @markers.select! { |hash| hash[:lat] != nil && hash[:lng] != nil }
   end
 
@@ -33,7 +36,8 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
-  def update_picture
+  def update_restaurant
+    # on devrait gérer les droits avec pundit sur cette méthode
   end
 
   private
