@@ -352,25 +352,33 @@ html, body {
 
 .customers-review-card {
   &-1 {
-    background-image: url(https://unsplash.com/photos/Hv6gcEILXww/https://images.unsplash.com/photo-1428470341793-f73b1237fb98?q=80&fm=jpg&s=abd9444dc748fd6a0b3777a55a87f7d5);
+    background-image: url(https://images.unsplash.com/photo-1441123100240-f9f3f77ed41b?q=80&fm=jpg&s=56e03c320113b2bf6ba1b3e2e7519c22);
+    background-position: bottom;
+    background-size: cover;
     height: 400px;
     margin-left: 10px;
     margin-right: 10px;
   }
   &-2 {
-    background-color: red;
+    background-image: url(https://images.unsplash.com/photo-1430834447668-d44a17fc36fe?q=80&fm=jpg&s=088bb7c636d6e4958eec97631c4075ba);
+    background-position: center;
+    background-size: cover;
     height: 400px;
     margin-left: 10px;
     margin-right: 10px;
   }
   &-3 {
-    background-color: red;
+    background-image: url(https://images.unsplash.com/photo-1429362078931-9ba258af2ff0?q=80&fm=jpg&s=d541fa694c3c494774bb1028e27f7c1d);
+    background-position: bottom;
+    background-size: cover;
     height: 400px;
     margin-left: 10px;
     margin-right: 10px;
   }
   &-4 {
-    background-color: red;
+    background-image: url( https://images.unsplash.com/uploads/1412433710756bfa9ec14/d568362b?q=80&fm=jpg&s=1fd509748ff59049a622076b2def0802);
+    background-position: bottom;
+    background-size: cover;
     height: 400px;
     margin-left: 10px;
     margin-right: 10px;

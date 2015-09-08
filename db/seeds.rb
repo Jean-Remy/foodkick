@@ -279,8 +279,9 @@ user_attributes = [
     owner: true,
     restaurant_id: 4
   }
-
 ]
+
+
 
 # require 'nokogiri'
 # require 'open-uri'
