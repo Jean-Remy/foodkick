@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907154450) do
+ActiveRecord::Schema.define(version: 20150908125518) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,18 +115,18 @@ ActiveRecord::Schema.define(version: 20150907154450) do
   add_index "schedules", ["restaurant_id"], name: "index_schedules_on_restaurant_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
@@ -145,16 +145,27 @@ ActiveRecord::Schema.define(version: 20150907154450) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "can_book"
-    t.boolean  "italian"
-    t.boolean  "french"
-    t.boolean  "japanese"
-    t.boolean  "thai"
-    t.boolean  "viet"
-    t.boolean  "bastille"
-    t.boolean  "notre_dame"
-    t.boolean  "marais"
-    t.boolean  "villette"
-    t.boolean  "abbesses"
+    t.boolean  "italian",                default: false
+    t.boolean  "french",                 default: false
+    t.boolean  "japanese",               default: false
+    t.boolean  "thai",                   default: false
+    t.boolean  "viet",                   default: false
+    t.boolean  "bastille",               default: false
+    t.boolean  "notre_dame",             default: false
+    t.boolean  "marais",                 default: false
+    t.boolean  "villette",               default: false
+    t.boolean  "abbesses",               default: false
+    t.boolean  "chinese",                default: false
+    t.boolean  "indian",                 default: false
+    t.boolean  "mexican",                default: false
+    t.boolean  "lebanese",               default: false
+    t.boolean  "odeon",                  default: false
+    t.boolean  "saint_germain",          default: false
+    t.boolean  "trocadero",              default: false
+    t.boolean  "quartier_latin",         default: false
+    t.boolean  "republique",             default: false
+    t.boolean  "montmartre",             default: false
+    t.boolean  "champs",                 default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

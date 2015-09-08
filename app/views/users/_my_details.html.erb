@@ -2,20 +2,19 @@
 <h4>Détails</h4>
 
 
-<%= simple_form_for(current_user) do |f| %>
-<%= f.error_notification %>
-<%= f.input :email, class: "form-control", :input_html => { :size => 30}, label:false%>
-<%= f.input :first_name, class: "form-control", :input_html => { :size => 30}, label:false, placeholder: "First name"%>
-<%= f.input :last_name, class: "form-control", :input_html => { :size => 30}, label:false, placeholder: "Last name"%>
-<br>
-<br>
-<%= f.input :picture, class: "form-control", :input_html => {:preview_version => :thumb}, label: "Your picture"%>
-<br>
-<br>
+<%= simple_form_for(@user) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :email, class: "form-control", :input_html => { :size => 30}, label:false%>
+  <%= f.input :first_name, class: "form-control", :input_html => { :size => 30}, label:false, placeholder: "First name"%>
+  <%= f.input :last_name, class: "form-control", :input_html => { :size => 30}, label:false, placeholder: "Last name"%>
+  <br>
+  <br>
+  <%= f.input :picture, class: "form-control", :input_html => {:preview_version => :thumb}, label: "Your picture"%>
+  <br>
+  <br>
 
-<%= f.button :submit, "Valider", class: "btn btn-primary" %>
+  <%= f.button :submit, "Valider", class: "btn btn-primary" %>
 <% end %>
 
 <br>
 <br>
-

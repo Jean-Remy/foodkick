@@ -1,39 +1,46 @@
 
-<div class="container padded">
-
-  <div class="col-xs-12 col-md-6">
-    <h4>Le type de restaurants que je préfére</h4>
-    <%=simple_form_for(current_user) do |f|%>
-    <ul class ="list-unstyled">
-      <li><%=f.input :italian, label: "Italien" %><li>
-      <li><%=f.input :french, label: "Français"%><li>
-      <li><%=f.input :thai, label: "Thailandais"%><li>
-      <li><%=f.input :japanese, label: "Japonais"%><li>
-      <li><%=f.input :viet, label: "Vietnamien"%><li>
-      <br>
-      <br>
-      <br>
-      <li><%= f.button :submit, "Valider", class: "btn btn-primary" %></li>
-    </ul>
-  </div>
+<div class="container">
 
 
   <div class="col-xs-12 col-md-6">
     <h4>Mes quartiers préférés</h4>
     <ul class="list-unstyled">
+      <%=simple_form_for(@user) do |f|%>
       <li><%=f.input :bastille, label: "Bastille"%></li>
       <li><%=f.input :notre_dame, label: "Notre-Dame"%></li>
       <li><%=f.input :marais, label: "Marais"%></li>
       <li><%=f.input :villette, label: "Villette"%></li>
       <li><%=f.input :abbesses, label: "Abbesses"%></li>
-
+      <li><%=f.input :odeon, label: "Odeon"%></li>
+      <li><%=f.input :saint_germain, label: "Saint-Germain"%></li>
+      <li><%=f.input :trocadero, label: "Trocadero"%></li>
+      <li><%=f.input :quartier_latin, label: "Quartier Latin"%></li>
+      <li><%=f.input :republique, label: "République"%></li>
+      <li><%=f.input :montmartre, label: "Monmartre"%></li>
+      <li><%=f.input :champs, label: "Champs-Elysées"%></li>
     </ul>
+  </div>
 
+
+  <div class="col-xs-12 col-md-6">
+  <h4>Le type de restaurants que je préfére</h4>
+  <ul class ="list-unstyled">
+    <li><%=f.input :italian, label: "Italien"%><li>
+    <li><%=f.input :french, label: "Français"%><li>
+    <li><%=f.input :thai, label: "Thailandais"%><li>
+    <li><%=f.input :japanese, label: "Japonais"%><li>
+    <li><%=f.input :viet, label: "Vietnamien"%><li>
+    <li><%=f.input :chinese, label: "Chinois"%><li>
+    <li><%=f.input :indian, label: "Indien"%><li>
+    <li><%=f.input :mexican, label: "Mexicain"%><li>
+    <li><%=f.input :lebanese, label: "Libanais"%><li>
+    <br>
+    <br>
+    <br>
+    <li><%= f.button :submit, "J'adore, je valide", class: "btn btn-primary" %>
+  </ul>
   </div>
 </div>
 
-
-<div class="text-center">
-
   <%end%>
-</div>
+

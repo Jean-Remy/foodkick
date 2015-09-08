@@ -5,25 +5,26 @@
 <div class="container padded">
 
   <ul class="nav nav-tabs" data-tabs="tabs">
-    <li class="active" ><a data-toggle="tab" href="#reservations">Mes réservations</a></li>
+    <li class="active"><a data-toggle="tab" href="#preferences">Mes préférences</a></li>
+    <li><a data-toggle="tab" href="#reservations">Les recommendations de la maison</a></li>
+    <li><a data-toggle="tab" href="#reservations">Mes réservations</a></li>
     <li><a data-toggle="tab" href="#details">Mes détails</a></li>
-    <li><a data-toggle="tab" href="#preferences">Mes préférences</a></li>
   </ul>
   <br>
 
-
   <div class="tab-content">
-    <div id="reservations" class="tab-pane active">
+
+    <div id="preferences" class="tab-pane active">
+      <%=render 'users/my_preferences.html.erb'%>
+    </div>
+
+    <div id="reservations" class="tab-pane form-inline">
       <%=render 'users/my_reservations.html.erb'%>
     </div>
 
 
     <div id="details" class="tab-pane form-inline">
       <%=render 'users/my_details.html.erb'%>
-    </div>
-
-    <div id="preferences" class="tab-pane form-inline">
-      <%=render 'users/my_preferences.html.erb'%>
     </div>
 
 

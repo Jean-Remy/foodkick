@@ -1,23 +1,29 @@
-  <h3>A venir</h3>
+
+
       <div class="row">
-        <% @user.reservations.where(status: false).each do |reservation| %>
-          <div class="col-xs-6">
-            <div class="card restaurant_<%= reservation.restaurant.id %>">
-              <span class="card-bg" style="background-image: url('<%= reservation.restaurant.seed_picture %>')"></span>
-              <span class="card-shadow"></span>
-              <span class="card-description"><%= reservation.restaurant.category %></span>
-              <span class="card-text">
-                <h2><%= reservation.restaurant.name %></h2>
-                <p><%= reservation.restaurant.borough %></p>
-              </span>
-              <span class="card-reservation_code">
-                <p>Code: <%=reservation.code%></p>
-                <p>Réduction demandée le: <%=reservation.created_at.to_date%></p>
-              </span>
-              <span class="card-search"><i class="fa fa-search fa-5x text-center"></i></span>
-              <%= link_to " ", restaurant_path(reservation.restaurant), class: "card-link" %>
+        <% if @user.reservations.where(status: true).length != 0%>
+          <h3>A venir</h3>
+          <% @user.reservations.where(status: false).each do |reservation| %>
+            <div class="col-xs-6">
+              <div class="card restaurant_<%= reservation.restaurant.id %>">
+                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.seed_picture %>')"></span>
+                <span class="card-shadow"></span>
+                <span class="card-description"><%= reservation.restaurant.category %></span>
+                <span class="card-text">
+                  <h2><%= reservation.restaurant.name %></h2>
+                  <p><%= reservation.restaurant.borough %></p>
+                </span>
+                <span class="card-reservation_code">
+                  <p>Code: <%=reservation.code%></p>
+                  <p>Réduction demandée le: <%=reservation.created_at.to_date%></p>
+                </span>
+                <span class="card-search"><i class="fa fa-search fa-5x text-center"></i></span>
+                <%= link_to " ", restaurant_path(reservation.restaurant), class: "card-link" %>
+              </div>
             </div>
-          </div>
+            <% end %>
+            <%else%>
+            <p>Vous n'avez pas de réservations à venir</p>
         <% end %>
       </div>
 
@@ -44,7 +50,8 @@
             </div>
           <% end %>
         </div>
+        <%elsif @user.reservations.where(status: false).length != 0%>
+          <p>C'est votre premier test! Nous espérons que vous allez apprécier.</p>
+          <p>N'hésitez pas à nous faire partager cette première expérience</p>
         <%else%>
-        <p>C'est votre premier test! Nous espérons que vous allez apprécier.</p>
-        <p>N'hésitez pas à nous faire partager cette première expérience</p>
         <%end%>
