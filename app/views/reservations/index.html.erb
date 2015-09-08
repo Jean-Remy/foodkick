@@ -14,79 +14,23 @@
     <br>
 
     <div class="tab-content">
-      <div id="analytics" class="tab-pane">
-        <div class="container">
-          <div class="row ">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="card-analytic">
-                <h2 class="analytic"> <%= @number_of_views %> </h2>
-                <p> Vue<%= render 'shared/pluralization', element: @number_of_views %> </p>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="card-analytic">
-                <h2 class="analytic"> <%= @number_of_reservations %> </h2>
-                <p>
-                  Réservation<%= render 'shared/pluralization', element: @number_of_reservations %>
-                </p>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="card-analytic">
-                <h2 class="analytic"> <%= @number_of_validated_reservations %> </h2>
-                <p>
-                  Réservation<%= render 'shared/pluralization', element: @number_of_validated_reservations %> validée<%= render 'shared/pluralization', element: @number_of_validated_reservations %>
-                </p>
-              </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="card-analytic">
-                <h2 class="analytic"> <%= @number_of_feedbacks %> </h2>
-                <p>
-                  Feedback<%= render 'shared/pluralization', element: @number_of_feedbacks %> reçu<%= render 'shared/pluralization', element: @number_of_feedbacks %>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="rating" class="tab-pane">
-        <div class="container">
-          <div class="row ">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-              <h2 class="analytic" > <%= @average[0] %> </h2>
-              <p> Expérience Générale </p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12 col-sm-3">
-              <h4 class="analytic" > <%= @average[1] %> </h4>
-              <p> Cuisine </p>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-              <h4 class="analytic"> <%= @average[2] %> </h4>
-              <p> Service </p>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-              <h4 class="analytic"> <%= @average[3] %> </h4>
-              <p> Rapport qualité/prix </p>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-              <h4 class="analytic"> <%= @average[4] %> </h4>
-              <p> ambiance </p>
-            </div>
-          </div>
-        </div>
-      </div>
+
+      <!-- Coupon -->
+
       <div id="coupon" class="tab-pane active">
         <div class="container">
           <div class="row">
-            <%= form_tag(validate_code_path, method: "post") do %>
-              <%= hidden_field_tag(:restaurant_id, value = @restaurant.id) %>
-              <%= text_field_tag(:code) %>
-              <br><br>
-              <%= submit_tag("Valider") %>
-            <% end %>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+              <div class="card-analytic form-group">
+                <h2> Valider un coupon </h2>
+                <%= form_tag(validate_code_path, method: "post") do %>
+                  <%= hidden_field_tag(:restaurant_id, value = @restaurant.id) %>
+                  <%= text_field_tag(:code) %>
+                  <br><br>
+                  <%= submit_tag("Valider") %>
+                <% end %>
+              </div>
+            </div>
           </div>
           <div class="row">
             <h2>Coupons émis</h2>
@@ -99,10 +43,10 @@
                     <%= reservation.code %>
                     <br>
                     <hr>
+                  <% else %>
+                    <p> Vous n'avez pas de coupon émis </p>
+                    <hr>
                   <% end %>
-                <% else %>
-                  <p> Vous n'avez pas de coupon émis </p>
-                  <hr>
                 <% end %>
               </div>
             <% end %>
@@ -118,16 +62,71 @@
                     <%= reservation.code %>
                     <br>
                     <hr>
+                  <% else %>
+                    <p> Vous n'avez pas de coupon émis </p>
+                    <hr>
                   <% end %>
-                <% else %>
-                  <p> Vous n'avez pas de coupon émis </p>
-                  <hr>
                 <% end %>
               </div>
             <% end %>
           </div>
         </div>
       </div>
+
+      <!-- Rating -->
+
+      <div id="rating" class="tab-pane">
+        <div class="container">
+          <div class="row ">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+              <div class="card-analytic">
+                <h2 class=<%= @average[0] > 2 ? "analytic-green" : "analytic-red"%>>
+                  <%= @average[0] %>
+                </h2>
+                <p> Expérience Générale </p>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-xs-12 col-sm-3">
+              <div class="card-analytic">
+                <h4 class=<%= @average[1] > 2 ? "analytic-green" : "analytic-red"%>>
+                  <%= @average[1] %>
+                </h4>
+                <p> Cuisine </p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <div class="card-analytic">
+                <h4 class=<%= @average[2] > 2 ? "analytic-green" : "analytic-red"%>>
+                  <%= @average[2] %>
+                </h4>
+                <p> Service </p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <div class="card-analytic">
+                <h4 class=<%= @average[3] > 2 ? "analytic-green" : "analytic-red"%>>
+                  <%= @average[3] %>
+                </h4>
+                <p> Rapport qualité/prix </p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <div class="card-analytic">
+                <h4 class=<%= @average[4] > 2 ? "analytic-green" : "analytic-red"%>>
+                  <%= @average[4] %>
+                </h4>
+                <p> ambiance </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feedback -->
+
       <div id="feedback" class="tab-pane">
         <div class="container">
           <div class="row">
@@ -159,30 +158,64 @@
                 </div>
               </div>
             <% end %>
-<!--             <div>
-              <br><br>
-              <h3>Plus de feedback ? Passez en sponsorisé !</h3>
-              <br><br>
+          </div>
+        </div>
+      </div>
 
-              <form action="" method="POST">
-                <script
-                  src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                  data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-                  data-amount="990"
-                  data-name="Foodkick"
-                  data-description="Un mois sponsorisé (9.90€)"
-                  data-image="https://pbs.twimg.com/profile_images/483691332268208128/bdNi5Gs5.jpeg"
-                  data-locale="auto">
-                </script>
-              </form>
+      <!-- Analytics-->
 
-            </div> -->
+      <div id="analytics" class="tab-pane">
+        <div class="container">
+          <div class="row ">
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card-analytic">
+                <h2 class="analytic-green"> <%= @number_of_views %> </h2>
+                <p> Vue<%= render 'shared/pluralization', element: @number_of_views %> </p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card-analytic">
+                <h2 class="analytic-green"> <%= @number_of_reservations %> </h2>
+                <p>
+                  Réservation<%= render 'shared/pluralization', element: @number_of_reservations %>
+                </p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card-analytic">
+                <h2 class="analytic-green"> <%= @number_of_validated_reservations %> </h2>
+                <p>
+                  Réservation<%= render 'shared/pluralization', element: @number_of_validated_reservations %> validée<%= render 'shared/pluralization', element: @number_of_validated_reservations %>
+                </p>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+              <div class="card-analytic">
+                <h2 class="analytic-green"> <%= @number_of_feedbacks %> </h2>
+                <p>
+                  Feedback<%= render 'shared/pluralization', element: @number_of_feedbacks %> reçu<%= render 'shared/pluralization', element: @number_of_feedbacks %>
+                </p>
+              </div>
+            </div>
+          </div>
+          <br><br><br>
+          <div>
+            <h3>Plus de visibilité ? Passez en sponsorisé !</h3>
+            <br><br>
+            <form action="" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                data-amount="990"
+                data-name="Foodkick"
+                data-description="Un mois sponsorisé (9.90€)"
+                data-image="https://pbs.twimg.com/profile_images/483691332268208128/bdNi5Gs5.jpeg"
+                data-locale="auto">
+              </script>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
