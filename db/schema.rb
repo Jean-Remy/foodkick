@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907134631) do
+
+ActiveRecord::Schema.define(version: 20150907154450) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +130,16 @@ ActiveRecord::Schema.define(version: 20150907134631) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "can_book"
+    t.boolean  "italian"
+    t.boolean  "french"
+    t.boolean  "japanese"
+    t.boolean  "thai"
+    t.boolean  "viet"
+    t.boolean  "bastille"
+    t.boolean  "notre_dame"
+    t.boolean  "marais"
+    t.boolean  "villette"
+    t.boolean  "abbesses"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -136,6 +148,8 @@ ActiveRecord::Schema.define(version: 20150907134631) do
   add_index "users", ["restaurant_id"], name: "index_users_on_restaurant_id", using: :btree
 
   add_foreign_key "courses", "restaurants"
+
+
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "reservations", "restaurants"
