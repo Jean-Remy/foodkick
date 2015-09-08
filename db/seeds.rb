@@ -333,3 +333,11 @@ user_attributes = [
 # end
 
 # p prout
+
+user_attributes.each do |attribute|
+ User.create(attribute)
+end
+
+restaurant_attributes.each do |attribute|
+ Restaurant.create(attribute)
+end
