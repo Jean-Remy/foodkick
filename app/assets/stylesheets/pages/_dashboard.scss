@@ -1,6 +1,12 @@
 .analytic {
-  font-size: 100px;
-  color: $our-light-green;
+  &-green {
+    font-size: 100px;
+    color: $our-light-green;
+  }
+  &-red {
+    font-size: 100px;
+    color: $our-red;
+  }
 }
 
 .card-analytic {
