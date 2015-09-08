@@ -5,23 +5,23 @@
       <br>
       <%= simple_form_for [@restaurant, @feedback] do |f| %>
         <p>Avez-vous apprécié votre expérience ?</p>
-        <%= render 'ratings', rating: :general_exp_rating %>
+        <%= render 'ratings', rating: :general_exp_rating, n: 1 %>
         <br>
         <%= f.input :general_exp, label: false %>
         <p>Qu'avez vous pensé de la cuisine ?</p>
-        <%= render 'ratings', rating: :food_rating %>
+        <%= render 'ratings', rating: :food_rating, n: 2 %>
         <br>
         <%= f.input :food, label: false %>
         <p>Qu'avez vous pensé du service ?</p>
-        <%= render 'ratings', rating: :service_rating %>
+        <%= render 'ratings', rating: :service_rating, n: 3 %>
         <br>
         <%= f.input :service, label: false %>
-        <p>Que avez-vous pensé du rapport qualité/prix ?</p>
-        <%= render 'ratings', rating: :quality_to_price_rating %>
+        <p>Qu'avez-vous pensé du rapport qualité/prix ?</p>
+        <%= render 'ratings', rating: :quality_to_price_rating, n: 4 %>
         <br>
         <%= f.input :quality_to_price, label: false %>
         <p>Avez-vous apprécié l'ambiance du restaurant ?</p>
-        <%= render 'ratings', rating: :vibes_rating %>
+        <%= render 'ratings', rating: :vibes_rating, n: 5 %>
         <br>
         <%= f.input :vibes, label: false %>
         <%= f.button :submit, class: "btn btn-success" %>

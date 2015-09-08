@@ -55,17 +55,20 @@
       <div id="rating" class="tab-pane">
         <div class="container">
           <div class="row ">
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <p> Expérience </p>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+              <h2> Expérience Générale </h2>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="col-xs-12 col-sm-3 col-sm-offset-3">
               <p> Cuisine </p>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="col-xs-12 col-sm-3">
               <p> Service </p>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="col-xs-12 col-sm-3">
               <p> Rapport qualité/prix </p>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+              <p> ambiance </p>
             </div>
           </div>
         </div>
@@ -129,24 +132,24 @@
                   <h3><%= User.find(feedback.user_id).first_name %> <%= User.find(feedback.user_id).last_name %></h3>
                   <p class="date"> <%= feedback.created_at.day %>/<%= feedback.created_at.month %>/<%=feedback.created_at.year %></p>
                   <p>
-                    <strong>Qu'avez vous pensé de l'ambiance globale du restaurant ?</strong><br>
-                    <%= feedback.answer1 %>
+                    <strong>Avez-vous apprécié votre expérience ?</strong><br>
+                    <%= feedback.general_exp %>
                   </p>
                   <p>
                     <strong>Qu'avez vous pensé de la cuisine ?</strong><br>
-                    <%= feedback.answer2 %>
+                    <%= feedback.food %>
                   </p>
                   <p>
                     <strong>Qu'avez vous pensé du service ?</strong><br>
-                    <%= feedback.answer3 %>
+                    <%= feedback.service %>
                   </p>
                   <p>
-                    <strong>Qu'avez vous particulièrement aimé ?</strong><br>
-                    <%= feedback.answer4 %>
+                    <strong>Qu'avez-vous pensé du rapport qualité/prix ?</strong><br>
+                    <%= feedback.quality_to_price %>
                   </p>
                   <p>
-                    <strong>Qu'avez vous particulièrement regrété ?</strong><br>
-                    <%= feedback.answer5 %>
+                    <strong>Avez-vous apprécié l'ambiance du restaurant ?</strong><br>
+                    <%= feedback.vibes %>
                   </p>
                 </div>
               </div>

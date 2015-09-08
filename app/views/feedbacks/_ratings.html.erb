@@ -1,18 +1,18 @@
 <fieldset class="rating text-center">
-  <%= radio_button_tag rating, "5", false, id: "star5", name: "feedback[#{rating}]" %>
-  <label class="full" for="star5" ></label>
+  <%= radio_button_tag rating, "5", false, id: "#{rating}_star5", name: "feedback[#{rating}]" %>
+  <label class="full" for="<%=rating%>_star5" ></label>
 
-  <%= radio_button_tag rating, "4", false, id: "star4", name: "feedback[#{rating}]" %>
-  <label class="full" for="star4" ></label>
+  <%= radio_button_tag rating, "4", false, id: "#{rating}_star4", name: "feedback[#{rating}]" %>
+  <label class="full" for="<%=rating%>_star4" ></label>
 
-  <%= radio_button_tag rating, "3", false, id: "star3", name: "feedback[#{rating}]" %>
-  <label class="full" for="star3" ></label>
+  <%= radio_button_tag rating, "3", false, id: "#{rating}_star3", name: "feedback[#{rating}]" %>
+  <label class="full" for="<%=rating%>_star3" ></label>
 
-  <%= radio_button_tag rating, "2", false, id: "star2", name: "feedback[#{rating}]" %>
-  <label class="full" for="star2" ></label>
+  <%= radio_button_tag rating, "2", false, id: "#{rating}_star2", name: "feedback[#{rating}]" %>
+  <label class="full" for="<%=rating%>_star2" ></label>
 
-  <%= radio_button_tag rating, "1", false, id: "star1", name: "feedback[#{rating}]" %>
-  <label class="full" for="star1" ></label>
+  <%= radio_button_tag rating, "1", false, id: "#{rating}_star1", name: "feedback[#{rating}]" %>
+  <label class="full" for="<%=rating%>_star1" ></label>
 </fieldset></br>
 
 
