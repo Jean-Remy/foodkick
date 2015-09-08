@@ -13,12 +13,12 @@ gem 'pundit'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
 
+# Search engine
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 gem "geocoder"
-gem "coffee-rails"
 gem "gmaps4rails"
-source 'https://rails-assets.org' do
-  gem "rails-assets-underscore"
-end
 
 gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
@@ -29,7 +29,6 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem 'omniauth-facebook'
 gem "coffee-rails"
-gem "gmaps4rails"
 
 group :development, :test do
   gem 'binding_of_caller'

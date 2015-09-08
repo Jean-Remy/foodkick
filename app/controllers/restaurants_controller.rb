@@ -4,7 +4,6 @@ class RestaurantsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-
     if params[:ar_id]
       @restaurants = policy_scope(Restaurant)
       @restaurants = Restaurant.where(zip_code: params[:ar_id])

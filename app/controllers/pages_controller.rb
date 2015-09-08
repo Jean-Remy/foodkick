@@ -8,3 +8,4 @@ class PagesController < ApplicationController
     # authorize @restaurants
   end
 end
+

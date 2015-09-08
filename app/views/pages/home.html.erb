@@ -1,77 +1,121 @@
 <% @homepage = true %><% @footer = true %>
-<div class="presentation text-center">
-  <br><br>
-  <h2 class="presentation-food">Food</h2><h2 class="presentation-kick">kick</h2>
+
+<div class="homepage-banner">
+  <span>Foodkick</span>
+  <span style="float: right"><%= link_to "Se connecter" %></span>
+</div>
+<div class="text-center">
+  <br>
+  <!-- <h2 class="presentation-food">Food</h2><h2 class="presentation-kick">kick</h2>
   <br><br>
   <h4 class="est">c'est</h4>
-  <h4 class="description-first">une communauté de passionés de gastronomie qui vont vous faire découvrir</h4><h4 class="description-second">les meilleurs restaurants de Paris avant tout le monde et à prix réduit !</h4>
+  <h4 class="description-first">une communauté de passionés de gastronomie qui vont vous faire découvrir</h4><h4 class="description-second">les meilleurs restaurants de Paris avant tout le monde et à prix réduit !</h4> -->
+  Les futurs meilleurs restaurants de Paris. Avant tout le monde.
 </div>
 <div id="home" class="container-fluid no-padding" >
-  <div class="row text-center">
-    <div class="col-xs-12 col-md-12">
-           <%= render 'pages/map2.html.erb' %>
+  <div class="row text-center map-and-icons">
+    <div class="col-xs-12 col-md-12 ">
+      <%= render 'pages/map2.html.erb' %>
     </div>
+      <i class="fa fa-map-marker fa-3x map-marker-1"></i>
+      <i class="fa fa-map-marker fa-3x map-marker-2"></i>
+      <i class="fa fa-map-marker fa-3x map-marker-3"></i>
+      <i class="fa fa-map-marker fa-3x map-marker-4"></i>
+    <br><br>
     <div class="col-xs-12" style="margin-top: 40px;">
       <%=link_to 'A table !', restaurants_path, class: "banner_home-btn btn-default" %>
     </div>
   </div>
 </div>
-<div class="container padded">
+<br><br><br><br><br>
+<div class="grey-bg padded">
+  <div class="container">
+    <div class="row">
+      <h2 class="text-center">Les avantages de Foodkick</h2>
+      <br><br><br>
+      <ul class="timeline">
+          <li>
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-heart"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">Nouveauté</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Cherchez les restaurants qui viennent d'ouvrir autour de vous parmis les restaurants recommandés avec soin par la communauté kickfood.</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-heart"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">Amour</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Demandez votre réduction sur notre site contre la promesse de donner un retour constructif et complet au restaurateur.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-heart"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">Prix</h4>
+              </div>
+              <div class="timeline-body">
+                <p>Dégustez, appréciez, et payer moins cher grâce à votre code Foodkick</p>
+              </div>
+            </div>
+          </li>
+          <li class="timeline-inverted">
+            <div class="timeline-badge info"><i class="glyphicon glyphicon-heart"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">Reconnaissance</h4>
+              </div>
+              <div class="timeline-body">
+                <p>"Feedback is a gift" - Envoyez le formulaire de feedback préparé par le restaurateur et aidez les à améliorer son service - Le feedback sera gardé secret, c'est entre le restaurateur et vous !</p>
+              </div>
+            </div>
+          </li>
+      </ul>
+    </div>
+  </div>
+  <br><br><br>
   <div class="row">
-    <h2 class="text-center">Les avantages de Foodkick</h2>
-    <br><br><br>
-    <ul class="timeline">
-        <li>
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-heart"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Nouveauté</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Cherchez les restaurants qui viennent d'ouvrir autour de vous parmis les restaurants recommandés avec soin par la communauté kickfood.</p>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-heart"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Amour</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Demandez votre réduction sur notre site contre la promesse de donner un retour constructif et complet au restaurateur.</p>
-            </div>
-          </div>
-        </li>
-        <li>
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-heart"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Prix</h4>
-            </div>
-            <div class="timeline-body">
-              <p>Dégustez, appréciez, et payer moins cher grâce à votre code Foodkick</p>
-            </div>
-          </div>
-        </li>
-        <li class="timeline-inverted">
-          <div class="timeline-badge info"><i class="glyphicon glyphicon-heart"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Reconnaissance</h4>
-            </div>
-            <div class="timeline-body">
-              <p>"Feedback is a gift" - Envoyez le formulaire de feedback préparé par le restaurateur et aidez les à améliorer son service - Le feedback sera gardé secret, c'est entre le restaurateur et vous !</p>
-            </div>
-          </div>
-        </li>
-    </ul>
+    <div class="col-xs-12 text-center">
+      <%=link_to 'A table !', restaurants_path, class: "banner_home-btn btn-default btn-lg" %>
+    </div>
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="col-xs-12 text-center">
-    <%=link_to 'A table !', restaurants_path, class: "banner_home-btn btn-default btn-lg" %>
+
+
+<div class="container-fluid padded">
+  <div class="row">
+    <h2 class="text-center sm-padded">La communauté des foodies</h2>
   </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="customers-review-card-1">
+        <h4 class="text-center">Marie</h4>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="customers-review-card-2">
+        <h4 class="text-center">Marie</h4>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="customers-review-card-3">
+        <h4 class="text-center">Marie</h4>
+      </div>
+    </div>
+    <div class="col-xs-12 col-md-6 col-lg-3">
+      <div class="customers-review-card-4">
+        <h4 class="text-center">Marie</h4>
+      </div>
+    </div>
   </div>
 </div>
 

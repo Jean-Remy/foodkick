@@ -36,8 +36,8 @@
 
 
 #Calque_1 {
-  width:46%;
-  height:46%;
+  width:60%;
+  height:60%;
 }
 
 /*.st0{
@@ -212,6 +212,7 @@ html, body {
             float: left;
             border: 1px solid #d4d4d4;
             border-radius: 2px;
+            background-color: white;
             padding: 20px;
             position: relative;
             -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
@@ -349,6 +350,37 @@ html, body {
         }
 }
 
+.customers-review-card {
+  &-1 {
+    background-image: url(https://unsplash.com/photos/Hv6gcEILXww/https://images.unsplash.com/photo-1428470341793-f73b1237fb98?q=80&fm=jpg&s=abd9444dc748fd6a0b3777a55a87f7d5);
+    height: 400px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  &-2 {
+    background-color: red;
+    height: 400px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  &-3 {
+    background-color: red;
+    height: 400px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  &-4 {
+    background-color: red;
+    height: 400px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.grey-bg {
+  background-color: #F6F9FA;
+}
+
 
 
 
@@ -397,5 +429,39 @@ html, body {
     position: relative;
     z-index: 2;
   }*/
+
+#home i {
+  color: red;
+}
+
+
+.map-marker-1 {
+    position: absolute;
+    top: 200px;
+    left: 800px;
+    display: none;
+}
+.map-marker-2 {
+    position: absolute;
+    display: none;
+    top: 420px;
+    left: 600px;
+}
+.map-marker-3 {
+    position: absolute;
+    top: 300px;
+    left: 500px;
+    display: none;
+}
+.map-marker-4 {
+    position: absolute;
+    top: 450px;
+    left: 850px;
+    display: none;
+}
+.map-and-icons {
+  position: relative;
+}
+
 
 
