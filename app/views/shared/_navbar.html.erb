@@ -30,12 +30,7 @@
               </li>
               <li>
                 <%= link_to restaurant_reservations_path(Restaurant.find(current_user.restaurant_id)) do %>
-                  <i class="fa fa-book"></i> <%= t ".profile", default: "Réservations" %>
-                <% end %>
-              </li>
-              <li>
-                <%= link_to restaurant_feedbacks_path(Restaurant.find(current_user.restaurant_id)) do %>
-                  <i class="fa fa-thumbs-up"></i> <%= t ".profile", default: "Feedbacks reçus" %>
+                  <i class="fa fa-book"></i> <%= t ".profile", default: "Dashboard" %>
                 <% end %>
               </li>
               <li>

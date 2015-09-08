@@ -1,19 +1,19 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [:show, :update_picture, :destroy]
+  before_action :set_restaurant, only: [:show, :destroy]
   before_action :voucher, only: [:show]
+  before_action :picture_params, only: [:update_picture]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     if params[:ar_id]
-      @restaurants = policy_scope(Restaurant)
-      @restaurants = Restaurant.where(zip_code: params[:ar_id])
+      @restaurants = policy_scope(Restaurant.where(zip_code: params[:ar_id]))
     else
       @restaurants = policy_scope(Restaurant)
     end
     @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude
       marker.lng restaurant.longitude
-      # marker.picture(url: 'http://www.renusweb.com/images/icons/icomoon/SVG/chef.svg', width: 32, height: 32 )
+      #marker.picture(url: view_context.image_path('toc.png'), width: 35, height: 70 )
     end
 
     @markers.select! { |hash| hash[:lat] != nil && hash[:lng] != nil }
@@ -21,6 +21,15 @@ class RestaurantsController < ApplicationController
 
   def show
     authorize @restaurant
+    if user_signed_in?
+      if current_user.restaurant_id != @restaurant.id
+        @restaurant.views += 1
+        @restaurant.save
+      end
+    else
+      @restaurant.views += 1
+      @restaurant.save
+    end
     @reservation = Reservation.new
   end
 
@@ -35,14 +44,32 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
-  def update_restaurant
-    # on devrait gérer les droits avec pundit sur cette méthode
+  def update_picture
+    set_restaurant(:restaurant_id)
+    if @restaurant.update(edit_params(:seed_picture))
+      redirect_to restaurant_path(@restaurant), notice: 'Votre image a été changé avec succès'
+    else
+      redirect_to restaurant_path(@restaurant), notice: "Oups ! Ca n'a pas marché"
+    end
+  end
+
+  def update_description
+    set_restaurant(:restaurant_id)
+    if @restaurant.update(edit_params(:description))
+      redirect_to restaurant_path(@restaurant), notice: 'Votre description a été changée avec succès'
+    else
+      redirect_to restaurant_path(@restaurant), notice: "Oups ! Ca n'a pas marché"
+    end
   end
 
   private
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:id])
+  def edit_params(param)
+    params.require(:restaurant).permit(:restaurant_id, param)
+  end
+
+  def set_restaurant(id = :id)
+    @restaurant = Restaurant.find(params[id])
   end
 
   def voucher

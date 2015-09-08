@@ -4,8 +4,7 @@ class PagesController < ApplicationController
   skip_after_action :verify_authorized
 
   def home
-    # @restaurants = Restaurant.all
-    # authorize @restaurants
+    @restaurants = Restaurant.last(6)
   end
 end
 

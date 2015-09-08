@@ -1,12 +1,19 @@
 require 'securerandom'
 
 class ReservationsController < ApplicationController
-  before_action :find_restaurant, only: [:new, :create, :validate_code_path]
+  before_action :find_restaurant, only: [:new, :create, :validate_code_path, :index]
   before_action :find_codes
 
   def index
     # @reservations = policy_scope(Reservation)
     @reservations = Reservation.where(restaurant_id: params[:restaurant_id])
+
+    @number_of_views = @restaurant.views
+    @number_of_reservations = @reservations.count
+    @number_of_validated_reservations = @reservations.where(status: true).count
+    @number_of_feedbacks = @reservations.where(feedbacked: true).count
+    @feedbacks = Feedback.where(:user_id == current_user.id)
+
   end
 
   def create
@@ -28,7 +35,7 @@ class ReservationsController < ApplicationController
       # On empêche l'user d'avoir plusieurs réservations en même temps
       # current_user.can_book = false
       if @reservation.save
-        redirect_to  codes_path
+        redirect_to codes_path
       else
         redirect_to restaurant_path(@restaurant)
       end
@@ -52,15 +59,15 @@ class ReservationsController < ApplicationController
           @reservation = Reservation.where(code: params[:code])
           @reservation.first.status = true
           @reservation.first.save
-          redirect_to validate_code_path
+          redirect_to restaurant_reservations_path(@reservation.first.restaurant.id), notice: "Le code a bien été validé"
         else
-          redirect_to error_path
+          redirect_to restaurant_reservations_path(@reservation.first.restaurant.id), notice: "Oups, le code ne parait pas être valable"
         end
       else
-        redirect_to error_path
+        redirect_to restaurant_reservations_path(@reservation.first.restaurant.id), notice: "Oups, le code ne parait pas être valable"
       end
     else
-      redirect_to error_path
+      edirect_to restaurant_reservations_path(@reservation.first.restaurant.id), notice: "Oups, le code ne parait pas être valable"
     end
   end
 
