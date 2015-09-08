@@ -1,4 +1,9 @@
 class Restaurant < ActiveRecord::Base
+  def self.search(search)
+    where("name LIKE ?", "%#{search}%")
+    where("borough LIKE ?", "%#{search}%")
+  end
+
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   BOROUGH = ['Marais', 'Montmartre', 'Bastille', 'Saint-Germain']

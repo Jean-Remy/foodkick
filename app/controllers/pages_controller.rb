@@ -7,3 +7,4 @@ class PagesController < ApplicationController
     @restaurants = Restaurant.last(6)
   end
 end
+
