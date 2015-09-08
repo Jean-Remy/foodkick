@@ -282,7 +282,6 @@ user_attributes = [
 ]
 
 
-
 # require 'nokogiri'
 # require 'open-uri'
 
