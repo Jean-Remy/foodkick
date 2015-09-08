@@ -1,19 +1,33 @@
 <div class="container text-center padded">
   <div class="row">
-    <h1><%= @restaurant.name %></h1>
-    <br>
-    <%= simple_form_for [@restaurant, @feedback] do |f| %>
-      <p>Qu'avez vous pensé de l'ambiance globale du restaurant ?</p>
-      <%= f.input :answer1, label: false %>
-      <p>Qu'avez vous pensé de la cuisine ?</p>
-      <%= f.input :answer2, label: false %>
-      <p>Qu'avez vous pensé du service ?</p>
-      <%= f.input :answer3, label: false %>
-      <p>Qu'avez vous particulièrement aimé ?</p>
-      <%= f.input :answer4, label: false %>
-      <p>Qu'avez vous particulièrement regrété ?</p>
-      <%= f.input :answer5, label: false %>
-      <%= f.button :submit %>
-    <% end %>
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <h1><%= @restaurant.name %></h1>
+      <br>
+      <%= simple_form_for [@restaurant, @feedback] do |f| %>
+        <p>Avez-vous apprécié votre expérience ?</p>
+        <%= render 'ratings', rating: :general_exp_rating %>
+        <br>
+        <%= f.input :general_exp, label: false %>
+        <p>Qu'avez vous pensé de la cuisine ?</p>
+        <%= render 'ratings', rating: :food_rating %>
+        <br>
+        <%= f.input :food, label: false %>
+        <p>Qu'avez vous pensé du service ?</p>
+        <%= render 'ratings', rating: :service_rating %>
+        <br>
+        <%= f.input :service, label: false %>
+        <p>Que avez-vous pensé du rapport qualité/prix ?</p>
+        <%= render 'ratings', rating: :quality_to_price_rating %>
+        <br>
+        <%= f.input :quality_to_price, label: false %>
+        <p>Avez-vous apprécié l'ambiance du restaurant ?</p>
+        <%= render 'ratings', rating: :vibes_rating %>
+        <br>
+        <%= f.input :vibes, label: false %>
+        <%= f.button :submit, class: "btn btn-success" %>
+      <% end %>
+    </div>
   </div>
 </div>
+
+
