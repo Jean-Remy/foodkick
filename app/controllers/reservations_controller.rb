@@ -83,6 +83,7 @@ class ReservationsController < ApplicationController
     service = 0
     qualityprice = 0
     vibes = 0
+    n = 1
     if  @feedbacks != []
       n = @feedbacks.count.to_f
       @feedbacks.each do |feedback|
@@ -92,8 +93,8 @@ class ReservationsController < ApplicationController
         qualityprice += feedback.quality_to_price_rating
         vibes += feedback.vibes_rating
       end
-      @average = [gnlexp/n, food/n, service/n, qualityprice/n, vibes/n]
     end
+    @average = [gnlexp/n, food/n, service/n, qualityprice/n, vibes/n]
   end
 
   def validate_params

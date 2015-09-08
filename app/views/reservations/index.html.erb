@@ -27,8 +27,9 @@
                   <%= hidden_field_tag(:restaurant_id, value = @restaurant.id) %>
                   <%= text_field_tag(:code) %>
                   <br><br>
-                  <%= submit_tag("Valider") %>
+                  <%= submit_tag("Valider", class: "btn btn-success") %>
                 <% end %>
+                <br>
               </div>
             </div>
           </div>
@@ -77,6 +78,7 @@
 
       <div id="rating" class="tab-pane">
         <div class="container">
+          <% if @feedbacks != [] %>
           <div class="row ">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3">
               <div class="card-analytic">
@@ -120,6 +122,10 @@
                 </h4>
                 <p> ambiance </p>
               </div>
+            </div>
+            <% else %>
+            <div class="col-xs-12 col-sm-6">
+              <p> Votre restaurant n'a pas encore reçu de note ! </p>
             </div>
           </div>
         </div>
