@@ -4,6 +4,7 @@ class ReservationsController < ApplicationController
   before_action :find_restaurant, only: [:new, :create, :validate_code, :index]
   before_action :find_codes
   before_action :validate_params, only: [:validate_code]
+  before_action :average, only: [:index]
 
   def index
     # @reservations = policy_scope(Reservation)
@@ -13,8 +14,6 @@ class ReservationsController < ApplicationController
     @number_of_reservations = @reservations.count
     @number_of_validated_reservations = @reservations.where(status: true).count
     @number_of_feedbacks = @reservations.where(feedbacked: true).count
-    @feedbacks = Feedback.where(:user_id == current_user.id)
-
   end
 
   def create
@@ -76,6 +75,26 @@ class ReservationsController < ApplicationController
   end
 
   private
+
+  def average
+    @feedbacks = Feedback.where(:user_id == current_user.id)
+    gnlexp = 0
+    food = 0
+    service = 0
+    qualityprice = 0
+    vibes = 0
+    if  @feedbacks != []
+      n = @feedbacks.count.to_f
+      @feedbacks.each do |feedback|
+        gnlexp += feedback.general_exp_rating
+        food += feedback.food_rating
+        service += feedback.service_rating
+        qualityprice += feedback.quality_to_price_rating
+        vibes += feedback.vibes_rating
+      end
+      @average = [gnlexp/n, food/n, service/n, qualityprice/n, vibes/n]
+    end
+  end
 
   def validate_params
     params.permit(:restaurant_id, :code)
