@@ -6,28 +6,15 @@
       <div class="row">
         <div class="search-bar" style="padding-left: 20px; padding-right: 20px;">
           <div>
-            Type de cuisine :
+            <%@pref_borough.each do |pref| %>
             <%= link_to do %>
-              <span class="label label-success" style="margin-left: 10px;">Italien</span>
+              <span class="label label-success" style="margin-left: 10px;"><%=pref.borough%></span>
             <% end %>
-            <%= link_to do %>
-              <span class="label label-success">Chinois</span>
             <% end %>
-            <%= link_to do %>
-              <span class="label label-success">Thai</span>
-            <% end %>
-            <%= link_to do %>
-              <span class="label label-success">Japonais</span>
-            <% end %>
-            <%= link_to do %>
-              <span class="label label-success">Français</span>
-            <% end %>
-             ou
-            <input type="text">
           </div>
+
           <hr>
           <div>
-            Quartier :
             <%= link_to do %>
               <span class="label label-primary" style="margin-left: 10px;">Bastille</span>
             <% end %>
@@ -40,11 +27,8 @@
             <%= link_to do %>
               <span class="label label-primary">La Vilette</span>
             <% end %>
-            ou
-            <input type="text">
           </div>
           <hr>
-          <div>Prix :<div style="width: 90%; margin-left: 60px; margin-top: -20px;"><input type="range" id="myRange" value="90"></div></div>
         </div>
         <br>
         <% @restaurants.each do |restaurant| %>

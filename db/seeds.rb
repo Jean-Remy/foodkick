@@ -1,3 +1,7 @@
+PrefCat.delete_all
+PrefBorough.delete_all
+
+
 pref_cat_attributes = [
 {category: "Japonais"},
 {category: "Thailandais"},

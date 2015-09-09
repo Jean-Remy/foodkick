@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20150908101302) do
-
+ActiveRecord::Schema.define(version: 20150908155005) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +45,23 @@ ActiveRecord::Schema.define(version: 20150908101302) do
   end
 
   add_index "courses", ["restaurant_id"], name: "index_courses_on_restaurant_id", using: :btree
+
+  create_table "feedback_answers", force: :cascade do |t|
+    t.integer  "reservation_id"
+    t.integer  "feedback_question_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "answer"
+  end
+
+  add_index "feedback_answers", ["feedback_question_id"], name: "index_feedback_answers_on_feedback_question_id", using: :btree
+  add_index "feedback_answers", ["reservation_id"], name: "index_feedback_answers_on_reservation_id", using: :btree
+
+  create_table "feedback_questions", force: :cascade do |t|
+    t.string   "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "feedbacks", force: :cascade do |t|
     t.datetime "created_at",              null: false
@@ -202,6 +217,7 @@ ActiveRecord::Schema.define(version: 20150908101302) do
   add_foreign_key "borough_prefs", "users"
   add_foreign_key "category_prefs", "users"
   add_foreign_key "courses", "restaurants"
+  add_foreign_key "feedback_answers", "feedback_questions"
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "pref_boroughs", "users"
