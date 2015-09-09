@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908155005) do
+
+ActiveRecord::Schema.define(version: 20150908101302) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,33 +48,21 @@ ActiveRecord::Schema.define(version: 20150908155005) do
 
   add_index "courses", ["restaurant_id"], name: "index_courses_on_restaurant_id", using: :btree
 
-  create_table "feedback_answers", force: :cascade do |t|
-    t.integer  "reservation_id"
-    t.integer  "feedback_question_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.string   "answer"
-  end
-
-  add_index "feedback_answers", ["feedback_question_id"], name: "index_feedback_answers_on_feedback_question_id", using: :btree
-  add_index "feedback_answers", ["reservation_id"], name: "index_feedback_answers_on_reservation_id", using: :btree
-
-  create_table "feedback_questions", force: :cascade do |t|
-    t.string   "question"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "feedbacks", force: :cascade do |t|
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "user_id"
-    t.string   "answer1"
-    t.string   "answer2"
-    t.string   "answer3"
-    t.string   "answer4"
-    t.string   "answer5"
+    t.string   "general_exp"
+    t.string   "food"
+    t.string   "service"
+    t.string   "quality_to_price"
+    t.string   "vibes"
     t.integer  "reservation_id"
+    t.integer  "general_exp_rating"
+    t.integer  "food_rating"
+    t.integer  "service_rating"
+    t.integer  "quality_to_price_rating"
+    t.integer  "vibes_rating"
   end
 
   add_index "feedbacks", ["reservation_id"], name: "index_feedbacks_on_reservation_id", using: :btree
@@ -212,7 +202,6 @@ ActiveRecord::Schema.define(version: 20150908155005) do
   add_foreign_key "borough_prefs", "users"
   add_foreign_key "category_prefs", "users"
   add_foreign_key "courses", "restaurants"
-  add_foreign_key "feedback_answers", "feedback_questions"
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "pref_boroughs", "users"

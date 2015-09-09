@@ -26,7 +26,7 @@ class FeedbacksController < ApplicationController
   private
 
   def feedback_params
-    params.require(:feedback).permit(:answer1, :answer2, :answer3, :answer4, :answer5)
+    params.require(:feedback).permit(:general_exp, :general_exp_rating, :food, :food_rating, :service, :service_rating, :quality_to_price, :quality_to_price_rating, :vibes, :vibes_rating)
   end
 
   def find_restaurant
