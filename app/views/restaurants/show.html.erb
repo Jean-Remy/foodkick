@@ -20,7 +20,10 @@
               <%=link_to 'Voir mon code', codes_path %>
             <% else %>
               <%= render 'coupon_form' %>
-            <% end %>
+              <div class="restaurant-discount">
+                <p><%= (@restaurant.discount*100).to_i %>%</p>
+              </div>
+              <% end %>
           <% elsif current_user.restaurant_id == @restaurant.id %>
             <%= simple_form_for @restaurant, url: restaurant_update_picture_path(@restaurant), method: :patch do |f| %>
               <%= f.input :seed_picture %>
@@ -29,6 +32,9 @@
           <% end %>
         <% else %>
           <%= render 'coupon_form' %>
+          <div class="restaurant-discount">
+            <p><%= -(@restaurant.discount*100).to_i %>%</p>
+          </div>
         <% end %>
     </div>
   </div>
