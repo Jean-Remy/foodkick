@@ -1,29 +1,23 @@
-<% @homepage = true %><% @footer = true %>
-
-<div class="homepage-banner">
-  <span>Foodkick</span>
-  <span style="float: right"><%= link_to "Se connecter" %></span>
-</div>
-<div class="text-center">
-  <br>
-  <!-- <h2 class="presentation-food">Food</h2><h2 class="presentation-kick">kick</h2>
-  <br><br>
-  <h4 class="est">c'est</h4>
-  <h4 class="description-first">une communauté de passionés de gastronomie qui vont vous faire découvrir</h4><h4 class="description-second">les meilleurs restaurants de Paris avant tout le monde et à prix réduit !</h4> -->
-  Les futurs meilleurs restaurants de Paris. Avant tout le monde.
-</div>
-<div id="home" class="container-fluid no-padding" >
-  <div class="row text-center map-and-icons">
-    <div class="col-xs-12 col-md-12 ">
+<% @footer = true %>
+<h1 class="main-title"><span class="fixed-title">Les meilleurs restaurants de Paris</span><br><span class="rotate">Avant tout le monde, Pour moins cher</span></h1>
+<br>
+<div id="home" class="container no-padding" >
+  <div class="row map-and-icons">
+    <div class="col-xs-12 col-md-4 home-text">
+      A l’Aubergiste de moins d’un an, soigneusement choisi, demande un coupon !<br>
+      Savoure ton met absolument délicieux en promotion<br>
+      Donne un feedback de ton émotion<br><br>
+      <%=link_to 'A table !', restaurants_path, class: "btn btn-success btn-lg btn-homepage" %>
+    </div>
+    <div class="col-xs-12 col-md-8 ">
       <%= render 'pages/map2.html.erb' %>
     </div>
-      <i class="fa fa-map-marker fa-3x map-marker-1"></i>
+      <!-- <i class="fa fa-map-marker fa-3x map-marker-1"></i>
       <i class="fa fa-map-marker fa-3x map-marker-2"></i>
       <i class="fa fa-map-marker fa-3x map-marker-3"></i>
       <i class="fa fa-map-marker fa-3x map-marker-4"></i>
-    <br><br>
-    <div class="col-xs-12" style="margin-top: 40px;">
-      <%=link_to 'A table !', restaurants_path, class: "banner_home-btn btn-default" %>
+      <i class="fa fa-map-marker fa-3x map-marker-5"></i>
+      <i class="fa fa-map-marker fa-3x map-marker-6"></i> -->
     </div>
   </div>
 </div>
@@ -89,31 +83,30 @@
     </div>
   </div>
 </div>
-
-
 <div class="container-fluid padded">
   <div class="row">
     <h2 class="text-center sm-padded">La communauté des foodies</h2>
   </div>
+  <br><br><br><br>
   <div class="row">
     <div class="col-xs-12 col-md-6 col-lg-3">
       <div class="customers-review-card-1">
-        <h4 class="text-center">Marie</h4>
+        <h4 class="text-center"></h4>
       </div>
     </div>
     <div class="col-xs-12 col-md-6 col-lg-3">
       <div class="customers-review-card-2">
-        <h4 class="text-center">Marie</h4>
+        <h4 class="text-center"></h4>
       </div>
     </div>
     <div class="col-xs-12 col-md-6 col-lg-3">
       <div class="customers-review-card-3">
-        <h4 class="text-center">Marie</h4>
+        <h4 class="text-center"></h4>
       </div>
     </div>
     <div class="col-xs-12 col-md-6 col-lg-3">
       <div class="customers-review-card-4">
-        <h4 class="text-center">Marie</h4>
+        <h4 class="text-center"></h4>
       </div>
     </div>
   </div>

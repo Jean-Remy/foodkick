@@ -16,24 +16,6 @@ ActiveRecord::Schema.define(version: 20150908155005) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "borough_prefs", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "borough"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "borough_prefs", ["user_id"], name: "index_borough_prefs_on_user_id", using: :btree
-
-  create_table "category_prefs", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "category"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "category_prefs", ["user_id"], name: "index_category_prefs_on_user_id", using: :btree
-
   create_table "courses", force: :cascade do |t|
     t.string   "category"
     t.integer  "price"
@@ -175,10 +157,10 @@ ActiveRecord::Schema.define(version: 20150908155005) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.boolean  "active"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.boolean  "owner"
     t.integer  "restaurant_id"
     t.string   "picture_file_name"
@@ -214,10 +196,9 @@ ActiveRecord::Schema.define(version: 20150908155005) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["restaurant_id"], name: "index_users_on_restaurant_id", using: :btree
 
-  add_foreign_key "borough_prefs", "users"
-  add_foreign_key "category_prefs", "users"
   add_foreign_key "courses", "restaurants"
   add_foreign_key "feedback_answers", "feedback_questions"
+
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "pref_boroughs", "users"
