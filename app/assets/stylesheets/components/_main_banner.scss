@@ -39,5 +39,16 @@
   }
   .restaurant-category {
     position: absolute;
+    margin-left: -240px;
+    color: #FFF;
+    border: 1px solid;
+    width: 170px;
+    height: 40px;
+    margin-top: -320px;
+      p {
+        color: #FFF;
+        margin-top: -8px;
+    }
   }
+
 }

@@ -1,10 +1,14 @@
 <% @footer = true %>
 <header>
+
   <div class="banner text-center" style="background-image: url('<%= @restaurant.seed_picture %>')">
     <div class="banner-shadow"></div>
     <div class="banner-content">
       <h1><%= @restaurant.name %></h1>
       <p>Le meilleur restaurant chinois de Paris, élu par la communauté</p>
+      <div class="restaurant-category">
+        <p><%=@restaurant.category%></p>
+      </div>
         <% if user_signed_in? %>
 
           <% if current_user.owner == (false || nil) %>
