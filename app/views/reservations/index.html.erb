@@ -155,7 +155,7 @@
 =======
             <div class="row ">
               <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <div class="card-analytic">
+                <div class="card-rating">
                   <h2 class=<%= @average[0] > 2.5 ? "analytic-green" : "analytic-red"%>>
                     <%= @average[0] %>
                   </h2>
@@ -166,7 +166,7 @@
             <br>
             <div class="row">
               <div class="col-xs-12 col-sm-3">
-                <div class="card-analytic">
+                <div class="card-rating">
                   <h4 class=<%= @average[1] > 2.5 ? "analytic-green" : "analytic-red"%>>
                     <%= @average[1] %>
                   </h4>
@@ -174,7 +174,7 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-3">
-                <div class="card-analytic">
+                <div class="card-rating">
                   <h4 class=<%= @average[2] > 2.5 ? "analytic-green" : "analytic-red"%>>
                     <%= @average[2] %>
                   </h4>
@@ -182,7 +182,7 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-3">
-                <div class="card-analytic">
+                <div class="card-rating">
                   <h4 class=<%= @average[3] > 2.5 ? "analytic-green" : "analytic-red"%>>
                     <%= @average[3] %>
                   </h4>
@@ -190,11 +190,11 @@
                 </div>
               </div>
               <div class="col-xs-12 col-sm-3">
-                <div class="card-analytic">
+                <div class="card-rating">
                   <h4 class=<%= @average[4] > 2.5 ? "analytic-green" : "analytic-red"%>>
                     <%= @average[4] %>
                   </h4>
-                <p> ambiance </p>
+                <p> Ambiance </p>
               </div>
             </div>
           </div>
@@ -217,7 +217,7 @@
             <% if @feedbacks.first != nil %>
               <% @feedbacks.each do |feedback| %>
                 <div class="col-xs-12 col-sm-6">
-                  <div class="text-center card-analytic">
+                  <div class="text-center card-rating">
                     <h3><%= User.find(feedback.user_id).first_name %> <%= User.find(feedback.user_id).last_name %></h3>
                     <p class="date"> <%= feedback.created_at.day %>/<%= feedback.created_at.month %>/<%=feedback.created_at.year %></p>
                     <p>
@@ -260,30 +260,34 @@
         <div class="container">
           <div class="row ">
             <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="card-analytic">
-                <h2 class="analytic-green"> <%= @number_of_views %> </h2>
+              <div class="card-analytic green">
+                <i class="fa fa-eye icon"></i>
+                <h2 class="analytic"> <%= @number_of_views %> </h2>
                 <p> Vue<%= render 'shared/pluralization', element: @number_of_views %> </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="card-analytic">
-                <h2 class="analytic-green"> <%= @number_of_reservations %> </h2>
+              <div class="card-analytic green">
+                <i class="fa fa-book icon"></i>
+                <h2 class="analytic"> <%= @number_of_reservations %> </h2>
                 <p>
                   Réservation<%= render 'shared/pluralization', element: @number_of_reservations %>
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="card-analytic">
-                <h2 class="analytic-green"> <%= @number_of_validated_reservations %> </h2>
+              <div class="card-analytic green">
+                <i class="fa fa-money icon"></i>
+                <h2 class="analytic"> <%= @number_of_validated_reservations %> </h2>
                 <p>
                   Réservation<%= render 'shared/pluralization', element: @number_of_validated_reservations %> validée<%= render 'shared/pluralization', element: @number_of_validated_reservations %>
                 </p>
               </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-3">
-              <div class="card-analytic">
-                <h2 class="analytic-green"> <%= @number_of_feedbacks %> </h2>
+              <div class="card-analytic green">
+                <i class="fa fa-comment icon"></i>
+                <h2 class="analytic"> <%= @number_of_feedbacks %> </h2>
                 <p>
                   Feedback<%= render 'shared/pluralization', element: @number_of_feedbacks %> reçu<%= render 'shared/pluralization', element: @number_of_feedbacks %>
                 </p>

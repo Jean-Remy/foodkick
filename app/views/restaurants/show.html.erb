@@ -1,29 +1,45 @@
 <% @footer = true %>
-<div class="banner text-center" style="background-image: url('<%= @restaurant.seed_picture %>')">
-  <div class="banner-shadow"></div>
-  <div class="banner-content">
-    <h1><%= @restaurant.name %></h1>
-    <p>Le meilleur restaurant chinois de Paris, élu par la communauté</p>
-      <% if user_signed_in? %>
+<header>
 
-        <% if current_user.owner == (false || nil) %>
+  <div class="banner text-center" style="background-image: url('<%= @restaurant.seed_picture %>')">
+    <div class="banner-shadow"></div>
+    <div class="banner-content">
+      <h1><%= @restaurant.name %></h1>
+      <p><%= @restaurant.description[0..70]%>...</p>
+      <div class="restaurant-category">
+        <p><%=@restaurant.category%></p>
+      </div>
+      <div class="restaurant-opening">
+        <p>Ouverture : <%=@restaurant.opening%></p>
+      </div>
+        <% if user_signed_in? %>
 
-          <% if @booked %>
-            <%=link_to 'Voir mon code', codes_path %>
-          <% else %>
-            <%= render 'coupon_form' %>
+          <% if current_user.owner == (false || nil) %>
+
+            <% if @booked %>
+              <%=link_to 'Voir mon code', codes_path %>
+            <% else %>
+              <%= render 'coupon_form' %>
+              <div class="restaurant-discount">
+                <p><%= (@restaurant.discount*100).to_i %>%</p>
+              </div>
+              <% end %>
+          <% elsif current_user.restaurant_id == @restaurant.id %>
+            <%= simple_form_for @restaurant, url: restaurant_update_picture_path(@restaurant), method: :patch do |f| %>
+              <%= f.input :seed_picture %>
+              <%= f.button :submit, class: "btn btn-primary", value: "Modifier l'image"%>
+            <% end %>
           <% end %>
-        <% elsif current_user.restaurant_id == @restaurant.id %>
-          <%= simple_form_for @restaurant, url: restaurant_update_picture_path(@restaurant), method: :patch do |f| %>
-            <%= f.input :seed_picture %>
-            <%= f.button :submit, class: "btn btn-primary", value: "Modifier l'image"%>
-          <% end %>
+        <% else %>
+          <%= render 'coupon_form' %>
+          <div class="restaurant-discount">
+            <p><%= -(@restaurant.discount*100).to_i %>%</p>
+          </div>
         <% end %>
-      <% else %>
-        <%= render 'coupon_form' %>
-      <% end %>
+    </div>
   </div>
-</div>
+</header>
+
 <div class="restaurant-show-content">
   <div class="container">
     <div class="row">

@@ -37,4 +37,49 @@
     font-size: 16px;
     background-color: #ff1654;
   }
+  .restaurant-category {
+    position: absolute;
+    margin-left: -240px;
+    color: #FFF;
+    border: 1px solid;
+    width: 170px;
+    height: 40px;
+    margin-top: -320px;
+      p {
+        color: #FFF;
+        margin-top: -8px;
+    }
+  }
+  .restaurant-opening {
+    position: absolute;
+    color: #FFF;
+    border: 1px solid;
+    width: 250px;
+    height: 40px;
+    margin-top: -320px;
+    margin-left: 700px;
+      p {
+        color: #FFF;
+        margin-top: -8px;
+    }
+  }
+
+  .restaurant-discount {
+    color: #FFF;
+    border: 1px solid;
+    width: 250px;
+    height: 80px;
+    margin-bottom: auto;
+    margin-right: auto;
+    top: -200px;
+    position: absolute;
+    left: 231px;
+      p {
+        color: #FFF;
+        font-size: 80px;
+        margin-top: -82px;
+        font-weight: lighter;
+    }
+  }
+
 }
