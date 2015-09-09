@@ -318,7 +318,6 @@ user_attributes = [
     owner: true,
     restaurant_id: 4
   }
-
 ]
 
 user_attributes.each do |attribute|
@@ -328,6 +327,7 @@ end
 restaurant_attributes.each do |attribute|
   Restaurant.create(attribute)
 end
+
 
 # require 'nokogiri'
 # require 'open-uri'
@@ -379,3 +379,11 @@ end
 # end
 
 # p prout
+
+user_attributes.each do |attribute|
+ User.create(attribute)
+end
+
+restaurant_attributes.each do |attribute|
+ Restaurant.create(attribute)
+end

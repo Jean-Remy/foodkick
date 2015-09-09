@@ -28,6 +28,23 @@ ActiveRecord::Schema.define(version: 20150908155005) do
 
   add_index "courses", ["restaurant_id"], name: "index_courses_on_restaurant_id", using: :btree
 
+  create_table "feedback_answers", force: :cascade do |t|
+    t.integer  "reservation_id"
+    t.integer  "feedback_question_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "answer"
+  end
+
+  add_index "feedback_answers", ["feedback_question_id"], name: "index_feedback_answers_on_feedback_question_id", using: :btree
+  add_index "feedback_answers", ["reservation_id"], name: "index_feedback_answers_on_reservation_id", using: :btree
+
+  create_table "feedback_questions", force: :cascade do |t|
+    t.string   "question"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "feedbacks", force: :cascade do |t|
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
@@ -140,10 +157,10 @@ ActiveRecord::Schema.define(version: 20150908155005) do
     t.string   "last_name"
     t.string   "token"
     t.datetime "token_expiry"
+    t.boolean  "active"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.string   "unconfirmed_email"
     t.boolean  "owner"
     t.integer  "restaurant_id"
     t.string   "picture_file_name"
@@ -180,6 +197,8 @@ ActiveRecord::Schema.define(version: 20150908155005) do
   add_index "users", ["restaurant_id"], name: "index_users_on_restaurant_id", using: :btree
 
   add_foreign_key "courses", "restaurants"
+  add_foreign_key "feedback_answers", "feedback_questions"
+  add_foreign_key "feedback_answers", "reservations"
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "pref_boroughs", "users"
