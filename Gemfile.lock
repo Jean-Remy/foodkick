@@ -37,6 +37,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_as_follower (0.2.1)
     addressable (2.3.8)
     arel (6.0.3)
     autoprefixer-rails (5.2.1.2)
@@ -238,6 +239,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_follower
   autoprefixer-rails
   aws-sdk (< 2.0)
   better_errors

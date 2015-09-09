@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20150908101302) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "borough_prefs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "borough"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "borough_prefs", ["user_id"], name: "index_borough_prefs_on_user_id", using: :btree
+
+  create_table "category_prefs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "category_prefs", ["user_id"], name: "index_category_prefs_on_user_id", using: :btree
 
   create_table "courses", force: :cascade do |t|
     t.string   "category"
@@ -47,6 +67,24 @@ ActiveRecord::Schema.define(version: 20150908101302) do
 
   add_index "feedbacks", ["reservation_id"], name: "index_feedbacks_on_reservation_id", using: :btree
   add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id", using: :btree
+
+  create_table "pref_boroughs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "borough"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pref_boroughs", ["user_id"], name: "index_pref_boroughs_on_user_id", using: :btree
+
+  create_table "pref_cats", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "pref_cats", ["user_id"], name: "index_pref_cats_on_user_id", using: :btree
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "user_id"
@@ -103,18 +141,18 @@ ActiveRecord::Schema.define(version: 20150908101302) do
   add_index "schedules", ["restaurant_id"], name: "index_schedules_on_restaurant_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
     t.string   "provider"
     t.string   "uid"
     t.string   "picture"
@@ -133,16 +171,27 @@ ActiveRecord::Schema.define(version: 20150908101302) do
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
     t.boolean  "can_book"
-    t.boolean  "italian"
-    t.boolean  "french"
-    t.boolean  "japanese"
-    t.boolean  "thai"
-    t.boolean  "viet"
-    t.boolean  "bastille"
-    t.boolean  "notre_dame"
-    t.boolean  "marais"
-    t.boolean  "villette"
-    t.boolean  "abbesses"
+    t.boolean  "italian",                default: false
+    t.boolean  "french",                 default: false
+    t.boolean  "japanese",               default: false
+    t.boolean  "thai",                   default: false
+    t.boolean  "viet",                   default: false
+    t.boolean  "bastille",               default: false
+    t.boolean  "notre_dame",             default: false
+    t.boolean  "marais",                 default: false
+    t.boolean  "villette",               default: false
+    t.boolean  "abbesses",               default: false
+    t.boolean  "chinese",                default: false
+    t.boolean  "indian",                 default: false
+    t.boolean  "mexican",                default: false
+    t.boolean  "lebanese",               default: false
+    t.boolean  "odeon",                  default: false
+    t.boolean  "saint_germain",          default: false
+    t.boolean  "trocadero",              default: false
+    t.boolean  "quartier_latin",         default: false
+    t.boolean  "republique",             default: false
+    t.boolean  "montmartre",             default: false
+    t.boolean  "champs",                 default: false
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
@@ -150,9 +199,13 @@ ActiveRecord::Schema.define(version: 20150908101302) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["restaurant_id"], name: "index_users_on_restaurant_id", using: :btree
 
+  add_foreign_key "borough_prefs", "users"
+  add_foreign_key "category_prefs", "users"
   add_foreign_key "courses", "restaurants"
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
+  add_foreign_key "pref_boroughs", "users"
+  add_foreign_key "pref_cats", "users"
   add_foreign_key "reservations", "restaurants"
   add_foreign_key "reservations", "users"
   add_foreign_key "schedules", "restaurants"
