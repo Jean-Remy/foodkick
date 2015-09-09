@@ -62,7 +62,7 @@
             <% if @reservations.first != nil %>
               <% @reservations.each do |reservation| %>
                 <div class="col-xs-12">
-                  <% if reservation.status == false %>
+                  <% if reservation.status %>
                     <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
                     <br>
                     <%= reservation.code %>
