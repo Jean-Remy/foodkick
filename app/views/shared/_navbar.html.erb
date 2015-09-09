@@ -54,9 +54,7 @@
         </div>
       </div>
     <% else %>
-      <button class="btn btn-success btn-login">
-        <%= link_to t(".sign_in", default: "SE CONNECTER"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      </button>
+        <%= link_to t(".sign_in", default: "SE CONNECTER"), new_user_session_path, class: "btn btn-success btn-login" %>
     <% end %>
     <!-- <hr>
     <%= link_to t(".top_call_to_action", default: "Post stuff"), "#", class: "navbar-wagon-item navbar-wagon-button btn" %> -->
