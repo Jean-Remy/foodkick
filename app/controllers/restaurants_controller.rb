@@ -1,7 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :destroy]
   before_action :voucher, only: [:show]
-  before_action :picture_params, only: [:update_picture]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index

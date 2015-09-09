@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
   # after_create :send_welcome_email
   # before_save :skip_email_confirmation
-
-
+  has_many :category_pref
+  has_many :borough_pref
   has_many :reservations
+
+  # act_as_follower gem
+  acts_as_follower
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -24,7 +27,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]  # Fake password for validation
       user.first_name = auth.info.first_name
       user.last_name = auth.info.last_name
-      user.picture = auth.info.image
+      user.picture = auth.info.image.gsub('http:', 'https:')
       user.token = auth.credentials.token
       user.token_expiry = Time.at(auth.credentials.expires_at)
     end

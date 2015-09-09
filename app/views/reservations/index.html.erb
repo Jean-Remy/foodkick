@@ -19,26 +19,28 @@
 
       <div id="coupon" class="tab-pane active">
         <div class="container">
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-              <div class="card-analytic form-group">
-                <h2> Valider un coupon </h2>
-                <%= form_tag(validate_code_path, method: "post") do %>
-                  <%= hidden_field_tag(:restaurant_id, value = @restaurant.id) %>
-                  <%= text_field_tag(:code) %>
-                  <br><br>
-                  <%= submit_tag("Valider", class: "btn btn-success") %>
-                <% end %>
-                <br>
+          <% if @reservations != []%>
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <div class="card-analytic form-group">
+                  <h2> Valider un coupon </h2>
+                  <%= form_tag(validate_code_path, method: "post") do %>
+                    <%= hidden_field_tag(:restaurant_id, value = @restaurant.id) %>
+                    <%= text_field_tag(:code) %>
+                    <br><br>
+                    <%= submit_tag("Valider", class: "btn btn-success") %>
+                  <% end %>
+                  <br>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
           <div class="row">
             <h2>Coupons émis</h2>
-            <% @reservations.each do |reservation| %>
-              <div class="col-xs-12">
-                <% if @reservations.first != (nil || "") %>
-                  <% if reservation.status == false %>
+            <% if @reservations.first != nil %>
+              <% @reservations.each do |reservation| %>
+                <div class="col-xs-12">
+                  <% if !reservation.status %>
                     <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
                     <br>
                     <%= reservation.code %>
@@ -48,15 +50,23 @@
                     <p> Vous n'avez pas de coupon émis </p>
                     <hr>
                   <% end %>
+<<<<<<< HEAD
                 <% end %>
               </div>
+=======
+                </div>
+              <% end %>
+            <% else %>
+              <p> Vous n'avez pas de coupon émis </p>
+              <hr>
+>>>>>>> master
             <% end %>
           </div>
           <div class="row">
             <h2>Coupons validés</h2>
-            <% @reservations.each do |reservation| %>
-              <div class="col-xs-12">
-                <% if @reservations.first != (nil || "") %>
+            <% if @reservations.first != nil %>
+              <% @reservations.each do |reservation| %>
+                <div class="col-xs-12">
                   <% if reservation.status %>
                     <strong><%= reservation.user.first_name %> <%= reservation.user.last_name %></strong>
                     <br>
@@ -64,11 +74,22 @@
                     <br>
                     <hr>
                   <% else %>
+<<<<<<< HEAD
                     <p> Vous n'avez pas de coupon émis </p>
                     <hr>
                   <% end %>
                 <% end %>
               </div>
+=======
+                    <p> Vous n'avez pas de coupon validé </p>
+                    <hr>
+                  <% end %>
+                </div>
+              <% end %>
+            <% else %>
+              <p> Vous n'avez pas de coupon validé </p>
+              <hr>
+>>>>>>> master
             <% end %>
           </div>
         </div>
@@ -79,6 +100,7 @@
       <div id="rating" class="tab-pane">
         <div class="container">
           <% if @feedbacks != [] %>
+<<<<<<< HEAD
           <div class="row ">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3">
               <div class="card-analytic">
@@ -130,38 +152,102 @@
           </div>
         </div>
       </div>
+=======
+            <div class="row ">
+              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <div class="card-analytic">
+                  <h2 class=<%= @average[0] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                    <%= @average[0] %>
+                  </h2>
+                  <p> Expérience Générale </p>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-xs-12 col-sm-3">
+                <div class="card-analytic">
+                  <h4 class=<%= @average[1] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                    <%= @average[1] %>
+                  </h4>
+                  <p> Cuisine </p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-3">
+                <div class="card-analytic">
+                  <h4 class=<%= @average[2] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                    <%= @average[2] %>
+                  </h4>
+                  <p> Service </p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-3">
+                <div class="card-analytic">
+                  <h4 class=<%= @average[3] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                    <%= @average[3] %>
+                  </h4>
+                  <p> Rapport qualité/prix </p>
+                </div>
+              </div>
+              <div class="col-xs-12 col-sm-3">
+                <div class="card-analytic">
+                  <h4 class=<%= @average[4] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                    <%= @average[4] %>
+                  </h4>
+                <p> ambiance </p>
+              </div>
+            </div>
+          </div>
+            <% else %>
+              <br><br><br><br>
+              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <h2> Vous n'avez pas encore reçu de note ! </h2>
+                <hr>
+              </div>
+            <% end %>
+          </div>
+        </div>
+>>>>>>> master
 
       <!-- Feedback -->
 
       <div id="feedback" class="tab-pane">
         <div class="container">
           <div class="row">
-            <% @feedbacks.each do |feedback| %>
-              <div class="col-xs-12 col-sm-6">
-                <div class="text-center card-analytic">
-                  <h3><%= User.find(feedback.user_id).first_name %> <%= User.find(feedback.user_id).last_name %></h3>
-                  <p class="date"> <%= feedback.created_at.day %>/<%= feedback.created_at.month %>/<%=feedback.created_at.year %></p>
-                  <p>
-                    <strong>Avez-vous apprécié votre expérience ?</strong><br>
-                    <%= feedback.general_exp %>
-                  </p>
-                  <p>
-                    <strong>Qu'avez vous pensé de la cuisine ?</strong><br>
-                    <%= feedback.food %>
-                  </p>
-                  <p>
-                    <strong>Qu'avez vous pensé du service ?</strong><br>
-                    <%= feedback.service %>
-                  </p>
-                  <p>
-                    <strong>Qu'avez-vous pensé du rapport qualité/prix ?</strong><br>
-                    <%= feedback.quality_to_price %>
-                  </p>
-                  <p>
-                    <strong>Avez-vous apprécié l'ambiance du restaurant ?</strong><br>
-                    <%= feedback.vibes %>
-                  </p>
+            <% if @feedbacks.first != nil %>
+              <% @feedbacks.each do |feedback| %>
+                <div class="col-xs-12 col-sm-6">
+                  <div class="text-center card-analytic">
+                    <h3><%= User.find(feedback.user_id).first_name %> <%= User.find(feedback.user_id).last_name %></h3>
+                    <p class="date"> <%= feedback.created_at.day %>/<%= feedback.created_at.month %>/<%=feedback.created_at.year %></p>
+                    <p>
+                      <strong>Avez-vous apprécié votre expérience ?</strong><br>
+                      <%= feedback.general_exp %>
+                    </p>
+                    <p>
+                      <strong>Qu'avez vous pensé de la cuisine ?</strong><br>
+                      <%= feedback.food %>
+                    </p>
+                    <p>
+                      <strong>Qu'avez vous pensé du service ?</strong><br>
+                      <%= feedback.service %>
+                    </p>
+                    <p>
+                      <strong>Qu'avez-vous pensé du rapport qualité/prix ?</strong><br>
+                      <%= feedback.quality_to_price %>
+                    </p>
+                    <p>
+                      <strong>Avez-vous apprécié l'ambiance du restaurant ?</strong><br>
+                      <%= feedback.vibes %>
+                    </p>
+                  </div>
                 </div>
+              <% end %>
+            <% else %>
+              <br><br><br><br>
+              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                <h2> Vous n'avez pas encore reçu de feedback !</h2>
+                <hr>
               </div>
             <% end %>
           </div>
