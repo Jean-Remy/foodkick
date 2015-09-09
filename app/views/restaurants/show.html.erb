@@ -5,9 +5,12 @@
     <div class="banner-shadow"></div>
     <div class="banner-content">
       <h1><%= @restaurant.name %></h1>
-      <p>Le meilleur restaurant chinois de Paris, élu par la communauté</p>
+      <p><%= @restaurant.description[0..70]%>...</p>
       <div class="restaurant-category">
         <p><%=@restaurant.category%></p>
+      </div>
+      <div class="restaurant-opening">
+        <p>Ouverture : <%=@restaurant.opening%></p>
       </div>
         <% if user_signed_in? %>
 
