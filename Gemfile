@@ -12,6 +12,7 @@ gem 'devise'
 gem 'pundit'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip'
+gem "acts_as_follower"
 
 # Search engine
 gem 'sunspot_rails'
