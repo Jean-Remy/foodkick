@@ -1,27 +1,57 @@
-.analytic {
-  &-green {
-    font-size: 100px;
-    color: $our-light-green;
-  }
-  &-red {
-    font-size: 100px;
-    color: $our-red;
-  }
-}
-
 .card-analytic {
   border: 1px solid #E7E9E8;
   border-radius: 2px;
   position: relative;
+  padding-top: 80px;
+  &.green {
+    background-color: $our-light-green;
+  }
+  &.red {
+    background-color: $our-red;
+  }
+  p {
+    color: #FFF;
+    text-align: right;
+    padding-right: 15px;
+    margin-top:-20px;
+  }
 }
 
-.analytic-logo {
-  position: absolute;
+.icon {
+  color: #FFF;
+  padding-left: 10px;
+  float: left;
+  padding-top: 10px;
+  font-size: 20px;
+  margin-top: -85px;
+}
+
+.analytic {
+  font-size: 100px;
+  color: #FFF;
+  text-align: right;
+  padding-right: 10px;
 }
 
 .date {
   font-style: italic;
   font-size: 10px;
+}
+
+.card-rating {
+  border: 1px solid #E7E9E8;
+  border-radius: 2px;
+  position: relative;
+}
+
+.analytic-green {
+  font-size: 100px;
+  color: $our-light-green;
+}
+
+.analytic-red {
+  font-size: 100px;
+  color: $our-red;
 }
 
 
