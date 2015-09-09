@@ -341,7 +341,7 @@ course_attributes = [
     name: "Bisque de homard",
     description: "Bisque de homard et son émulsion de poireaux",
     price: 12,
-    restaurant_id: 30
+    restaurant_id: 1
 
   },
    {
@@ -349,7 +349,7 @@ course_attributes = [
     name: "Dos de cabillaud",
     description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
     price: 27,
-    restaurant_id: 30
+    restaurant_id: 1
 
   },
    {
@@ -357,7 +357,7 @@ course_attributes = [
     name: "Fraisier",
     description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
     price: 11,
-    restaurant_id: 30
+    restaurant_id: 1
 
   },
 
@@ -366,7 +366,7 @@ course_attributes = [
     name: "Bisque de homard",
     description: "Bisque de homard et son émulsion de poireaux",
     price: 12,
-    restaurant_id: 30
+    restaurant_id: 1
 
   },
    {
@@ -374,7 +374,7 @@ course_attributes = [
     name: "Dos de cabillaud",
     description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
     price: 27,
-    restaurant_id: 30
+    restaurant_id: 1
 
   },
    {
@@ -382,7 +382,7 @@ course_attributes = [
     name: "Fraisier",
     description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
     price: 11,
-    restaurant_id: 30
+    restaurant_id: 1
 
   },
 
@@ -391,7 +391,7 @@ course_attributes = [
     name: "Bisque de homard",
     description: "Bisque de homard et son émulsion de poireaux",
     price: 12,
-    restaurant_id: 30
+    restaurant_id: 1
 
   },
    {
@@ -399,7 +399,7 @@ course_attributes = [
     name: "Dos de cabillaud",
     description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
     price: 27,
-    restaurant_id: 30
+    restaurant_id: 1
 
   },
    {
@@ -407,7 +407,7 @@ course_attributes = [
     name: "Fraisier",
     description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
     price: 11,
-    restaurant_id: 30
+    restaurant_id: 1
 
   }
 ]
