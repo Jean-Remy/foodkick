@@ -1,3 +1,42 @@
+pref_cat_attributes = [
+{category: "Japonais"},
+{category: "Thailandais"},
+{category: "Vietnamien"},
+{category: "Chinois"},
+{category: "Russe"},
+{category: "Europe Centrale"},
+{category: "Italien"},
+{category: "Français"},
+{category: "Méditéranéen"},
+{category: "Mexicain"},
+{category: "Argentin"},
+{category: "Péruvien"}]
+
+pref_borough_attributes = [
+{borough: "Bastille"},
+{borough: "Notre-Dame"},
+{borough: "Marais"},
+{borough: "Villette"},
+{borough: "Abbesses"},
+{borough: "Odéon"},
+{borough: "Saint-Germain"},
+{borough: "Trocadéro"},
+{borough: "Quartier Latin"},
+{borough: "République"},
+{borough: "Montmartre"},
+{borough: "Champs-Elysées"}]
+
+
+pref_cat_attributes.each do |attribute|
+  PrefCat.create(attribute)
+end
+
+pref_borough_attributes.each do |attribute|
+  PrefBorough.create(attribute)
+end
+
+
+
 restaurant_attributes = [
   {
     name: "Beijing 8",

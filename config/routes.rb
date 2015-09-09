@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post '/validate', to: "reservations#validate_code", as: :validate_code
   get '/codes', to: 'reservations#codes', as: :codes
   get '/error', to: 'reservations#error', as: :error
+  post '/users/:id/pref', to: 'users#preferences', as: :user_pref
 end
