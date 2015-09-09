@@ -43,11 +43,11 @@
 <div class="restaurant-show-content">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-8 padded">
+      <div class="col-xs-12 col-md-8">
          <br>
          <img src="https://images.unsplash.com/photo-1414358154612-ae3d3c120004?q=80&fm=jpg&s=988c3ac3e8fc7e48d5d7f6d9bd325c6a" class="img-thumbnail" alt="Cinque Terre">
       </div>
-      <div class="col-xs-12 col-md-4 padded">
+      <div class="col-xs-12 col-md-4">
         <h3>UN VOYAGE</h3>
         <p>
           Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
@@ -63,6 +63,41 @@
         <% end %>
       </div>
     </div>
+    <br>
+
+    <div class="row">
+      <div class="col-xs-12 col-md-12 blackboard text-center">
+        <h3>Entrées</h3>
+
+        <%@restaurant.courses.where(category: "Dessert").each do |dessert| %>
+          <ul class="list-unstyled list-inline">
+            <li><h4 ><%=dessert.name%></h4></li> <li><p> - <%=dessert.description%></p></li>
+          </ul>
+          <%end%>
+
+        <br>
+        <h3>Plats</h3>
+        <%@restaurant.courses.where(category: "Dessert").each do |dessert| %>
+            <ul class="list-unstyled list-inline">
+            <li><h4 ><%=dessert.name%></h4></li> <li><p> - <%=dessert.description%></p></li>
+            </ul>
+          <%end%>
+        <br>
+
+        <h3>Desserts</h3>
+
+        <%@restaurant.courses.where(category: "Dessert").each do |dessert| %>
+          <ul class="list-unstyled list-inline">
+            <li><h4 ><%=dessert.name%></h4></li> <li><p> - <%=dessert.description%></p></li>
+          </ul>
+        <%end%>
+
+      </div>
+    </div>
+
+    <br>
+
+
     <div class="row">
       <div class="col-xs-12 col-md-4">
         <img src="https://images.unsplash.com/17/unsplash_527bf4b4ae00d_1.JPG?q=80&fm=jpg&s=0b8001ef704174d007386803dbf0a276" class="img-thumbnail" alt="Cinque Terre">

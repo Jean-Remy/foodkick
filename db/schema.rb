@@ -198,7 +198,7 @@ ActiveRecord::Schema.define(version: 20150908155005) do
 
   add_foreign_key "courses", "restaurants"
   add_foreign_key "feedback_answers", "feedback_questions"
-  add_foreign_key "feedback_answers", "reservations"
+
   add_foreign_key "feedbacks", "reservations"
   add_foreign_key "feedbacks", "users"
   add_foreign_key "pref_boroughs", "users"

@@ -1,3 +1,9 @@
+PrefCat.delete_all
+PrefBorough.delete_all
+Course.delete_all
+Restaurant.delete_all
+
+
 pref_cat_attributes = [
 {category: "Japonais"},
 {category: "Thailandais"},
@@ -325,9 +331,90 @@ user_attributes.each do |attribute|
 end
 
 restaurant_attributes.each do |attribute|
-  Restaurant.create(attribute)
+  restaurant = Restaurant.create(attribute)
+
 end
 
+course_attributes = [
+  {
+    category: "Entrée",
+    name: "Bisque de homard",
+    description: "Bisque de homard et son émulsion de poireaux",
+    price: 12,
+    restaurant_id: 30
+
+  },
+   {
+    category: "Entrée",
+    name: "Dos de cabillaud",
+    description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
+    price: 27,
+    restaurant_id: 30
+
+  },
+   {
+    category: "Dessert",
+    name: "Fraisier",
+    description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
+    price: 11,
+    restaurant_id: 30
+
+  },
+
+    {
+    category: "Entrée",
+    name: "Bisque de homard",
+    description: "Bisque de homard et son émulsion de poireaux",
+    price: 12,
+    restaurant_id: 30
+
+  },
+   {
+    category: "Entrée",
+    name: "Dos de cabillaud",
+    description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
+    price: 27,
+    restaurant_id: 30
+
+  },
+   {
+    category: "Dessert",
+    name: "Fraisier",
+    description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
+    price: 11,
+    restaurant_id: 30
+
+  },
+
+    {
+    category: "Entrée",
+    name: "Bisque de homard",
+    description: "Bisque de homard et son émulsion de poireaux",
+    price: 12,
+    restaurant_id: 30
+
+  },
+   {
+    category: "Entrée",
+    name: "Dos de cabillaud",
+    description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
+    price: 27,
+    restaurant_id: 30
+
+  },
+   {
+    category: "Dessert",
+    name: "Fraisier",
+    description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
+    price: 11,
+    restaurant_id: 30
+
+  }
+]
+
+course_attributes.each do |attribute|
+  Course.create(attribute)
+end
 
 # require 'nokogiri'
 # require 'open-uri'

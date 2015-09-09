@@ -1,0 +1,17 @@
+<%= simple_form_for(current_user) do |f| %>
+<%= f.error_notification %>
+<%= f.input :email, class: "form-control"%>
+<%= f.button :submit, "Valider", class: "btn btn-primary" %>
+<% end %>
+
+
+<h4>Sauvergarder mes préferences</h4>
+
+<%=simple_form_for(current_user) do |f|%>
+  <label class="checkbox">
+    <div class="list-inline">
+    <input class="boolean optional" id="user_published" type="checkbox" value="1"><p>Japonais</p></div>
+    <div class="list-inline">
+    <input class="boolean optional" id="user_published" type="checkbox" value="1"><p>Italien</p></div>
+  </label>
+<%end%>

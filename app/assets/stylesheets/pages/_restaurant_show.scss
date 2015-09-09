@@ -1,3 +1,6 @@
+@font-face { font-family: "Rudiment"; src: assets-url('Rudiment.ttf') format("truetype"); };
+
+
 .restaurant-show-content {
   background-color: white;
 }
@@ -33,4 +36,29 @@
 }
 .enorme {
   font-size: 200px;
+}
+
+
+.blackboard {
+  position: relative;
+  background-image:image-url('blackboard.png');
+  color: white;
+  font-family: Rudiment, sans-serif;
+
+
+  &-background {
+  height: 500px;
+  width: 100%;
+
+  &-menu {
+  position: absolute;
+  top: 20px;
+
+  }
+
+}
+}
+.col-xs-12 {
+
+  padding-top: 30px;
 }
