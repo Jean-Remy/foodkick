@@ -1,9 +1,10 @@
 .card {
   position: relative;
-  height: 275px;
+  height: 200px;
   text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   color: white;
   margin: 20px auto;
+
   &-bg{
     background-size: cover;
     border-radius: 3px;
@@ -13,7 +14,7 @@
     width: 100%;
   }
   &-shadow {
-    background-image: linear-gradient(to right, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 80%);
+    background-image: radial-gradient(circle, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 80%);
     border-radius: 3px;
     position: absolute;
     top: 0;
@@ -22,9 +23,9 @@
   }
   &-description {
     font-size: 10px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     position: absolute;
-    top: 10px;
+    bottom: 6px;
     left: 10px;
   }
 
@@ -43,15 +44,37 @@
   line-height: 90%;
   }
 
+  &-opening {
+  position: absolute;
+  top: 130px;
+  left:30px;
+  right: 10px;
+  font-size: 10px;
+  text-align: center;
+
+  }
+
+  &-name {
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    font-size: 10px;
+    width: 300px;
+    margin-left: 10%;
+    margin-top: 5%;
+
+  }
+
 
 
 
   &-text {
     position: absolute;
-    bottom: 10px;
+    bottom: 20px;
     left: 10px;
     h2 {
       font-size: 24px;
+      line-height: 20px;
     }
     p {
       font-size: 13px;
@@ -84,12 +107,30 @@
     display: none;
   }
 
+  &-logo_foodkick {
+    position: absolute;
+    background-image: url("../assets/images/logo.png");
+    height: 60px;
+    width: 70px;
+    z-index: 0;
+    bottom: 10px;
+    right: 10px;
+    display:none;
+
+  }
+
   &:hover{
     .card-description, .card-text{
       display:none;
     }
-    .card-search{
-      display:block;
+
+    .card-logo_foodkick {
+      display: block;
+      z-index: 2;
+      -webkit-transition: display, 1s;
+    -moz-transition: display, 1s;
+    -o-transition: display, 1s;
+    transition: display, 1s;
     }
   }
 }

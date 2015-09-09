@@ -5,6 +5,7 @@ class RestaurantsController < ApplicationController
 
   def index
     @pref_borough = PrefBorough.uniq
+    @pref_cat = PrefCat.uniq
     if params[:ar_id]
       @restaurants = policy_scope(Restaurant.where(zip_code: params[:ar_id]))
     else

@@ -34,3 +34,18 @@
 .enorme {
   font-size: 200px;
 }
+
+
+.blackboard {
+  position: relative;
+
+  &-background {
+  height: 500px;
+  width: 100%;
+
+}
+}
+.col-xs-12 {
+
+  padding-top: 30px;
+}
