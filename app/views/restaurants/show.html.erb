@@ -50,13 +50,31 @@
     <br>
 
     <div class="row">
-      <div class="col-xs-12 col-md-12 blackboard"> <%=image_tag("blackboard.png", class:"blackboard-background")%>
-          <%=@restaurant.courses.where(category: "Entrée").each do |entree| %>
-          <p><%entree.name%></p>
+      <div class="col-xs-12 col-md-12 blackboard text-center">
+        <h3>Entrées</h3>
+
+        <%@restaurant.courses.where(category: "Dessert").each do |dessert| %>
+          <ul class="list-unstyled list-inline">
+            <li><h4 ><%=dessert.name%></h4></li> <li><p> - <%=dessert.description%></p></li>
+          </ul>
           <%end%>
 
+        <br>
+        <h3>Plats</h3>
+        <%@restaurant.courses.where(category: "Dessert").each do |dessert| %>
+            <ul class="list-unstyled list-inline">
+            <li><h4 ><%=dessert.name%></h4></li> <li><p> - <%=dessert.description%></p></li>
+            </ul>
+          <%end%>
+        <br>
 
+        <h3>Desserts</h3>
 
+        <%@restaurant.courses.where(category: "Dessert").each do |dessert| %>
+          <ul class="list-unstyled list-inline">
+            <li><h4 ><%=dessert.name%></h4></li> <li><p> - <%=dessert.description%></p></li>
+          </ul>
+        <%end%>
 
       </div>
     </div>
