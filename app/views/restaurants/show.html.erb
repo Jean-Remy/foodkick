@@ -4,14 +4,14 @@
   <div class="banner text-center" style="background-image: url('<%= @restaurant.seed_picture %>')">
     <div class="banner-shadow"></div>
     <div class="banner-content">
-      <h1><%= @restaurant.name %></h1>
-      <p><%= @restaurant.description[0..70]%>...</p>
       <div class="restaurant-category">
         <p><%=@restaurant.category%></p>
       </div>
       <div class="restaurant-opening">
         <p>Ouverture : <%=@restaurant.opening%></p>
       </div>
+      <h1><%= @restaurant.name %></h1>
+      <p><%= @restaurant.description[0..70]%>...</p>
         <% if user_signed_in? %>
 
           <% if current_user.owner == (false || nil) %>
