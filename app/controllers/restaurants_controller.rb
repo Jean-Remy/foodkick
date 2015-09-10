@@ -8,8 +8,12 @@ class RestaurantsController < ApplicationController
     @pref_cat = PrefCat.uniq
     if params[:ar_id]
       @restaurants = policy_scope(Restaurant.where(zip_code: params[:ar_id]))
+    elsif params[:pref_quartier]
+      @restaurants = policy_scope(Restaurant.where(borough_label: params[:pref_quartier]))
+    elsif params[:pref_cat]
+      @restaurants = policy_scope(Restaurant.where(cat_label: params[:pref_cat]))
     else
-      @restaurants = policy_scope(Restaurant)
+      @restaurants = policy_scope(Restaurant.all)
     end
     @markers = Gmaps4rails.build_markers(@restaurants) do |restaurant, marker|
       marker.lat restaurant.latitude

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150908155005) do
+ActiveRecord::Schema.define(version: 20150910114517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 20150908155005) do
     t.string   "borough"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "label"
   end
 
   add_index "pref_boroughs", ["user_id"], name: "index_pref_boroughs_on_user_id", using: :btree
@@ -79,6 +80,7 @@ ActiveRecord::Schema.define(version: 20150908155005) do
     t.string   "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "label"
   end
 
   add_index "pref_cats", ["user_id"], name: "index_pref_cats_on_user_id", using: :btree
@@ -123,6 +125,8 @@ ActiveRecord::Schema.define(version: 20150908155005) do
     t.float    "longitude"
     t.float    "latitude"
     t.integer  "views",                default: 0
+    t.string   "borough_label"
+    t.string   "cat_label"
   end
 
   create_table "schedules", force: :cascade do |t|

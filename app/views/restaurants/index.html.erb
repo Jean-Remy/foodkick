@@ -8,7 +8,7 @@
           <div>
             <%@pref_borough.each do |pref| %>
             <span style="margin-top: 10px; display: inline-block">
-              <%= link_to do %>
+              <%= link_to restaurants_path + "?pref_quartier=#{pref.label}" do %>
                 <span class="label label-success" style="font-size: 15px;"><%=pref.borough%></span>
               <% end %>
             </span>
@@ -20,7 +20,7 @@
           <div>
             <%@pref_cat.each do |pref| %>
             <span style="margin-top: 10px; display: inline-block">
-              <%= link_to do %>
+              <%= link_to restaurants_path + "?pref_cat=#{pref.label}" do %>
                 <span class="label label-primary" style="font-size: 15px;"><%=pref.category%></span>
               <% end %>
             </span>
