@@ -39,11 +39,7 @@
                   <i class="fa fa-user"></i> <%= t ".profile", default: "Profil" %>
                 <% end %>
               </li>
-              <li>
-                <%= link_to codes_path do %>
-                  <i class="fa fa-money"></i> <%= t ".profile", default: "Mes codes" %>
-                <% end %>
-              </li>
+
             <% end %>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
