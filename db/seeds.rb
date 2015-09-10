@@ -1,8 +1,12 @@
+# Reset
+User.delete_all
 PrefCat.delete_all
 PrefBorough.delete_all
 Course.delete_all
 Restaurant.delete_all
 
+
+# catégories de restos et de quarties
 
 pref_cat_attributes = [
 {category: "Japonais"},
@@ -31,15 +35,6 @@ pref_borough_attributes = [
 {borough: "République"},
 {borough: "Montmartre"},
 {borough: "Champs-Elysées"}]
-
-
-pref_cat_attributes.each do |attribute|
-  PrefCat.create(attribute)
-end
-
-pref_borough_attributes.each do |attribute|
-  PrefBorough.create(attribute)
-end
 
 
 
@@ -326,38 +321,56 @@ user_attributes = [
   }
 ]
 
-user_attributes.each do |attribute|
-  User.create(attribute)
-end
-
-restaurant_attributes.each do |attribute|
-  restaurant = Restaurant.create(attribute)
-
-end
-
 course_attributes = [
+
+  {
+    category: "Plat",
+    name: "Plat du chef",
+    description: "Demandez en cuisine",
+    price: 12,
+
+
+  },
   {
     category: "Entrée",
     name: "Bisque de homard",
-    description: "Bisque de homard et son émulsion de poireaux",
+    description: " et son émulsion de poireaux",
     price: 12,
-    restaurant_id: 1
+
 
   },
    {
-    category: "Entrée",
+    category: "Plat",
     name: "Dos de cabillaud",
-    description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
+    description: "fondant aux herbes avec sa purée de haddock fumé",
     price: 27,
-    restaurant_id: 1
+
 
   },
    {
     category: "Dessert",
     name: "Fraisier",
-    description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
+    description: "du chef aux pistaches d'Oman et baies de Kerala",
     price: 11,
-    restaurant_id: 1
+
+
+  },
+
+    {
+    category: "Entrée",
+    name: "Vittelo tonatto",
+    description: "au poivre de Sichuan",
+    price: 12,
+
+
+  },
+
+   {
+    category: "Dessert",
+    name: "Paris Brest, en passant par Palerme",
+    description: "Rouleau sicilien fourré revisité par notre traditionnel Paris Brest",
+    price: 11,
+
 
   },
 
@@ -366,55 +379,72 @@ course_attributes = [
     name: "Bisque de homard",
     description: "Bisque de homard et son émulsion de poireaux",
     price: 12,
-    restaurant_id: 1
+
 
   },
    {
-    category: "Entrée",
-    name: "Dos de cabillaud",
-    description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
+    category: "Plat",
+    name: "Ris de veau à l'Indonésienne",
+    description: "accompagné d'un Nasi Goreng de Surabaya",
     price: 27,
-    restaurant_id: 1
+
 
   },
    {
     category: "Dessert",
-    name: "Fraisier",
-    description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
+    name: "Tiramisu rouge",
+    description: "aux fraises et framboises du verger",
     price: 11,
-    restaurant_id: 1
 
-  },
-
-    {
-    category: "Entrée",
-    name: "Bisque de homard",
-    description: "Bisque de homard et son émulsion de poireaux",
-    price: 12,
-    restaurant_id: 1
-
-  },
-   {
-    category: "Entrée",
-    name: "Dos de cabillaud",
-    description: "dos de cabillaud fondant aux herbes avec sa purée de haddock fumé",
-    price: 27,
-    restaurant_id: 1
-
-  },
-   {
-    category: "Dessert",
-    name: "Fraisier",
-    description: "Fraisier du chef aux pistaches d'Oman et baies de Kerala",
-    price: 11,
-    restaurant_id: 1
 
   }
 ]
 
-course_attributes.each do |attribute|
-  Course.create(attribute)
+# build borough and restaurant categories
+
+pref_cat_attributes.each do |attribute|
+  PrefCat.create(attribute)
 end
+
+pref_borough_attributes.each do |attribute|
+  PrefBorough.create(attribute)
+end
+
+user_attributes.each do |attribute|
+  User.create(attribute)
+end
+
+# array that allows to iterate on restaurants
+restaurant_array = []
+
+restaurant_attributes.each do |attribute|
+  restaurant = Restaurant.create(attribute)
+  restaurant_array << restaurant
+end
+
+
+#Create courses and assign them to restaurants
+
+restaurant_array.each do |restaurant|
+  course_attributes.each do |attribute|
+      course = Course.new(attribute)
+      course.restaurant = restaurant
+      course.save!
+    end
+end
+
+
+resto = Restaurant.find_by id:2
+resto
+p resto.courses
+
+# restaurant_array.each do |restaurant|
+#     course = Course.create(attribute[0])
+#     course.restaurant_id = restaurant.id
+# end
+
+
+
 
 # require 'nokogiri'
 # require 'open-uri'
@@ -467,10 +497,4 @@ end
 
 # p prout
 
-user_attributes.each do |attribute|
- User.create(attribute)
-end
 
-restaurant_attributes.each do |attribute|
- Restaurant.create(attribute)
-end
