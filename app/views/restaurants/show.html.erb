@@ -14,7 +14,7 @@
       <p><%= @restaurant.description[0..70]%>...</p>
         <% if user_signed_in? %>
 
-          <% if current_user.owner == (false || nil) %>
+          <% if current_user.owner == false || urrent_user.owner == nil  %>
 
             <% if @booked %>
               <%=link_to 'Voir mon code', user_path(coming_from_reservation: 1) %>
@@ -137,7 +137,7 @@
 
 <div class="text-center">
   <% if user_signed_in? %>
-    <% if current_user.owner == (false || nil) %>
+    <% if current_user.owner == false || current_user.owner == nil %>
       <% if @booked %>
         <%=link_to 'Voir mon code', user_path(coming_from_reservation: 1) %>
       <% else %>
