@@ -9,7 +9,7 @@
       </div>
     <% end %>
   <% else %>
-    <ol style="margin-top: 80px">
+    <ul class= "list-unstyled" style="margin-top: 80px">
       <% @my_codes.each do |code| %>
         <li>
           <strong><%= code.restaurant.name %></strong> - <%= code.code %> - <%= code.status ? "Utilisé" : "Pas utilisé" %> -
@@ -25,3 +25,5 @@
     </ol>
   <% end %>
 </div>
+
+

@@ -1,8 +1,8 @@
 
 
       <div class="row">
-        <% if @user.reservations.where(status: true).length != 0%>
-          <h3>A venir</h3>
+        <% if @user.reservations.where(status: false).length != 0%>
+          <h3 style="margin-left:12px;">A venir</h3>
           <% @user.reservations.where(status: false).each do |reservation| %>
             <div class="col-xs-6">
               <div class="card restaurant_<%= reservation.restaurant.id %>">
@@ -28,7 +28,7 @@
       </div>
 
       <% if @user.reservations.where(status: true).length != 0%>
-        <h3>Déja utilisées</h3>
+        <h3 style="margin-left: 12px">Déja utilisées</h3>
         <div class="row">
           <% @user.reservations.where(status: true).each do |reservation| %>
             <div class="col-xs-6">
@@ -50,8 +50,8 @@
             </div>
           <% end %>
         </div>
-        <%elsif @user.reservations.where(status: false).length != 0%>
+        <%elsif @user.reservations.where(status: true).length == 0%>
           <p>C'est votre premier test! Nous espérons que vous allez apprécier.</p>
-          <p>N'hésitez pas à nous faire partager cette première expérience</p>
+
         <%else%>
         <%end%>

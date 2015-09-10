@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user
   def show
+    @coming_from_reservation = true if params[:coming_from_reservation]
     authorize @user
   end
 

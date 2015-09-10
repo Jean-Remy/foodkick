@@ -35,7 +35,7 @@ class ReservationsController < ApplicationController
       # On empêche l'user d'avoir plusieurs réservations en même temps
       # current_user.can_book = false
       if @reservation.save
-        redirect_to codes_path
+        redirect_to user_path(current_user)
       else
         redirect_to restaurant_path(@restaurant)
       end

@@ -8,7 +8,7 @@
           <div>
             <%@pref_borough.each do |pref| %>
             <span style="margin-top: 10px; display: inline-block">
-              <%= link_to restaurants_path + "?pref_quartier=#{pref.label}" do %>
+              <%= link_to restaurants_path(pref_quartier: pref.label) do %>
                 <span class="label label-success" style="font-size: 15px;"><%=pref.borough%></span>
               <% end %>
             </span>
