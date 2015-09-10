@@ -1,5 +1,7 @@
+<% width = [8, 4, 12, 4, 4, 4] %>
+<% i = 0 %>
 <% @restaurants.each do |restaurant| %>
-  <div class="col-xs-6">
+  <div class="col-xs-<%= width[i] %>">
     <div class="card restaurant_<%= restaurant.id %>">
       <span class="card-bg" style="background-image: url('<%= restaurant.seed_picture %>')"></span>
       <span class="card-shadow"></span>
@@ -12,4 +14,5 @@
       <%= link_to " ", restaurant_path(restaurant), class: "card-link" %>
     </div>
   </div>
+  <% i += 1 %>
 <% end %>
