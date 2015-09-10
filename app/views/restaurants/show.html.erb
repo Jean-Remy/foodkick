@@ -26,8 +26,8 @@
               <% end %>
           <% elsif current_user.restaurant_id == @restaurant.id %>
             <%= simple_form_for @restaurant, url: restaurant_update_picture_path(@restaurant), method: :patch do |f| %>
-              <%= f.input :seed_picture %>
-              <%= f.button :submit, class: "btn btn-primary", value: "Modifier l'image"%>
+              <!-- <%= f.input :seed_picture %> -->
+              <%= f.button :submit, class: "btn btn-primary", value: "Editer mon profil"%>
             <% end %>
           <% end %>
         <% else %>
