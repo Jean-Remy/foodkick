@@ -87,11 +87,11 @@ class ReservationsController < ApplicationController
     if  @feedbacks != []
       n = @feedbacks.count.to_f
       @feedbacks.each do |feedback|
-        gnlexp += feedback.general_exp_rating
-        food += feedback.food_rating
-        service += feedback.service_rating
-        qualityprice += feedback.quality_to_price_rating
-        vibes += feedback.vibes_rating
+        feedback.general_exp_rating ? gnlexp += feedback.general_exp_rating : 0
+        feedback.food_rating ? food += feedback.food_rating : 0
+        feedback.service_rating ? service += feedback.service_rating : 0
+        feedback.quality_to_price_rating ? qualityprice += feedback.quality_to_price_rating : 0
+        feedback.vibes_rating ? vibes += feedback.vibes_rating : 0
       end
     end
     @average = [gnlexp/n, food/n, service/n, qualityprice/n, vibes/n]
