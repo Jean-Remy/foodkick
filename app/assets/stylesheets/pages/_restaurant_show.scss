@@ -1,4 +1,15 @@
-@font-face { font-family: "Rudiment"; src: assets-url('Rudiment.ttf') format("truetype"); };
+@font-face { font-family: "Rudiment"; src: assets-url('stylesheets/vendor/Rudiment.ttf') format("truetype"); };
+
+@font-face {
+  font-family: 'Rudiment';
+  src:font-url('rudiment.ttf');
+  src:font-url('rudiment.eot?#iefix') format('embedded-opentype'),
+    font-url('rudiment.svg#rudiment') format('svg'),
+    font-url('rudiment.woff') format('woff'),
+    font-url('rudiment.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 
 
 .restaurant-show-content {
@@ -43,7 +54,7 @@
   position: relative;
   background-image:image-url('blackboard.png');
   color: white;
-  font-family: Rudiment, sans-serif;
+
 
 
   &-background {
@@ -58,6 +69,24 @@
 
 }
 }
+
+.blackboard h3{
+  font-family: 'Lobster', sans-serif;
+  font-size: 35px;
+}
+.blackboard h5{
+  font-family: 'Lobster', sans-serif;
+  font-size: 30px;
+
+}
+
+.blackboard p{
+  font-family: 'Lobster', sans-serif;
+  font-size: 20px;
+
+}
+
+
 .col-xs-12 {
 
   padding-top: 30px;

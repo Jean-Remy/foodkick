@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   # after_create :send_welcome_email
   # before_save :skip_email_confirmation
-  has_many :category_pref
-  has_many :borough_pref
+  # has_many :category_prefs
+  # has_many :borough_prefs
   has_many :reservations
 
   # act_as_follower gem
