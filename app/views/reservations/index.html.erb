@@ -22,13 +22,13 @@
           <% if @reservations != []%>
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <div class="card-analytic form-group">
+                <div class="card-coupon form-group">
                   <h2> Valider un coupon </h2>
                   <%= form_tag(validate_code_path, method: "post") do %>
                     <%= hidden_field_tag(:restaurant_id, value = @restaurant.id) %>
-                    <%= text_field_tag(:code) %>
-                    <br><br>
-                    <%= submit_tag("Valider", class: "btn btn-success") %>
+                    <%= text_field_tag :code, nil, {class: "form-control", placeholder: "Ex: FE5FFX" }%>
+                    <br>
+                    <%= submit_tag("Valider", class: "btn btn-success btn-lg") %>
                   <% end %>
                   <br>
                 </div>
@@ -87,60 +87,70 @@
       <div id="rating" class="tab-pane">
         <div class="container">
           <% if @feedbacks != [] %>
-            <div class="row ">
-              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <div class="card-rating">
-                  <h2 class=<%= @average[0] > 2.5 ? "analytic-green" : "analytic-red"%>>
-                    <%= @average[0] %>
-                  </h2>
-                  <p> Expérience Générale </p>
-                </div>
+
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style="width: <%= @average[0].fdiv(5) * 100 %>%">
+                Expérience Générale
               </div>
             </div>
-            <br>
-            <div class="row">
-              <div class="col-xs-12 col-sm-3">
-                <div class="card-rating">
-                  <h4 class=<%= @average[1] > 2.5 ? "analytic-green" : "analytic-red"%>>
-                    <%= @average[1] %>
-                  </h4>
-                  <p> Cuisine </p>
+
+            <% if false %>
+              <div class="row ">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                  <div class="card-rating">
+                    <h2 class=<%= @average[0] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                      <%= @average[0] %>
+                    </h2>
+                    <p> Expérience Générale </p>
+                  </div>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-3">
-                <div class="card-rating">
-                  <h4 class=<%= @average[2] > 2.5 ? "analytic-green" : "analytic-red"%>>
-                    <%= @average[2] %>
-                  </h4>
-                  <p> Service </p>
+              <div class="row">
+                <div class="col-xs-12 col-sm-3">
+                  <div class="card-rating">
+                    <h4 class=<%= @average[1] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                      <%= @average[1] %>
+                    </h4>
+                    <p> Cuisine </p>
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-12 col-sm-3">
-                <div class="card-rating">
-                  <h4 class=<%= @average[3] > 2.5 ? "analytic-green" : "analytic-red"%>>
-                    <%= @average[3] %>
-                  </h4>
-                  <p> Rapport qualité/prix </p>
+                <div class="col-xs-12 col-sm-3">
+                  <div class="card-rating">
+                    <h4 class=<%= @average[2] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                      <%= @average[2] %>
+                    </h4>
+                    <p> Service </p>
+                  </div>
                 </div>
-              </div>
-              <div class="col-xs-12 col-sm-3">
-                <div class="card-rating">
-                  <h4 class=<%= @average[4] > 2.5 ? "analytic-green" : "analytic-red"%>>
-                    <%= @average[4] %>
-                  </h4>
-                <p> Ambiance </p>
-              </div>
-            </div>
-          </div>
-            <% else %>
-              <br><br><br><br>
-              <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <h2> Vous n'avez pas encore reçu de note ! </h2>
-                <hr>
+                <div class="col-xs-12 col-sm-3">
+                  <div class="card-rating">
+                    <h4 class=<%= @average[3] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                      <%= @average[3] %>
+                    </h4>
+                    <p> Rapport qualité/prix </p>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                  <div class="card-rating">
+                    <h4 class=<%= @average[4] > 2.5 ? "analytic-green" : "analytic-red"%>>
+                      <%= @average[4] %>
+                    </h4>
+                  <p> Ambiance </p>
+                </div>
               </div>
             <% end %>
-          </div>
+
+
+          <% else %>
+            <br><br><br><br>
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+              <h2> Vous n'avez pas encore reçu de note ! </h2>
+              <hr>
+            </div>
+          <% end %>
         </div>
+      </div>
 
       <!-- Feedback -->
 
