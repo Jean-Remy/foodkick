@@ -87,15 +87,39 @@
       <div id="rating" class="tab-pane">
         <div class="container">
           <% if @feedbacks != [] %>
-
+            <% if false %>
             <div class="progress">
               <div class="progress-bar" role="progressbar" aria-valuenow="70"
               aria-valuemin="0" aria-valuemax="100" style="width: <%= @average[0].fdiv(5) * 100 %>%">
-                Expérience Générale
+                Expérience Générale: <%= @average[0] %>
               </div>
             </div>
-
-            <% if false %>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style="width: <%= @average[1].fdiv(5) * 100 %>%">
+                Cuisine: <%= @average[1] %>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style="width: <%= @average[2].fdiv(5) * 100 %>%">
+                Service: <%= @average[2] %>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style="width: <%= @average[3].fdiv(5) * 100 %>%">
+                Rapport qualité/prix: <%= @average[3] %>
+              </div>
+            </div>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="70"
+              aria-valuemin="0" aria-valuemax="100" style="width: <%= @average[4].fdiv(5) * 100 %>%">
+                Ambiance: <%= @average[4] %>
+              </div>
+            </div>
+            <% end %>
+            <% if true %>
               <div class="row ">
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3">
                   <div class="card-rating">
