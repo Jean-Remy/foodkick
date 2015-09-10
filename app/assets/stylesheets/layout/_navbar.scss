@@ -21,7 +21,7 @@
   transition: all 0.3s ease;
   &-fixed {
     position: fixed;
-    z-index: 10 !important;
+    z-index: 1000 !important;
     width: 100%;
     background-color: white;
   }
