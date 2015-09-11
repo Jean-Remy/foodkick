@@ -6,7 +6,7 @@
           <% @user.reservations.where(status: false).each do |reservation| %>
             <div class="col-xs-6">
               <div class="card restaurant_<%= reservation.restaurant.id %>">
-                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.seed_picture %>')"></span>
+                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.picture.url %>')"></span>
                 <span class="card-shadow"></span>
                 <span class="card-description"><%= reservation.restaurant.category %></span>
                 <span class="card-text">

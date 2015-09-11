@@ -31,7 +31,7 @@
         <% @restaurants.each do |restaurant| %>
           <div class="col-xs-6">
             <div class="card restaurant_<%= restaurant.id %>">
-              <span class="card-bg" style="background-image: url('<%= restaurant.seed_picture %>')"></span>
+              <span class="card-bg" style="background-image: url('<%= restaurant.picture.url %>')"></span>
               <span class="card-shadow"></span>
               <span class="card-name"><h2><%= restaurant.name %></h2></span>
               <span class="card-text">
