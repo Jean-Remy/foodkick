@@ -1,6 +1,16 @@
 .navbar-title {
   color: black;
-  font-size: 20px;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  letter-spacing: 2px;
+  font-weight: lighter;
+  .food {
+    color: #8AD4A1;
+  }
+  .kick {
+    color: #FF003E;
+  }
 }
 
 .navbar-wagon-fixed {
