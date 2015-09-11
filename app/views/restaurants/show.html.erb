@@ -67,6 +67,7 @@
     <div class="container padded menu">
       <div class="row sm-padded">
         <h3 class="text-center">ENTREES</h3>
+          <br>
           <% @restaurant.courses.where(category: "Entrée").each do |entree| %>
             <div class="col-xs-12 col-md-4">
               <span class="pull-left"><strong><%=entree.name%></strong></span>
@@ -77,24 +78,26 @@
           <% end %>
       </div>
       <div class="row sm-padded">
-        <h3 class="text-center">ENTREES</h3>
-          <% @restaurant.courses.where(category: "Plat").each do |entree| %>
+        <h3 class="text-center">PLATS</h3>
+          <br>
+          <% @restaurant.courses.where(category: "Plat").each do |plat| %>
             <div class="col-xs-12 col-md-4">
-              <span class="pull-left"><strong><%=entree.name%></strong></span>
-              <span class="pull-right"><%=entree.price %>€</span>
+              <span class="pull-left"><strong><%=plat.name%></strong></span>
+              <span class="pull-right"><%=plat.price %>€</span>
               <div style="clear:both"></div>
-              <p class="description"><%=entree.description%></p>
+              <p class="description"><%=plat.description%></p>
             </div>
           <% end %>
       </div>
       <div class="row">
-        <h3 class="text-center">ENTREES</h3>
-          <% @restaurant.courses.where(category: "Entrée").each do |entree| %>
+        <h3 class="text-center">DESSERT</h3>
+          <br>
+          <% @restaurant.courses.where(category: "Dessert").each do |dessert| %>
             <div class="col-xs-12 col-md-4">
-              <span class="pull-left"><strong><%=entree.name%></strong></span>
-              <span class="pull-right"><%=entree.price %>€</span>
+              <span class="pull-left"><strong><%=dessert.name%></strong></span>
+              <span class="pull-right"><%=dessert.price %>€</span>
               <div style="clear:both"></div>
-              <p class="description"><%=entree.description%></p>
+              <p class="description"><%=dessert.description%></p>
             </div>
           <% end %>
       </div>
