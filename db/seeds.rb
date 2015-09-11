@@ -302,21 +302,23 @@ restaurant_attributes = [
 
 user_attributes = [
   {
-    email: "harry@potter.com",
-    first_name: "Harry",
-    last_name: "Potter",
+    email: "guillaume.charpin@gmail.com",
+    first_name: "Guillaume",
+    last_name: "Charpin",
     password: "topsecret",
     password_confirmation: "topsecret",
+    picture: 'http://cfa-esrpc.fr/images/medias/photo/portrait-2_1391597193142-jpg'
     owner: true,
     restaurant_id: 1
   },
   {
-    email: "ron@weasley.com",
-    first_name: "Ron",
-    last_name: "Weasley",
+    email: "gaspard.aubert@gmail.com",
+    first_name: "Gaspard",
+    last_name: "Aubert",
     password: "topsecret",
     password_confirmation: "topsecret",
     owner: false,
+    picture: 'http://createyourownphotoblog.com/wp-content/uploads/2014/11/IMG_1977-Version-3.jpg'
   },
   {
     email: "hermione@granger.com",
