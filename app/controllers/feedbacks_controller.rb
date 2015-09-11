@@ -17,7 +17,7 @@ class FeedbacksController < ApplicationController
     if @feedback.save
       @reservation.feedbacked = true
       @reservation.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Merci pour ton feedback !"
     else
       render :new
     end
