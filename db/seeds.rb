@@ -362,7 +362,7 @@ course_attributes = [
   {
     category: "Plat",
     name: "Sole aux haricots noirs",
-    description: "cuite au gingembre ou à la vapeur, accompagné de riz parfumé",
+    description: "Cuite au gingembre ou à la vapeur, accompagné de riz parfumé",
     price: 12,
 
 
@@ -370,7 +370,7 @@ course_attributes = [
   {
     category: "Entrée",
     name: "Ha-Kao",
-    description: "raviolis aux crevettes",
+    description: "Raviolis aux crevettes cuites à la vapeur",
     price: 12,
 
 
@@ -394,8 +394,8 @@ course_attributes = [
 
     {
     category: "Entrée",
-    name: "Feuille de lotus farcie au riz gluant et poulet",
-    description: "très parfumé, et très doux",
+    name: "Feuille de lotus farcie au riz gluant",
+    description: "Très parfumé et très doux",
     price: 12,
 
 
@@ -404,7 +404,7 @@ course_attributes = [
    {
     category: "Dessert",
     name: "Salade de fruits frais",
-    description: "mangue, ananas, kiwis",
+    description: "Mangue, ananas, kiwis",
     price: 11,
 
 
@@ -429,7 +429,7 @@ course_attributes = [
    {
     category: "Dessert",
     name: "Glaces de la maison Bertillon",
-    description: "demandez nos parfums",
+    description: "Demandez nos parfums",
     price: 11,
 
 
