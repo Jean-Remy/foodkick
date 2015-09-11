@@ -1,4 +1,13 @@
-
+<% if @user.reservations.where(status: true).length != 0%>
+  <% @user.reservations.where(status: true).each do |reservation| %>
+    <% if !reservation.feedbacked %>
+        <h2>
+          <%= link_to "Donne ton feedback à #{reservation.restaurant.name}", new_restaurant_feedback_path(reservation.restaurant) %>
+        </h2>
+        <hr>
+    <% end %>
+  <% end %>
+<% end %>
 
       <div class="row">
         <% if @user.reservations.where(status: false).length != 0%>
@@ -6,7 +15,7 @@
           <% @user.reservations.where(status: false).each do |reservation| %>
             <div class="col-xs-6">
               <div class="card restaurant_<%= reservation.restaurant.id %>">
-                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.seed_picture %>')"></span>
+                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.picture.url %>')"></span>
                 <span class="card-shadow"></span>
                 <span class="card-description"><%= reservation.restaurant.category %></span>
                 <span class="card-text">
@@ -33,7 +42,7 @@
           <% @user.reservations.where(status: true).each do |reservation| %>
             <div class="col-xs-6">
               <div class="card restaurant_<%= reservation.restaurant.id %>">
-                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.seed_picture %>')"></span>
+                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.picture.url %>')"></span>
                 <span class="card-shadow"></span>
                 <span class="card-description"><%= reservation.restaurant.category %></span>
                 <span class="card-text">
@@ -52,6 +61,5 @@
         </div>
         <%elsif @user.reservations.where(status: true).length == 0%>
           <p>C'est votre premier test! Nous espérons que vous allez apprécier.</p>
-
         <%else%>
         <%end%>
