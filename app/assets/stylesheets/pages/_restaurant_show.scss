@@ -88,7 +88,18 @@
 }
 
 
-.col-xs-12 {
-
-  padding-top: 30px;
+.menu {
+  h3 {
+    font-size: 18px;
+    color: #FF003E;
+  }
+  .description {
+    display: inline-block;
+  }
+  .pull-left {
+    font-size: 16px;
+    font-weight: 400;
+  }
 }
+
+

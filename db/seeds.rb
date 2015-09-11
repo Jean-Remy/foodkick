@@ -433,7 +433,7 @@ course_attributes = [
     price: 11,
 
 
-  }
+  },
 ]
 
 # build borough and restaurant categories
