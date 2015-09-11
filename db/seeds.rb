@@ -302,9 +302,9 @@ restaurant_attributes = [
 
 user_attributes = [
   {
-    email: "guillaume.charpin@gmail.com",
+    email: "guillaume.chen@gmail.com",
     first_name: "Guillaume",
-    last_name: "Charpin",
+    last_name: "Chen",
     password: "topsecret",
     password_confirmation: "topsecret",
     picture: 'http://cfa-esrpc.fr/images/medias/photo/portrait-2_1391597193142-jpg',
@@ -361,32 +361,32 @@ course_attributes = [
 
   {
     category: "Plat",
-    name: "Plat du chef",
-    description: "Demandez en cuisine",
+    name: "Sole aux haricots noirs",
+    description: "cuite au gingembre ou à la vapeur, accompagné de riz parfumé",
     price: 12,
 
 
   },
   {
     category: "Entrée",
-    name: "Bisque de homard",
-    description: " et son émulsion de poireaux",
+    name: "Ha-Kao",
+    description: "raviolis aux crevettes",
     price: 12,
 
 
   },
    {
     category: "Plat",
-    name: "Dos de cabillaud",
-    description: "fondant aux herbes avec sa purée de haddock fumé",
+    name: "Pinces de crabe en beignets",
+    description: "Spécialité du Chef, servies avec une sauce aigre-douce",
     price: 27,
 
 
   },
    {
     category: "Dessert",
-    name: "Fraisier",
-    description: "du chef aux pistaches d'Oman et baies de Kerala",
+    name: "Brioches maison à la vapeur",
+    description: "A la coco et à l'oeuf",
     price: 11,
 
 
@@ -394,8 +394,8 @@ course_attributes = [
 
     {
     category: "Entrée",
-    name: "Vittelo tonatto",
-    description: "au poivre de Sichuan",
+    name: "Feuille de lotus farcie au riz gluant et poulet",
+    description: "très parfumé, et très doux",
     price: 12,
 
 
@@ -403,8 +403,8 @@ course_attributes = [
 
    {
     category: "Dessert",
-    name: "Paris Brest, en passant par Palerme",
-    description: "Rouleau sicilien fourré revisité par notre traditionnel Paris Brest",
+    name: "Salade de fruits frais",
+    description: "mangue, ananas, kiwis",
     price: 11,
 
 
@@ -412,24 +412,24 @@ course_attributes = [
 
     {
     category: "Entrée",
-    name: "Bisque de homard",
-    description: "Bisque de homard et son émulsion de poireaux",
+    name: "Pattes de poulet aux haricots noirs",
+    description: "Servi en sauce",
     price: 12,
 
 
   },
    {
     category: "Plat",
-    name: "Ris de veau à l'Indonésienne",
-    description: "accompagné d'un Nasi Goreng de Surabaya",
+    name: "Demi Canard laqué à la Pékinoise",
+    description: "En deux services : la peau servie avec des galettes de riz et a chair sautée au gingembre",
     price: 27,
 
 
   },
    {
     category: "Dessert",
-    name: "Tiramisu rouge",
-    description: "aux fraises et framboises du verger",
+    name: "Glaces de la maison Bertillon",
+    description: "demandez nos parfums",
     price: 11,
 
 
