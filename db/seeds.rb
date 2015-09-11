@@ -385,8 +385,8 @@ course_attributes = [
   },
    {
     category: "Dessert",
-    name: "Fraisier",
-    description: "du chef aux pistaches d'Oman et baies de Kerala",
+    name: "Brioches maison à la vapeur",
+    description: "A la coco et à l'oeuf",
     price: 11,
 
 
@@ -403,8 +403,8 @@ course_attributes = [
 
    {
     category: "Dessert",
-    name: "Paris Brest, en passant par Palerme",
-    description: "Rouleau sicilien fourré revisité par notre traditionnel Paris Brest",
+    name: "Salade de fruits frais",
+    description: "mangue, ananas, kiwis",
     price: 11,
 
 
@@ -412,8 +412,8 @@ course_attributes = [
 
     {
     category: "Entrée",
-    name: "Bisque de homard",
-    description: "Bisque de homard et son émulsion de poireaux",
+    name: "Pattes de poulet aux haricots noirs",
+    description: "Servi en sauce",
     price: 12,
 
 
@@ -428,8 +428,8 @@ course_attributes = [
   },
    {
     category: "Dessert",
-    name: "Tiramisu rouge",
-    description: "aux fraises et framboises du verger",
+    name: "Glaces de la maison Bertillon",
+    description: "demandez nos parfums",
     price: 11,
 
 
