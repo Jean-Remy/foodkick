@@ -49,8 +49,11 @@
       </div>
       <div class="col-xs-12 col-md-4">
         <h3>UN VOYAGE</h3>
-        <p>
+        <p style="text-align: justify">
           D'origine chinoise, le chef Guillaume Chen te propose de goûter à une cuisine familiale saine et douce. Beijing 8 est né du constat de Guillaume que beaucoup des petits restaurants chinois de quartier offrent "une cuisine standardisée, sans saveur ni profondeur qui ne reflètent ni la diversité, ni l'authenticité de la cuisine chinoise". De ce constat est né un rêve et de ce rêve est né Beijing 8.
+        </p>
+        <br>
+        <p style="text-align: justify">
           Guillaume a passé des mois à apprendre et réapprendre la cuisine de sa grand-mère, celle qui a éveillé ses papilles et qui l'a pris sous son aile. Il a refondé sa cuisine pour offrir des plats faits maisons et un accueil traditionnel.
         </p>
         <% if user_signed_in? %>
@@ -108,34 +111,34 @@
 
     <div class="row">
       <div class="col-xs-12 col-md-4">
-        <% image_tag restaurant.user.picture.url, class: "img-thumbnail"%>
+        <%= image_tag @restaurant.user.picture.url, class: "img-thumbnail"%>
       </div>
       <div class="col-xs-12 col-md-4">
-        <% image_tag "http://www.restaurateurarestaurateur.com/actualites/wp-content/uploads/2014/03/Helena-Rizzo-Meilleure-Femme-Chef.jpg", class: "img-thumbnail"%>
+        <%= image_tag "http://www.restaurateurarestaurateur.com/actualites/wp-content/uploads/2014/03/Helena-Rizzo-Meilleure-Femme-Chef.jpg", class: "img-thumbnail"%>
       </div>
       <div class="col-xs-12 col-md-4">
-        <% image_tag "http://labrador.les-chiens.com/files/2011/02/labrador_retriever_puppy_2.jpg", class: "img-thumbnail"%>
+        <%= image_tag "http://labrador.les-chiens.com/files/2011/02/labrador_retriever_puppy_2.jpg", class: "img-thumbnail"%>
       </div>
     </div>
     <div class="row padded">
       <div class="col-xs-12 col-md-4 text-justify">
         <h2>Guillaume Chen</h2>
         <h4>Le Chef</h4>
-        <p>
+        <p style="text-align: justify">
           Guillaume cuisine tous ses plats avec l'amour qu'y mettait sa grand-mère. Il traduit l'essence de la cuisine chinoise dans votre assiette pour le bonheur de vos papilles.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 text-justify">
         <h2>Sandrine Chen</h2>
         <h4>La Patronne</h4>
-        <p>
+        <p style="text-align: justify">
           Sans elle, Beijing 8 ne tournerait pas rond, elle donne tout, tous les jours pour la réussite du restaurant et la satisfaction de ses clients.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 text-justify">
         <h2>Marcel</h2>
         <h4>Le garde</h4>
-        <p>
+        <p style="text-align: justify">
           Marcel est peut être le plus chaleureux de tous les gardes, il vous accueillera les pattes ouvertes et sait se faire oublier pendant le repas.
         </p>
       </div>
