@@ -468,10 +468,6 @@ restaurant_array.each do |restaurant|
 end
 
 
-resto = Restaurant.find_by id:2
-resto
-p resto.courses
-
 # restaurant_array.each do |restaurant|
 #     course = Course.create(attribute[0])
 #     course.restaurant_id = restaurant.id
