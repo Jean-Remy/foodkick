@@ -1,50 +1,67 @@
 <% @no_footer = false %>
 <div class="container-fluid">
   <div class="row">
-    <br>
-    <div class="col-xs-7" style="margin-top: 70px;">
+    <div class="col-xs-7">
       <div class="row">
-        <div class="search-bar" style="padding-left: 20px; padding-right: 20px;">
-          <div>
-            <%@pref_borough.each do |pref| %>
-            <span style="margin-top: 10px; display: inline-block">
-              <%= link_to restaurants_path(pref_quartier: pref.label) do %>
-                <span class="label label-success" style="font-size: 15px;"><%=pref.borough%></span>
-              <% end %>
-            </span>
-            <% end %>
-          </div>
 
-          <hr>
 
-          <div>
-            <%@pref_cat.each do |pref| %>
-            <span style="margin-top: 10px; display: inline-block">
-              <%= link_to restaurants_path + "?pref_cat=#{pref.label}" do %>
-                <span class="label label-primary" style="font-size: 15px;"><%=pref.category%></span>
-              <% end %>
-            </span>
-            <% end %>
-          </div>
+        <span id="quartier">
+          <div class="dropdown" id="divdrop">
+            <button class=" btn-default dropdown-toggle btn-homepage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Où?</button>
+            <ul class="dropdown-menu col-sm-6" aria-labelledby="dropdownMenu1">
+              <li ><a href="#">Marais</a></li>
+              <li ><a href="#">Odéon</a></li>
+              <li ><a href="#">Montmatre</a></li>
+              <li ><a href="#">République</a></li>
+              <li ><a href="#">Trocadéro</a></li>
+              <li ><a href="#">Luxembourg</a></li>
+              <li ><a href="#">La Villette</a></li>
+            </ul>
+            <ul class="dropdown-menu col-sm-6" aria-labelledby="dropdownMenu2" id="right">
+              <li ><a href="#">Marais</a></li>
+              <li ><a href="#">Odéon</a></li>
+              <li ><a href="#">Montmatre</a></li>
+              <li ><a href="#">République</a></li>
+              <li ><a href="#">Trocadéro</a></li>
+              <li ><a href="#">Luxembourg</a></li>
+              <li ><a href="#">La Villette</a></li>
+            </ul>
+        </div>
+        </span>
+
+        <span id="category">
+          <div class="dropdown" id="divdrop">
+            <button class=" btn-default dropdown-toggle btn-homepage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Quartiers</button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li ><a href= "#" >Marais</a></li>
+              <li ><a href="#">Odéon</a></li>
+              <li ><a href="#">Montmatre</a></li>
+              <li ><a href="#">République</a></li>
+              <li ><a href="#">Trocadéro</a></li>
+              <li ><a href="#">Luxembourg</a></li>
+              <li ><a href="#">La Villette</a></li>
+            </ul>
+        </div>
+        </span>
+
+
+        <div class="dropdown right" id="divdrop">
+            <button class=" btn-default dropdown-toggle btn-homepage" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Types</button>
+            <ul class="dropdown-menu bis" aria-labelledby="dropdownMenu2">
+              <li ><a href="#">Italien</a></li>
+              <li ><a href="#">Cuisine Française</a></li>
+              <li ><a href="#">Mexicain</a></li>
+              <li ><a href="#">Argentin</a></li>
+              <li ><a href="#">Thai</a></li>
+              <li ><a href="#">Original</a></li>
+              <li ><a href="#">Burger</a></li>
+            </ul>
+        </div>
         <br>
 
-        <% @restaurants.each do |restaurant| %>
-          <div class="col-xs-6">
-            <div class="card restaurant_<%= restaurant.id %>">
-              <span class="card-bg" style="background-image: url('<%= restaurant.picture.url %>')"></span>
-              <span class="card-shadow"></span>
-              <span class="card-name"><h2><%= restaurant.name %></h2></span>
-              <span class="card-text">
-                <p><%= restaurant.borough %></p>
-              </span>
-              <span class="card-description"><p><%= restaurant.category %></p></span>
-              <span class="card-opening"><p >Ouverture prévue le <%= restaurant.opening.day %> <%=month_translator(restaurant.opening.month.to_i) %> </p></span>
-              <span class="card-search"><i class="fa fa-search fa-5x text-center"></i></span>
-              <%= link_to " ", restaurant_path(restaurant), class: "card-link" %>
-              <%= image_tag "logo.png", class: "card-logo_foodkick" %>
-            </div>
-          </div>
-        <% end %>
+
+        <%= render 'shared/index_partial' %>
+
       </div>
       <div class="row" style="padding-left: 50px; padding-right: 50px; ">
         <hr>

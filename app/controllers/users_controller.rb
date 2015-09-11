@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @coming_from_reservation = true if params[:coming_from_reservation]
     authorize @user
+    @restaurants = Restaurant.all.take(6)
   end
 
   def edit

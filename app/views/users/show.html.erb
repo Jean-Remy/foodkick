@@ -1,8 +1,5 @@
 <br>
-<br>
-<br>
-<br>
-<div class="container padded">
+<div class="container">
 
   <ul class="nav nav-tabs" data-tabs="tabs">
     <li class=<%= 'active' unless @coming_from_reservation %> > <a data-toggle="tab" href="#preferences">Mes préférences</a></li>
@@ -19,7 +16,7 @@
     </div>
 
     <div id="propositions" class="tab-pane form-inline">
-      <%=render 'users/my_propositions.html.erb'%>
+      <%=render 'shared/index_partial.html.erb'%>
     </div>
 
     <div id="reservations" class="tab-pane form-inline <%=  @coming_from_reservation ? 'active' : 'form-inline' %>">
