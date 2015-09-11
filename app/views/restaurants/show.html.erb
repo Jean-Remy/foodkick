@@ -49,9 +49,12 @@
       </div>
       <div class="col-xs-12 col-md-4">
         <h3>UN VOYAGE</h3>
-        <p>
-          Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
-          Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
+        <p style="text-align: justify">
+          D'origine chinoise, le chef Guillaume Chen te propose de goûter à une cuisine familiale saine et douce. Beijing 8 est né du constat de Guillaume que beaucoup des petits restaurants chinois de quartier offrent "une cuisine standardisée, sans saveur ni profondeur qui ne reflètent ni la diversité, ni l'authenticité de la cuisine chinoise". De ce constat est né un rêve et de ce rêve est né Beijing 8.
+        </p>
+        <br>
+        <p style="text-align: justify">
+          Guillaume a passé des mois à apprendre et réapprendre la cuisine de sa grand-mère, celle qui a éveillé ses papilles et qui l'a pris sous son aile. Il a refondé sa cuisine pour offrir des plats faits maisons et un accueil traditionnel.
         </p>
         <% if user_signed_in? %>
           <% if current_user.owner && current_user.restaurant_id == @restaurant.id %>
@@ -64,34 +67,42 @@
       </div>
     </div>
     <br>
-
-    <div class="row">
-      <div class="col-xs-12 col-md-12 blackboard text-center">
-        <h3 class="title_menu">Entrées</h3>
-
-        <%@restaurant.courses.where(category: "Entrée").each do |entree| %>
-          <ul class="list-unstyled list-inline">
-            <li><h5 ><%=entree.name%></h5></li> <li><p> - <%=entree.description%> - <%=entree.price %> Euros</p></li>
-          </ul>
-          <%end%>
-
-        <br>
-        <h3 class="title_menu">Plats</h3>
-        <%@restaurant.courses.where(category: "Plat").each do |plat| %>
-            <ul class="list-unstyled list-inline">
-            <li><h5><%=plat.name%></h5></li> <li><p> - <%=plat.description%>  - <%=plat.price %> Euros</p></li>
-            </ul>
-          <%end%>
-        <br>
-
-        <h3 class="title_menu">Desserts</h3>
-
-        <%@restaurant.courses.where(category: "Dessert").each do |dessert| %>
-          <ul class="list-unstyled list-inline">
-            <li><h5><%=dessert.name%></h5></li> <li><p> - <%=dessert.description%>  - <%=dessert.price %> Euros</p></li>
-          </ul>
-        <%end%>
-
+    <div class="container padded menu">
+      <div class="row sm-padded">
+        <h3 class="text-center">ENTREES</h3>
+          <br>
+          <% @restaurant.courses.where(category: "Entrée").each do |entree| %>
+            <div class="col-xs-12 col-md-4">
+              <span class="pull-left"><strong><%=entree.name%></strong></span>
+              <span class="pull-right"><%=entree.price %>€</span>
+              <div style="clear:both"></div>
+              <p class="description"><%=entree.description%></p>
+            </div>
+          <% end %>
+      </div>
+      <div class="row sm-padded">
+        <h3 class="text-center">PLATS</h3>
+          <br>
+          <% @restaurant.courses.where(category: "Plat").each do |plat| %>
+            <div class="col-xs-12 col-md-4">
+              <span class="pull-left"><strong><%=plat.name%></strong></span>
+              <span class="pull-right"><%=plat.price %>€</span>
+              <div style="clear:both"></div>
+              <p class="description"><%=plat.description%></p>
+            </div>
+          <% end %>
+      </div>
+      <div class="row">
+        <h3 class="text-center">DESSERT</h3>
+          <br>
+          <% @restaurant.courses.where(category: "Dessert").each do |dessert| %>
+            <div class="col-xs-12 col-md-4">
+              <span class="pull-left"><strong><%=dessert.name%></strong></span>
+              <span class="pull-right"><%=dessert.price %>€</span>
+              <div style="clear:both"></div>
+              <p class="description"><%=dessert.description%></p>
+            </div>
+          <% end %>
       </div>
     </div>
 
@@ -100,35 +111,35 @@
 
     <div class="row">
       <div class="col-xs-12 col-md-4">
-        <img src="https://images.unsplash.com/17/unsplash_527bf4b4ae00d_1.JPG?q=80&fm=jpg&s=0b8001ef704174d007386803dbf0a276" class="img-thumbnail" alt="Cinque Terre">
+        <%= image_tag @restaurant.user.picture.url, class: "img-thumbnail"%>
       </div>
       <div class="col-xs-12 col-md-4">
-        <img src="https://images.unsplash.com/photo-1426259759666-68da5c54402d?q=80&fm=jpg&s=5fa8cad7a9333b2e1a46f4174fa88dc5" class="img-thumbnail" alt="Cinque Terre">
+        <%= image_tag "http://www.restaurateurarestaurateur.com/actualites/wp-content/uploads/2014/03/Helena-Rizzo-Meilleure-Femme-Chef.jpg", class: "img-thumbnail"%>
       </div>
       <div class="col-xs-12 col-md-4">
-        <img src="https://images.unsplash.com/45/aXpQLs4AQ5e1EtmeYkz3_20140524_124026.jpg?q=80&fm=jpg&s=c691db1c24519ce9bef08dcf0521f8a4" class="img-thumbnail" alt="Cinque Terre">
+        <%= image_tag "http://labrador.les-chiens.com/files/2011/02/labrador_retriever_puppy_2.jpg", class: "img-thumbnail"%>
       </div>
     </div>
     <div class="row padded">
       <div class="col-xs-12 col-md-4 text-justify">
-        <h2>LOUIS BAUDOIN</h2>
-        <h4>THE FOOTER GUY</h4>
-        <p>
-          Peut-être le meilleur développeur JavaScript de France, reconnu notamment pour son incommensurable talent pour créer maps et footers, Louis a tout abandonné pour se mettre à la cuisine chinoise. "De JS aux fourneaux, il n'y a qu'un pas. C'est finalement à peu près la même chose : ta cuisine c'est ton terminal, tes casseroles, fours et autres ustensiles tes fonctions et tes ingrédients, c'est tes variables."
+        <h2>Guillaume Chen</h2>
+        <h4>Le Chef</h4>
+        <p style="text-align: justify">
+          Guillaume cuisine tous ses plats avec l'amour qu'y mettait sa grand-mère. Il traduit l'essence de la cuisine chinoise dans votre assiette pour le bonheur de vos papilles.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 text-justify">
-        <h2>JE(AN-)REMY NAHUM</h2>
-        <h4>AKA THE BACKER</h4>
-        <p>
-          Jérémy Nahum n'a jamais été reconnu pour quoi que ce soit. D'après Louis et 'Jean-Bapt', il a atterri ici parce qu'au fond 'il n'est pas méchant'. Mais c'est vrai qu'il ne sert pas à grand chose à part organiser des soirées échangistes derrière la cuisine, le mardi. Selon Louis 'Ca ramène quelques clients dont on se passerait bien... On ne sait pas vraiment pourquoi on le garde finalement'
+        <h2>Sandrine Chen</h2>
+        <h4>La Patronne</h4>
+        <p style="text-align: justify">
+          Sans elle, Beijing 8 ne tournerait pas rond, elle donne tout, tous les jours pour la réussite du restaurant et la satisfaction de ses clients.
         </p>
       </div>
       <div class="col-xs-12 col-md-4 text-justify">
-        <h2>JEAN-BAPTISTE BECK</h2>
-        <h4>YOU SAID FRONT ?</h4>
-        <p>
-          Jean-Baptiste, c'est monsieur déco. Il a tout fait à la main dans son atelier à Tours. c'est 'l'inspiration' de l'équipe, cette jeunesse, cette fraicheur qui apporte un oeil neuf à la cuisine et à la table de Louis. Finalement c'est l'artiste de la bande qui a su construire un univers unique et extraordinaire aux allures d'un conte de Grimm. Malheur à celui qui osera remettre en question son talent.
+        <h2>Marcel</h2>
+        <h4>Le garde</h4>
+        <p style="text-align: justify">
+          Marcel est peut être le plus chaleureux de tous les gardes, il vous accueillera les pattes ouvertes et sait se faire oublier pendant le repas.
         </p>
       </div>
     </div>
@@ -149,16 +160,3 @@
   <% end %>
 </div>
 <br><br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
