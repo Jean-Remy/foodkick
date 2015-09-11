@@ -431,7 +431,32 @@ course_attributes = [
     price: 11,
 
 
+  },
+  {
+    category: "Entrée",
+    name: "Daurade de ligne marinée",
+    description: "condiment marjolaine.",
+    price: 27,
+
+
+  },
+  {
+    category: "Plat",
+    name: "Belle langoustine rotie",
+    description: "légumes en macédoine, sucs de cuisson.",
+    price: 34,
+
+
+  },
+  {
+    category: "Dessert",
+    name: "Sablé mirabelle-bergamotte",
+    description: "granité Jurançon",
+    price: 18,
+
+
   }
+
 ]
 
 # build borough and restaurant categories

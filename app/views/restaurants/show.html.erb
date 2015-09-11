@@ -64,34 +64,39 @@
       </div>
     </div>
     <br>
-
-    <div class="row">
-      <div class="col-xs-12 col-md-12 blackboard text-center">
-        <h3 class="title_menu">Entrées</h3>
-
-        <%@restaurant.courses.where(category: "Entrée").each do |entree| %>
-          <ul class="list-unstyled list-inline">
-            <li><h5 ><%=entree.name%></h5></li> <li><p> - <%=entree.description%> - <%=entree.price %> Euros</p></li>
-          </ul>
-          <%end%>
-
-        <br>
-        <h3 class="title_menu">Plats</h3>
-        <%@restaurant.courses.where(category: "Plat").each do |plat| %>
-            <ul class="list-unstyled list-inline">
-            <li><h5><%=plat.name%></h5></li> <li><p> - <%=plat.description%>  - <%=plat.price %> Euros</p></li>
-            </ul>
-          <%end%>
-        <br>
-
-        <h3 class="title_menu">Desserts</h3>
-
-        <%@restaurant.courses.where(category: "Dessert").each do |dessert| %>
-          <ul class="list-unstyled list-inline">
-            <li><h5><%=dessert.name%></h5></li> <li><p> - <%=dessert.description%>  - <%=dessert.price %> Euros</p></li>
-          </ul>
-        <%end%>
-
+    <div class="container padded menu">
+      <div class="row sm-padded">
+        <h3 class="text-center">ENTREES</h3>
+          <% @restaurant.courses.where(category: "Entrée").each do |entree| %>
+            <div class="col-xs-12 col-md-4">
+              <span class="pull-left"><strong><%=entree.name%></strong></span>
+              <span class="pull-right"><%=entree.price %>€</span>
+              <div style="clear:both"></div>
+              <p class="description"><%=entree.description%></p>
+            </div>
+          <% end %>
+      </div>
+      <div class="row sm-padded">
+        <h3 class="text-center">ENTREES</h3>
+          <% @restaurant.courses.where(category: "Plat").each do |entree| %>
+            <div class="col-xs-12 col-md-4">
+              <span class="pull-left"><strong><%=entree.name%></strong></span>
+              <span class="pull-right"><%=entree.price %>€</span>
+              <div style="clear:both"></div>
+              <p class="description"><%=entree.description%></p>
+            </div>
+          <% end %>
+      </div>
+      <div class="row">
+        <h3 class="text-center">ENTREES</h3>
+          <% @restaurant.courses.where(category: "Entrée").each do |entree| %>
+            <div class="col-xs-12 col-md-4">
+              <span class="pull-left"><strong><%=entree.name%></strong></span>
+              <span class="pull-right"><%=entree.price %>€</span>
+              <div style="clear:both"></div>
+              <p class="description"><%=entree.description%></p>
+            </div>
+          <% end %>
       </div>
     </div>
 
@@ -149,16 +154,3 @@
   <% end %>
 </div>
 <br><br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
