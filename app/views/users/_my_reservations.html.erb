@@ -1,4 +1,13 @@
-
+<% if @user.reservations.where(status: true).length != 0%>
+  <% @user.reservations.where(status: true).each do |reservation| %>
+    <% if !reservation.feedbacked %>
+        <h2>
+          <%= link_to "Donne ton feedback à #{reservation.restaurant.name}", new_restaurant_feedback_path(reservation.restaurant) %>
+        </h2>
+        <hr>
+    <% end %>
+  <% end %>
+<% end %>
 
       <div class="row">
         <% if @user.reservations.where(status: false).length != 0%>
@@ -33,7 +42,7 @@
           <% @user.reservations.where(status: true).each do |reservation| %>
             <div class="col-xs-6">
               <div class="card restaurant_<%= reservation.restaurant.id %>">
-                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.seed_picture %>')"></span>
+                <span class="card-bg" style="background-image: url('<%= reservation.restaurant.picture.url %>')"></span>
                 <span class="card-shadow"></span>
                 <span class="card-description"><%= reservation.restaurant.category %></span>
                 <span class="card-text">
@@ -52,6 +61,35 @@
         </div>
         <%elsif @user.reservations.where(status: true).length == 0%>
           <p>C'est votre premier test! Nous espérons que vous allez apprécier.</p>
-
         <%else%>
         <%end%>
+
+<% if false %>
+<div class="container">
+  <br><br>
+  <%if @my_codes == [] %>
+    <p class="text-center">Tu n'as pas encore de code de réduction ! Mais rien n'est perdu, viens découvrir nos restos, les plus neufs, les plus beaux et les meilleurs de Paris : </p>
+     <br><br>
+    <%=link_to restaurants_path do %>
+      <div class="text-center">
+        <i class="fa fa-cutlery enorme"></i>
+      </div>
+    <% end %>
+  <% else %>
+    <ul class= "list-unstyled" style="margin-top: 80px">
+      <% @my_codes.each do |code| %>
+        <li>
+          <strong><%= code.restaurant.name %></strong> - <%= code.code %> - <%= code.status ? "Utilisé" : "Pas utilisé" %> -
+            <% unless code.status %>
+              Date de validité : <%= code.limit %>
+            <% end %>
+            <% if code.feedbacked == false && code.status == true %>
+              <%= link_to "Donner son feedback", new_restaurant_feedback_path(code.restaurant) %>
+            <% end %>
+            <%= "Merci pour le feedback" if code.feedbacked %> - <%= link_to "Annuler le code", restaurant_reservation_path(code.restaurant, code), method: 'delete'%>
+        </li>
+      <% end %>
+    </ol>
+  <% end %>
+</div>
+<% end %>
