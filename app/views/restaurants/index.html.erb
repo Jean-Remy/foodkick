@@ -7,54 +7,32 @@
 
         <span id="quartier">
           <div class="dropdown" id="divdrop">
-            <button class=" btn-default dropdown-toggle btn-homepage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Où?</button>
-            <ul class="dropdown-menu col-sm-6" aria-labelledby="dropdownMenu1">
-              <%= link_to "Le Marais", restaurants_path(pref_quartier: "marais")%>
-              <li ><a href="#">Odéon</a></li>
-              <li ><a href="#">Montmatre</a></li>
-              <li ><a href="#">République</a></li>
-              <li ><a href="#">Trocadéro</a></li>
-              <li ><a href="#">Luxembourg</a></li>
-              <li ><a href="#">La Villette</a></li>
-            </ul>
-            <ul class="dropdown-menu col-sm-6" aria-labelledby="dropdownMenu2" id="right">
-              <li ><a href="#">Marais</a></li>
-              <li ><a href="#">Odéon</a></li>
-              <li ><a href="#">Montmatre</a></li>
-              <li ><a href="#">République</a></li>
-              <li ><a href="#">Trocadéro</a></li>
-              <li ><a href="#">Luxembourg</a></li>
-              <li ><a href="#">La Villette</a></li>
-            </ul>
-        </div>
-        </span>
-
-        <span id="category">
-          <div class="dropdown" id="divdrop">
             <button class=" btn-default dropdown-toggle btn-homepage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Quartiers</button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li ><a href= "#" >Marais</a></li>
-              <li ><a href="#">Odéon</a></li>
-              <li ><a href="#">Montmatre</a></li>
-              <li ><a href="#">République</a></li>
-              <li ><a href="#">Trocadéro</a></li>
-              <li ><a href="#">Luxembourg</a></li>
-              <li ><a href="#">La Villette</a></li>
+            <ul class="dropdown-menu col-sm-6" aria-labelledby="dropdownMenu1">
+              <li><%= link_to "Le Marais", restaurants_path(pref_quartier: "marais")%></li>
+              <li><%= link_to "Abbesses", restaurants_path(pref_quartier: "abbesses")%></li>
+              <li><%= link_to "Quartier Latin", restaurants_path(pref_quartier: "quartierlatin")%></li>
+              <li><%= link_to "Montmartre", restaurants_path(pref_quartier: "montmartre")%></li>
+              <li><%= link_to "Champs Elysées", restaurants_path(pref_quartier: "champs")%></li>
+              <li><%= link_to "Notre Dame", restaurants_path(pref_quartier: "notredame")%></li>
+              <li><%= link_to "Villette", restaurants_path(pref_quartier: "villette")%></li>
             </ul>
+
         </div>
         </span>
 
 
         <div class="dropdown right" id="divdrop">
-            <button class=" btn-default dropdown-toggle btn-homepage" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Types</button>
+            <button class=" btn-default dropdown-toggle btn-homepage" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Horizons</button>
             <ul class="dropdown-menu bis" aria-labelledby="dropdownMenu2">
-              <li ><a href="#">Italien</a></li>
-              <li ><a href="#">Cuisine Française</a></li>
-              <li ><a href="#">Mexicain</a></li>
-              <li ><a href="#">Argentin</a></li>
-              <li ><a href="#">Thai</a></li>
-              <li ><a href="#">Original</a></li>
-              <li ><a href="#">Burger</a></li>
+              <li><%= link_to "Cuisine Française", restaurants_path(pref_cat: "francais")%></li>
+              <li><%= link_to "Italien", restaurants_path(pref_cat: "italien")%></li>
+              <li><%= link_to "Japonais", restaurants_path(pref_cat: "japonais")%></li>
+              <li><%= link_to "Vietnamien", restaurants_path(pref_cat: "viet")%></li>
+              <li><%= link_to "Original", restaurants_path(pref_cat: "original")%></li>
+              <li><%= link_to "Burger", restaurants_path(pref_cat: "burger")%></li>
+              <li><%= link_to "Argentin", restaurants_path(pref_cat: "argentin")%></li>
+
             </ul>
         </div>
         <br>
