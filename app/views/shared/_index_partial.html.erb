@@ -1,0 +1,17 @@
+<% @restaurants.each do |restaurant| %>
+  <div class="col-xs-6">
+    <div class="card restaurant_<%= restaurant.id %>">
+      <span class="card-bg" style="background-image: url('<%= restaurant.seed_picture %>')"></span>
+      <span class="card-shadow"></span>
+      <span class="card-name"><h2><%= restaurant.name %></h2></span>
+      <span class="card-text">
+        <p><%= restaurant.borough %></p>
+      </span>
+      <span class="card-description"><p><%= restaurant.category %></p></span>
+      <span class="card-opening"><p >Ouverture prévue le <%= restaurant.opening.day %> <%=month_translator(restaurant.opening.month.to_i) %> </p></span>
+      <span class="card-search"><i class="fa fa-search fa-5x text-center"></i></span>
+      <%= link_to " ", restaurant_path(restaurant), class: "card-link" %>
+      <%= image_tag "logo.png", class: "card-logo_foodkick" %>
+    </div>
+  </div>
+<% end %>
