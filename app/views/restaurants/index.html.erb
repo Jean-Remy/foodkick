@@ -9,7 +9,7 @@
           <div class="dropdown" id="divdrop">
             <button class=" btn-default dropdown-toggle btn-homepage" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Où?</button>
             <ul class="dropdown-menu col-sm-6" aria-labelledby="dropdownMenu1">
-              <li ><a href="#">Marais</a></li>
+              <%= link_to "Le Marais", restaurants_path(pref_quartier: "marais")%>
               <li ><a href="#">Odéon</a></li>
               <li ><a href="#">Montmatre</a></li>
               <li ><a href="#">République</a></li>
